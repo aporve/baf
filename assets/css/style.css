@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  height: 100vh;
+}
+
+.cards {
+  height: 100%;
+  margin: auto 40%;
+}
+
+
+.card_1 {
+  margin-top: 20px;
+}
+
+.ele_form {
+  height: 80%;
+  /* margin: auto 40%; */
+  margin: 5% 40%;
+  width: 25%;
+  border: 1px solid gray;
+  border-radius: 2%;
+  box-shadow: 0 0 7px #4e4d4d;
+}
+
+.form {
+  margin: 10%;
+}
+
+.mb-2 {
+  font-size: 1.6rem;
+  padding-top: 10px;
+}
+
+.submit_div {
+  width: 100%;
+  margin-top: 10%;
+}
+
+.submit {
+  width: 60%;
+  padding: 5px;
+  margin-left: 20%;
+  background-color: #1677ff;
+  color: white;
+  font-weight: 600;
+  border: 1px solid #1677ff;
+  border-radius: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}

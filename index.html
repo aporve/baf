@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BAF Apply Installment</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/assets/css/style.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="main-container">
+
+    <div class="cards" id="cards">
+      <div class="card_1" onclick="nextStep()">
+        <img src="/assets/image/svg/new-mp-home.svg" alt="">
+      </div>
+      <div class="card_2">
+        <img src="/assets/image/svg/new-syana-home.svg" alt="">
+      </div>
+      <div class="card_3">
+        <img src="/assets/image/svg/new-car-home.svg" alt="">
+      </div>
+      <div class="card_4">
+        <img src="/assets/image/svg/new-nmc-home.svg" alt="">
+      </div>
+    </div>
+
+    <div class="ele_form hide" id="ele_form">
+      <form action="#" class="form" id="myForm">
+
+        <div class="mb-2">
+          <label for="Pilih Tipe Barang">Pilih Tipe Barang</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm1">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Pilih Merk Barang">Pilih Merk Barang</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm2">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Harga Barang">Harga Barang</label>
+          <div>
+            <input type="text" id="eleForm3">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jangka Waktu">Jangka Waktu</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm4">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Uang Muka">Uang Muka</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm5">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="submit_div">
+          <button type="submit" class="submit" onclick="myFunction()">HitungCicilan Anda</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+
+  <script>
+
+    function nextStep() {
+      console.log('nextStep')
+      $("#cards").addClass("hide");
+      $("#ele_form").addClass("show");
+    }
+
+    function myFunction() {
+      event.preventDefault();
+      console.log('submit')
+
+      let data = {}
+      let data1, data2, data3, data4, data5;
+
+      data1 = document.getElementById("eleForm1").value;
+      data2 = document.getElementById("eleForm2").value;
+      data3 = document.getElementById("eleForm3").value;
+      data4 = document.getElementById("eleForm4").value;
+      data5 = document.getElementById("eleForm5").value;
+
+      data.data1 = data1;
+      data.data2 = data2;
+      data.data3 = data3;
+      data.data4 = data4;
+      data.data5 = data5;
+
+      console.log(data, 'Data---->')
+      document.getElementById("myForm").reset();
+
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'custom-recent-order-event',
+        data: { phone: config.phone }
+      }), '*');
+
+    }
+
+
+  </script>
+
+</body>
+
+</html>
