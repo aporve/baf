@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/baf/assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
@@ -19,17 +19,17 @@
   <div class="main-container">
 
     <div class="cards" id="cards">
-      <div class="card_1" onclick="nextStep()">
-        <img src="/baf/assets/image/svg/new-mp-home.svg" alt="">
+      <div class="card_1" onclick="nextStep1()">
+        <img src="./assets/image/svg/new-mp-home.svg" alt="">
       </div>
-      <div class="card_2">
-        <img src="/baf/assets/image/svg/new-syana-home.svg" alt="">
+      <div class="card_2" onclick="nextStep2()">
+        <img src="./assets/image/svg/new-syana-home.svg" alt="">
       </div>
-      <div class="card_3">
-        <img src="/baf/assets/image/svg/new-car-home.svg" alt="">
+      <div class="card_3" onclick="nextStep3()">
+        <img src="./assets/image/svg/new-car-home.svg" alt="">
       </div>
-      <div class="card_4">
-        <img src="/baf/assets/image/svg/new-nmc-home.svg" alt="">
+      <div class="card_4" onclick="nextStep4()">
+        <img src="./assets/image/svg/new-nmc-home.svg" alt="">
       </div>
     </div>
 
@@ -96,57 +96,86 @@
         </div>
 
         <div class="submit_div">
-          <button type="submit" class="submit" onclick="myFunction()">HitungCicilan Anda</button>
+          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
         </div>
 
       </form>
     </div>
 
-    <div class="ele_form hide" id="ele_form">
+    <div class="ele_form hide" id="dana_syariah">
       <form action="#" class="form" id="myForm">
 
         <div class="mb-2">
-          <label for="Pilih Tipe Barang">Pilih Tipe Barang</label>
+          <label for="Pilih Tipe Barang">Pilih Merk Motor</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm1">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
+            <select class="form-control" style="width: 100%;" id="eleForm6">
+              <option value="Yamaha">Yamaha</option>
+              <option value="Honda">Honda</option>
+              <option value="Kawasaki">Kawasaki</option>
+              <option value="Suzuki">Suzuki</option>
             </select>
           </div>
         </div>
 
         <div class="mb-2">
-          <label for="Pilih Merk Barang">Pilih Merk Barang</label>
+          <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm2">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+            <select class="form-control" style="width: 100%;" id="eleForm7"></select>
           </div>
         </div>
 
         <div class="mb-2">
-          <label for="Harga Barang">Harga Barang</label>
+          <label for="Jumlah Pinjaman">Jumlah Pinjaman</label>
           <div>
-            <input type="text" id="eleForm3">
+            <input type="text" id="eleForm8">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm4">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select class="form-control" style="width: 100%;" id="eleForm9">
+              <option value="6 bulan">6 bulan</option>
+              <option value="12 bulan">12 bulan</option>
+              <option value="18 bulan">18 bulan</option>
+              <option value="24 bulan">24 bulan</option>
+              <option value="30 bulan">30 bulan</option>
+              <option value="36 bulan">36 bulan</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="submit_div">
+          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
+        </div>
+
+      </form>
+    </div>
+    
+    <div class="ele_form hide" id="mobil_baru">
+      <form action="#" class="form" id="myForm">
+
+        <div class="mb-2">
+          <label for="Pilih Merk Mobil">Pilih Merk Mobil</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm10" required>
+              <option value="">Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jumlah Pinjaman">Harga Mobil</label>
+          <div>
+            <input type="text" id="eleForm11">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jangka Waktu">Jangka Waktu</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm12" required>
+              <option value="">Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -154,18 +183,58 @@
         <div class="mb-2">
           <label for="Uang Muka">Uang Muka</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm5">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+            <select class="form-control" style="width: 100%;" id="eleForm13" required>
+              <option value="">Silahkan Pilih</option>
             </select>
           </div>
         </div>
 
         <div class="submit_div">
-          <button type="submit" class="submit" onclick="myFunction()">HitungCicilan Anda</button>
+          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
+        </div>
+
+      </form>
+    </div>
+    
+    <div class="ele_form hide" id="motor_baru">
+      <form action="#" class="form" id="myForm">
+
+        <div class="mb-2">
+          <label for="Pilih Merk Mobil">Pilih Motor</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm14" required>
+              <option value="">Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jumlah Pinjaman">Harga Motor</label>
+          <div>
+            <input type="text" id="eleForm15">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jangka Waktu">Jangka Waktu</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm16" required>
+              <option value="">Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Uang Muka">Uang Muka</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm17" required>
+              <option value="">Silahkan Pilih</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="submit_div">
+          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
         </div>
 
       </form>
@@ -176,10 +245,30 @@
 
   <script>
 
-    function nextStep() {
+    function nextStep1() {
       console.log('nextStep')
       $("#cards").addClass("hide");
       $("#ele_form").addClass("show");
+    }
+
+    function nextStep2() {
+      console.log('dana syariah step')
+      $("#cards").addClass("hide");
+      $("#dana_syariah").addClass("show");
+    }
+
+    function nextStep3() {
+      console.log('mobil baru step')
+      $("#cards").addClass("hide");
+      $("#mobil_baru").addClass("show");
+      generateOption("mobil baru")
+    }
+
+    function nextStep4() {
+      console.log('motor baru step')
+      $("#cards").addClass("hide");
+      $("#motor_baru").addClass("show");
+      generateOption("motor baru")
     }
 
     function myFunction() {
@@ -221,6 +310,83 @@
       }
 
     });
+
+    // Get the select element
+    var selectElement = document.getElementById("eleForm7");
+      
+    // Get the current year
+    var currentYear = new Date().getFullYear();
+    
+    // Start the loop from 2010 until the current year
+    for (var year = 2010; year <= currentYear; year++) {
+      // Create a new option element
+      var option = document.createElement("option");
+      
+      // Set the text and value of the option
+      option.text = year;
+      option.value = year;
+      
+      // Append the option to the select element
+      selectElement.appendChild(option);
+    }
+
+    function generateOption(cardName) {
+      // Get the select element
+      var selectElement1, selectElement2, selectElement3, url;
+      
+      if(cardName == "mobil baru") {
+        selectElement1 = document.getElementById("eleForm10");
+        selectElement2 = document.getElementById("eleForm12");
+        selectElement3 = document.getElementById("eleForm13");
+
+        url = "./assets/js/new-car-data.json";
+      }
+      
+      if(cardName == "motor baru") {
+        selectElement1 = document.getElementById("eleForm14");
+        selectElement2 = document.getElementById("eleForm16");
+        selectElement3 = document.getElementById("eleForm17");
+
+        url = "./assets/js/new-motorcycle-data.json";
+      }
+
+      // Create an XMLHttpRequest object
+      var xhr = new XMLHttpRequest();
+
+      // Make a GET request to load the JSON data
+      xhr.open("GET", url, true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          // Parse the JSON data
+          var jsonData = JSON.parse(xhr.responseText);
+
+          // Loop through the JSON data and create Merk Mobil options dynamically
+          for (var i = 0; i < jsonData.type.length; i++) {
+            var option = document.createElement("option");
+            option.value = jsonData.type[i].Code;
+            option.text = jsonData.type[i].Descr;
+            selectElement1.appendChild(option);
+          }
+
+          // Loop through the JSON data and create Jangka Waktu options dynamically
+          for (var i = 0; i < jsonData.downpayment.length; i++) {
+            var option = document.createElement("option");
+            option.value = jsonData.downpayment[i].Code;
+            option.text = jsonData.downpayment[i].Descr;
+            selectElement2.appendChild(option);
+          }
+
+          // Loop through the JSON data and create Uang Muka options dynamically
+          for (var i = 0; i < jsonData.installment.length; i++) {
+            var option = document.createElement("option");
+            option.value = jsonData.installment[i].Code;
+            option.text = jsonData.installment[i].Descr;
+            selectElement3.appendChild(option);
+          }
+        }
+      };
+      xhr.send();
+    }
 
   </script>
 
