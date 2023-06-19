@@ -26,6 +26,16 @@ window.addEventListener('message', function (eventData) {
       return;
     }
 
+
+    if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "testEvent") {
+      console.log("\n\n\n <--- Aall data Parent  ---> \n\n\n", parsedData);
+      document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+        event_code: 'custom-parent-client-event',
+        data: parsedData.data.data
+      }), '*');
+      return;
+    }
+
   } catch (error) {
     console.error(error);
     return;
