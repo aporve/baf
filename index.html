@@ -253,7 +253,7 @@
     // document.getElementById("eleForm4").disabled = true;
     // document.getElementById("eleForm5").disabled = true;
 
-    let ristID = []
+    let descr = []
     let str;
 
     window.addEventListener('message', function (eventData) {
@@ -267,10 +267,10 @@
         let data = parsedEventData.data.data;
 
         for (let i = 0; i < data.length; i++) {
-          let id = data[i].RiskTypeId
+          let id = data[i].Descr
           console.log('id--->', id)
           if (id !== '') {
-            ristID.push(id);
+            descr.push(id);
           }
         }
 
