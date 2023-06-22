@@ -256,6 +256,11 @@
         console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
         console.log("data ---->", parsedEventData.data);
         console.log("main data ---->", parsedEventData.data.data);
+        let data = parsedEventData.data.data;
+        for (let i = 0; i < data.length; i++) {
+          let id = data[i].RiskTypeId
+          console.log('id--->', id)
+        }
       }
 
     });
