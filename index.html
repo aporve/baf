@@ -247,6 +247,19 @@
 
   <script>
 
+
+    window.addEventListener('message', function (eventData) {
+      console.log('In INDEX.HTML')
+      const parsedEventData = JSON.parse(eventData.data)
+      if (parsedEventData.event_code === "custom-child-client-event") {
+        console.log('Hard Log')
+        console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
+        console.log("data ---->", parsedEventData.data);
+        console.log("main data ---->", parsedEventData.data.data);
+      }
+
+    });
+
     function nextStep1() {
       console.log('nextStep')
       $("#cards").addClass("hide");
@@ -307,16 +320,7 @@
     }
 
 
-    window.addEventListener('message', function (eventData) {
-      const parsedEventData = JSON.parse(eventData.data)
-      if (parsedEventData.event_code === "custom-child-client-event") {
-        console.log('In INDEX.HTML')
-        console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
-        console.log("data ---->", parsedEventData.data);
-        console.log("main data ---->", parsedEventData.data.data);
-      }
 
-    });
 
 
 
