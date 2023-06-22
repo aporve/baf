@@ -153,7 +153,7 @@
 
       </form>
     </div>
-    
+
     <div class="ele_form hide" id="mobil_baru">
       <form action="#" class="form" id="myForm">
 
@@ -197,7 +197,7 @@
 
       </form>
     </div>
-    
+
     <div class="ele_form hide" id="motor_baru">
       <form action="#" class="form" id="myForm">
 
@@ -251,6 +251,10 @@
       console.log('nextStep')
       $("#cards").addClass("hide");
       $("#ele_form").addClass("show");
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'custom-recent-order-event',
+        data: data
+      }), '*');
     }
 
     function nextStep2() {
@@ -295,10 +299,10 @@
       console.log(data, 'Data---->')
       document.getElementById("myForm").reset();
 
-      window.parent.postMessage(JSON.stringify({
-        event_code: 'custom-recent-order-event',
-        data: data
-      }), '*');
+      // window.parent.postMessage(JSON.stringify({
+      //   event_code: 'custom-recent-order-event',
+      //   data: data
+      // }), '*');
 
     }
 
@@ -313,21 +317,26 @@
 
     });
 
+
+
+
+
+
     // Get the select element
     var selectElement = document.getElementById("eleForm7");
-      
+
     // Get the current year
     var currentYear = new Date().getFullYear();
-    
+
     // Start the loop from 2010 until the current year
     for (var year = 2010; year <= currentYear; year++) {
       // Create a new option element
       var option = document.createElement("option");
-      
+
       // Set the text and value of the option
       option.text = year;
       option.value = year;
-      
+
       // Append the option to the select element
       selectElement.appendChild(option);
     }
@@ -335,16 +344,16 @@
     function generateOption(cardName) {
       // Get the select element
       var selectElement1, selectElement2, selectElement3, url;
-      
-      if(cardName == "mobil baru") {
+
+      if (cardName == "mobil baru") {
         selectElement1 = document.getElementById("eleForm10");
         selectElement2 = document.getElementById("eleForm12");
         selectElement3 = document.getElementById("eleForm13");
 
         url = "./assets/js/new-car-data.json";
       }
-      
-      if(cardName == "motor baru") {
+
+      if (cardName == "motor baru") {
         selectElement1 = document.getElementById("eleForm14");
         selectElement2 = document.getElementById("eleForm16");
         selectElement3 = document.getElementById("eleForm17");
