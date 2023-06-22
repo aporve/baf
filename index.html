@@ -52,7 +52,7 @@
         <div class="mb-2">
           <label for="Pilih Merk Barang">Pilih Merk Barang</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm2">
+            <select class="form-control" style="width: 100%;" id="eleForm2" disabled>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -65,14 +65,14 @@
         <div class="mb-2">
           <label for="Harga Barang">Harga Barang</label>
           <div>
-            <input type="text" id="eleForm3">
+            <input type="text" id="eleForm3" disabled>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm4">
+            <select class="form-control" style="width: 100%;" id="eleForm4" disabled>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -85,7 +85,7 @@
         <div class="mb-2">
           <label for="Uang Muka">Uang Muka</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm5">
+            <select class="form-control" style="width: 100%;" id="eleForm5" disabled>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -96,7 +96,7 @@
         </div>
 
         <div class="submit_div">
-          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
+          <button type="submit" class="submit" onclick="myFunction()" disabled>Hitung Cicilan Anda</button>
         </div>
 
       </form>
@@ -253,10 +253,6 @@
     // document.getElementById("eleForm4").disabled = true;
     // document.getElementById("eleForm5").disabled = true;
 
-    // $('#eleForm2').disabled = true;
-    // $('#eleForm3').disabled = true;
-    // $('#eleForm4').disabled = true;
-    // $('#eleForm5').disabled = true;
     let ristID = []
     let str;
 
