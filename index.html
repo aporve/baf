@@ -270,7 +270,7 @@
 
         for (let i = 0; i < data.length; i++) {
           let id = data[i].Descr;
-          let code = data[i].code;
+          let code = data[i].Code;
           console.log('id--->', id)
           newData.push({ "descr": id, "code": code });
           // if (id !== '') {
@@ -281,7 +281,7 @@
 
         for (var item of newData) {
           console.log('Items->', item)
-          // console.log('Data', item[0].id)
+          console.log('Data from array of objects-->', item[0].descr)
           // str = `<option value=${item}>Volvo</option>`
           // str += "<option>" + item + "</option>"
         }
