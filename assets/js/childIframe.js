@@ -10,10 +10,10 @@ window.addEventListener('message', function (eventData) {
   }
 
 
-  if (parsedEventData.event_code === "testEvent" && parsedEventData.data) {
+  if (parsedEventData.event_code === "custom-parent-client-event" && parsedEventData.data) {
     console.log('cloud data---->', parsedEventData.data)
     document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
-      event_code: 'testEvent',
+      event_code: 'custom-child-client-event',
       data: parsedEventData.data
     }), '*');
   }
