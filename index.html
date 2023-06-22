@@ -289,10 +289,10 @@
       console.log('nextStep')
       $("#cards").addClass("hide");
       $("#ele_form").addClass("show");
-      // window.parent.postMessage(JSON.stringify({
-      //   event_code: 'custom-recent-order-event',
-      //   data: ''
-      // }), '*');
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'custom-recent-order-event',
+        data: ''
+      }), '*');
     }
 
     function nextStep2() {
