@@ -254,6 +254,8 @@
     // document.getElementById("eleForm5").disabled = true;
 
     let descr = []
+    let codes = []
+    let newData = []
     let str;
 
     window.addEventListener('message', function (eventData) {
@@ -267,15 +269,20 @@
         let data = parsedEventData.data.data;
 
         for (let i = 0; i < data.length; i++) {
-          let id = data[i].Descr
+          let id = data[i].Descr;
+          let code = data[i].code;
           console.log('id--->', id)
-          if (id !== '') {
-            descr.push(id);
-          }
+          newData.push({ "descr": id, "code": code });
+          // if (id !== '') {
+          //   descr.push(id);
+          //   codes.push(code);
+          // }
         }
 
-        for (var item of descr) {
-          str += "<option>" + item + "</option>"
+        for (var item of newData) {
+          console.log('Data', items[0].id)
+          // str = `<option value=${item}>Volvo</option>`
+          // str += "<option>" + item + "</option>"
         }
 
 
