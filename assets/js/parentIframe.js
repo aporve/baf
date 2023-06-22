@@ -26,6 +26,17 @@ window.addEventListener('message', function (eventData) {
       return;
     }
 
+    if (parsedData?.event_code == 'custom-parenttoroot-select-option-1') {
+      console.log("\n\n\n <--- Submited Details parent ---> \n\n\n", parsedData);
+      window.frames.ymIframe.chat.send({
+        event: {
+          code: "pilihMerk",
+          data: parsedData
+        }
+      }, true);
+      return;
+    }
+
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "testEvent") {
       console.log("\n\n\n <--- Aall data Parent  ---> \n\n\n", parsedData);

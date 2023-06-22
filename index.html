@@ -39,7 +39,7 @@
         <div class="mb-2">
           <label for="Pilih Tipe Barang">Pilih Tipe Barang</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm1">
+            <select class="form-control" style="width: 100%;" id="eleForm1" onchange="optionSelection()">
               <option value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -354,7 +354,14 @@
 
     }
 
-
+    function optionSelection() {
+      let x = document.getElementById("eleForm1").value;
+      console.log('x-->', x);
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'custom-select-option-1',
+        data: ''
+      }), '*');
+    }
 
 
 
