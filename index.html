@@ -247,6 +247,8 @@
 
   <script>
 
+    let data = {}
+
     function nextStep1() {
       console.log('nextStep')
       $("#cards").addClass("hide");
@@ -281,7 +283,6 @@
       event.preventDefault();
       console.log('submit')
 
-      let data = {}
       let data1, data2, data3, data4, data5;
 
       data1 = document.getElementById("eleForm1").value;
@@ -309,10 +310,16 @@
 
     window.addEventListener('message', function (eventData) {
       const parsedEventData = JSON.parse(eventData.data)
-      if (parsedEventData.event_code === "custom-child-client-event") {
+      if (parsedEventData.event_code === "testEvent") {
         console.log('In INDEX.HTML')
         console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
         console.log("data ---->", parsedEventData.data);
+        console.log('main data ---->', data.data)
+        let data = data.data;
+        for (let i = 0; i < data.length; i++) {
+          let id = data[i].RiskTypeId
+          console.log('Id--', id);
+        }
       }
 
     });
