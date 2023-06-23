@@ -288,6 +288,8 @@
           // str += "<option>" + item + "</option>"
         }
         document.getElementById("eleForm1").innerHTML = str;
+        reset()
+
       }
 
       if (parsedEventData.event_code === "pilihMerk") {
@@ -471,6 +473,13 @@
       xhr.send();
     }
 
+
+
+
+    function reset() {
+      descr = []
+      codes = []
+    }
   </script>
 
 </body>
