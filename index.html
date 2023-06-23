@@ -294,7 +294,7 @@
         console.log('Hard Log')
         console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
         console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
-        let data = parsedEventData.data.data;
+        let data = parsedEventData.data;
         for (let i = 0; i < data.length; i++) {
           let id = data[i].Descr;
           let code = data[i].Code;
