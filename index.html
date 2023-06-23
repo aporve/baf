@@ -288,7 +288,8 @@
           // str += "<option>" + item + "</option>"
         }
         document.getElementById("eleForm1").innerHTML = str;
-        reset();
+        descr = []
+        codes = []
 
       }
 
@@ -473,14 +474,6 @@
       xhr.send();
     }
 
-
-
-
-    function reset() {
-      descr = []
-      codes = []
-      console.log('reset data--->')
-    }
   </script>
 
 </body>
