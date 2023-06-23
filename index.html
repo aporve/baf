@@ -287,10 +287,13 @@
           str += `<option value=${item.code}>${item.descr}</option>`
           // str += "<option>" + item + "</option>"
         }
-
-
         document.getElementById("eleForm1").innerHTML = str;
+      }
 
+      if (parsedEventData.event_code === "pilihMerk") {
+        console.log('Hard Log')
+        console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
+        console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
       }
 
     });

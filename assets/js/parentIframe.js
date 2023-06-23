@@ -47,6 +47,15 @@ window.addEventListener('message', function (eventData) {
       return;
     }
 
+    if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "pilihMerk") {
+      console.log("\n\n\n <--- pilihMerk  ---> \n\n\n", parsedData);
+      document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+        event_code: 'pilihMerk',
+        data: parsedData.data.data
+      }), '*');
+      return;
+    }
+
   } catch (error) {
     console.error(error);
     return;

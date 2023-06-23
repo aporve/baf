@@ -26,4 +26,12 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
+  if (parsedEventData.event_code === "pilihMerk" && parsedEventData.data) {
+    console.log('pilihMerk childIframe---->', parsedEventData.data)
+    document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
+      event_code: 'pilihMerk',
+      data: parsedEventData.data
+    }), '*');
+  }
+
 });
