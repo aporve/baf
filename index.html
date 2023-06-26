@@ -65,7 +65,7 @@
         <div class="mb-2">
           <label for="Harga Barang">Harga Barang</label>
           <div>
-            <input type="text" id="eleForm3" disabled>
+            <input type="text" id="eleForm3" onchange="hargaFn()" disabled>
           </div>
         </div>
 
@@ -526,11 +526,15 @@
       }), '*');
     }
 
-
-    let inputData = document.getElementById('eleForm3');
-    if (inputData !== '') {
-      alert('here -- Send Event');
+    function hargaFn() {
+      let inputData = document.getElementById('eleForm3');
+      if (inputData !== '') {
+        alert('here -- Send Event');
+      }
     }
+
+
+
 
 
 
