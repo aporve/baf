@@ -118,7 +118,7 @@
           </div>
         </div>
 
-        <div class="mb-2">
+        <!-- <div class="mb-2">
           <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm7"></select>
@@ -130,7 +130,56 @@
           <div>
             <input type="text" id="eleForm8">
           </div>
+        </div> -->
+
+        <!-- New Jumlah Pinjaman Dana Syariah input using Script -->
+        <div class="mb-2">
+          <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
+          <div class="">
+            <select class="form-control" style="width: 100%;" id="eleForm7"></select>
+          </div>
         </div>
+        
+        <div class="mb-2">
+          <label for="Jumlah Pinjaman">Jumlah Pinjaman</label>
+          <div>
+            <input type="text" id="eleForm8">
+            <span id="validationMessage" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
+          </div>
+        </div>
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            var eleForm8 = document.getElementById("eleForm8");
+            var validationMessage = document.getElementById("validationMessage");
+        
+            eleForm8.addEventListener("keyup", function() {
+              formatNumber(this);
+              validateInput(this);
+            });
+        
+            eleForm8.addEventListener("change", function() {
+              validateInput(this);
+            });
+        
+            function formatNumber(input) {
+              var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
+              var formattedValue = Number(value).toLocaleString("en-ID");
+              input.value = `Rp. ${formattedValue}`;
+            }
+        
+            function validateInput(input) {
+              var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
+              var parsedValue = parseInt(value);
+        
+              if (parsedValue < 1000000) {
+                validationMessage.style.display = "block";
+              } else {
+                validationMessage.style.display = "none";
+              }
+            }
+          });
+        </script>        
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
@@ -151,6 +200,14 @@
           <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
         </div>
 
+        <script>
+          function myFunction(){
+
+            
+          }
+
+        </script>
+
       </form>
     </div>
 
@@ -166,12 +223,54 @@
           </div>
         </div>
 
-        <div class="mb-2">
+        <!-- <div class="mb-2">
           <label for="Jumlah Pinjaman">Harga Mobil</label>
           <div>
             <input type="text" id="eleForm11">
           </div>
+        </div> -->
+
+        <!-- New Harga mobil -->
+        <div class="mb-2">
+          <label for="Jumlah Pinjaman">Harga Mobil</label>
+          <div>
+            <input type="text" id="eleForm11">
+            <span id="validationMessage2" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
+          </div>
         </div>
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            var eleForm11 = document.getElementById("eleForm11");
+            var validationMessage2 = document.getElementById("validationMessage2");
+        
+            eleForm11.addEventListener("keyup", function() {
+              formatNumber(this);
+              validateInput(this);
+            });
+        
+            eleForm11.addEventListener("change", function() {
+              validateInput(this);
+            });
+        
+            function formatNumber(input) {
+              var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
+              var formattedValue = Number(value).toLocaleString("en-ID");
+              input.value = `Rp. ${formattedValue}`;
+            }
+        
+            function validateInput(input) {
+              var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
+              var parsedValue = parseInt(value);
+        
+              if (parsedValue < 10000000) {
+                validationMessage2.style.display = "block";
+              } else {
+                validationMessage2.style.display = "none";
+              }
+            }
+          });
+        </script>        
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
@@ -209,14 +308,48 @@
             </select>
           </div>
         </div>
-
+        <!-- New jumlah pinjaman input for motor yamaha baru with validation -->
         <div class="mb-2">
           <label for="Jumlah Pinjaman">Harga Motor</label>
           <div>
             <input type="text" id="eleForm15">
+            <span id="validationMessage3" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
           </div>
         </div>
-
+        
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            var eleForm15 = document.getElementById("eleForm15");
+            var validationMessage3 = document.getElementById("validationMessage3");
+        
+            eleForm15.addEventListener("keyup", function() {
+              formatNumber(this);
+              validateInput(this);
+            });
+        
+            eleForm15.addEventListener("change", function() {
+              validateInput(this);
+            });
+        
+            function formatNumber(input) {
+              var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
+              var formattedValue = Number(value).toLocaleString("en-ID");
+              input.value = `Rp. ${formattedValue}`;
+            }
+        
+            function validateInput(input) {
+              var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
+              var parsedValue = parseInt(value);
+        
+              if (parsedValue < 1000000) {
+                validationMessage3.style.display = "block";
+              } else {
+                validationMessage3.style.display = "none";
+              }
+            }
+          });
+        </script>        
+        
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
