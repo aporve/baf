@@ -118,34 +118,24 @@
           </div>
         </div>
 
-        <!-- <div class="mb-2">
+        <div class="mb-2">
           <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm7"></select>
+          <div>
+            <select class="form-control" style="width: 100%;" id="eleForm7">
+              <option value="">Silahkan Pilih</option>
+            </select>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Jumlah Pinjaman">Jumlah Pinjaman</label>
-          <div>
+          <div class="currency-input">
+            <div class="currency-box">
+              <span class="currency-symbol">Rp</span>
+            </div>
             <input type="text" id="eleForm8">
           </div>
-        </div> -->
-
-        <!-- New Jumlah Pinjaman Dana Syariah input using Script -->
-        <div class="mb-2">
-          <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm7"></select>
-          </div>
-        </div>
-
-        <div class="mb-2">
-          <label for="Jumlah Pinjaman">Jumlah Pinjaman</label>
-          <div>
-            <input type="text" id="eleForm8">
-            <span id="validationMessage" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
-          </div>
+          <span id="validationMessage">Silahkan input nominal yang sesuai</span>
         </div>
 
         <script>
@@ -165,7 +155,7 @@
             function formatNumber(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var formattedValue = Number(value).toLocaleString("en-ID");
-              input.value = `Rp. ${formattedValue}`;
+              input.value = formattedValue;
             }
 
             function validateInput(input) {
@@ -223,20 +213,15 @@
           </div>
         </div>
 
-        <!-- <div class="mb-2">
-          <label for="Jumlah Pinjaman">Harga Mobil</label>
-          <div>
-            <input type="text" id="eleForm11">
-          </div>
-        </div> -->
-
-        <!-- New Harga mobil -->
         <div class="mb-2">
           <label for="Jumlah Pinjaman">Harga Mobil</label>
-          <div>
+          <div class="currency-input">
+            <div class="currency-box">
+              <span class="currency-symbol">Rp</span>
+            </div>
             <input type="text" id="eleForm11">
-            <span id="validationMessage2" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
           </div>
+          <span id="validationMessage2">Silahkan input nominal yang sesuai</span>
         </div>
 
         <script>
@@ -256,14 +241,14 @@
             function formatNumber(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var formattedValue = Number(value).toLocaleString("en-ID");
-              input.value = `Rp. ${formattedValue}`;
+              input.value = formattedValue;
             }
 
             function validateInput(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var parsedValue = parseInt(value);
 
-              if (parsedValue < 10000000) {
+              if (parsedValue < 1000000) {
                 validationMessage2.style.display = "block";
               } else {
                 validationMessage2.style.display = "none";
@@ -311,10 +296,13 @@
         <!-- New jumlah pinjaman input for motor yamaha baru with validation -->
         <div class="mb-2">
           <label for="Jumlah Pinjaman">Harga Motor</label>
-          <div>
+          <div class="currency-input">
+            <div class="currency-box">
+              <span class="currency-symbol">Rp</span>
+            </div>
             <input type="text" id="eleForm15">
-            <span id="validationMessage3" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
           </div>
+          <span id="validationMessage3">Silahkan input nominal yang sesuai</span>
         </div>
 
         <script>
@@ -334,7 +322,7 @@
             function formatNumber(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var formattedValue = Number(value).toLocaleString("en-ID");
-              input.value = `Rp. ${formattedValue}`;
+              input.value = formattedValue;
             }
 
             function validateInput(input) {
