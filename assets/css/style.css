@@ -53,8 +53,41 @@
   border-radius: 10px;
 }
 
+.currency-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
+.currency-box {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 25px;
+  background-color: #aaa7a7;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.currency-symbol {
+  color: 
+  white;
+  font-size: 16px;
+}
+
+.currency-input input {
+  padding-left: 30px;
+}
+
+#validationMessage3, #validationMessage2, #validationMessage {
+  color: red;
+  display: none;
+  margin-top: 5px;
+}
 
 
 
