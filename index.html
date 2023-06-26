@@ -526,14 +526,41 @@
       }), '*');
     }
 
-    // function hargaFn() {
-    //   let inputData = document.getElementById('eleForm3');
-    //   if (inputData !== '') {
-    //     console.log('In Harga')
-    //   }
+    function hargaFn() {
+      let inputData = document.getElementById('eleForm3');
+      console.log('Input Data', inputData)
+      if (inputData !== '' || inputData !== null) {
+        console.log('Data is there')
+      }
+    }
+
+    // const validatePrice = (e) => {
+    //     let priceValue = e.target.value.replace(/,/gi, '')
+    //     // console.log(priceValue)
+    //     if (priceValue) {
+    //         if (!Number.isNaN(Number(priceValue)) && Number(priceValue) <= 15000000) {
+    //             if (parseInt(priceValue) < 1000000) {
+    //                 setPriceValidator({ validateStatus: 'error', errorMsg: '*Silahkan input nominal yang sesuai', value: parseInt(priceValue) })
+    //                 form.setFieldsValue({ price: Number(parseInt(priceValue)).toLocaleString('en-ID') })
+    //                 setDisableInstallmentDetailForm(true)
+    //             } else {
+    //                 setPriceValidator({ validateStatus: 'success', errorMsg: '', value: parseInt(priceValue) })
+    //                 form.setFieldsValue({ price: Number(parseInt(priceValue)).toLocaleString('en-ID') })
+    //                 getInstallmentDetail(priceValue)
+    //             }
+    //         } else {
+    //             form.setFieldsValue({ price: Number(parseInt(priceValidator.value)).toLocaleString('en-ID') })
+    //         }
+    //     } else {
+    //         setPriceValidator({ validateStatus: 'error', errorMsg: '*Silahkan input nominal yang sesuai', value: 0 })
+    //         form.setFieldsValue({
+    //             price: 0,
+    //             "installment-duration": '',
+    //             downpayment: ''
+    //         })
+    //         setDisableInstallmentDetailForm(true)
+    //     }
     // }
-
-
 
 
 
