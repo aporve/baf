@@ -139,7 +139,7 @@
             <select class="form-control" style="width: 100%;" id="eleForm7"></select>
           </div>
         </div>
-        
+
         <div class="mb-2">
           <label for="Jumlah Pinjaman">Jumlah Pinjaman</label>
           <div>
@@ -147,31 +147,31 @@
             <span id="validationMessage" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
           </div>
         </div>
-        
+
         <script>
-          document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("DOMContentLoaded", function () {
             var eleForm8 = document.getElementById("eleForm8");
             var validationMessage = document.getElementById("validationMessage");
-        
-            eleForm8.addEventListener("keyup", function() {
+
+            eleForm8.addEventListener("keyup", function () {
               formatNumber(this);
               validateInput(this);
             });
-        
-            eleForm8.addEventListener("change", function() {
+
+            eleForm8.addEventListener("change", function () {
               validateInput(this);
             });
-        
+
             function formatNumber(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var formattedValue = Number(value).toLocaleString("en-ID");
               input.value = `Rp. ${formattedValue}`;
             }
-        
+
             function validateInput(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var parsedValue = parseInt(value);
-        
+
               if (parsedValue < 1000000) {
                 validationMessage.style.display = "block";
               } else {
@@ -179,7 +179,7 @@
               }
             }
           });
-        </script>        
+        </script>
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
@@ -201,9 +201,9 @@
         </div>
 
         <script>
-          function myFunction(){
+          function myFunction() {
 
-            
+
           }
 
         </script>
@@ -238,31 +238,31 @@
             <span id="validationMessage2" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
           </div>
         </div>
-        
+
         <script>
-          document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("DOMContentLoaded", function () {
             var eleForm11 = document.getElementById("eleForm11");
             var validationMessage2 = document.getElementById("validationMessage2");
-        
-            eleForm11.addEventListener("keyup", function() {
+
+            eleForm11.addEventListener("keyup", function () {
               formatNumber(this);
               validateInput(this);
             });
-        
-            eleForm11.addEventListener("change", function() {
+
+            eleForm11.addEventListener("change", function () {
               validateInput(this);
             });
-        
+
             function formatNumber(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var formattedValue = Number(value).toLocaleString("en-ID");
               input.value = `Rp. ${formattedValue}`;
             }
-        
+
             function validateInput(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var parsedValue = parseInt(value);
-        
+
               if (parsedValue < 10000000) {
                 validationMessage2.style.display = "block";
               } else {
@@ -270,7 +270,7 @@
               }
             }
           });
-        </script>        
+        </script>
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
@@ -316,31 +316,31 @@
             <span id="validationMessage3" style="color: red; display: none;">Silahkan input nominal yang sesuai</span>
           </div>
         </div>
-        
+
         <script>
-          document.addEventListener("DOMContentLoaded", function() {
+          document.addEventListener("DOMContentLoaded", function () {
             var eleForm15 = document.getElementById("eleForm15");
             var validationMessage3 = document.getElementById("validationMessage3");
-        
-            eleForm15.addEventListener("keyup", function() {
+
+            eleForm15.addEventListener("keyup", function () {
               formatNumber(this);
               validateInput(this);
             });
-        
-            eleForm15.addEventListener("change", function() {
+
+            eleForm15.addEventListener("change", function () {
               validateInput(this);
             });
-        
+
             function formatNumber(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var formattedValue = Number(value).toLocaleString("en-ID");
               input.value = `Rp. ${formattedValue}`;
             }
-        
+
             function validateInput(input) {
               var value = input.value.replace(/,/g, "").replace(/[^0-9]/g, "");
               var parsedValue = parseInt(value);
-        
+
               if (parsedValue < 1000000) {
                 validationMessage3.style.display = "block";
               } else {
@@ -348,8 +348,8 @@
               }
             }
           });
-        </script>        
-        
+        </script>
+
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
@@ -523,6 +523,12 @@
         event_code: 'custom-select-option-1',
         data: x
       }), '*');
+    }
+
+
+    let inputData = document.getElementById('eleForm3');
+    if (inputData !== '') {
+      alert('here -- Send Event');
     }
 
 
