@@ -17,10 +17,10 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
-  if (parsedEventData.event_code === "jangkaWaktu-parentIframe") {
+  if (parsedEventData.event_code === "jangkaWaktu-userInput") {
     console.log('data childIframe', parsedEventData.data)
     parent.postMessage(JSON.stringify({
-      event_code: 'jangkaWaktu-childIframe',
+      event_code: 'jangkaWaktu-userInput-1',
       data: parsedEventData.data
     }), '*');
   }
@@ -42,10 +42,10 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
-  if (parsedEventData.event_code === "jangkaWaktu" && parsedEventData.data) {
+  if (parsedEventData.event_code === "jangkaWaktu-parentIframe" && parsedEventData.data) {
     console.log('jangkaWaktu childIframe---->', parsedEventData.data)
     document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
-      event_code: 'jangkaWaktu',
+      event_code: 'jangkaWaktu-childIframe',
       data: parsedEventData.data
     }), '*');
   }
