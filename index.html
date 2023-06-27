@@ -446,7 +446,7 @@
         console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
         console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
         let data = parsedEventData.data.result.Tenor;
-        console.log('data------>', data[0])
+        console.log('data------>', data);
         for (let i = 0; i < data.length; i++) {
           let id = data[i];
           // let code = data[i].Code;
@@ -456,9 +456,10 @@
           if (id !== '') {
             num.push({ "id": id });
           }
+          console.log('num--->', num);
         }
 
-        for (var item of newData) {
+        for (var item of num) {
           console.log('Items->', item)
           str += `<option value=${item.id}>${item.id}</option>`
         }
