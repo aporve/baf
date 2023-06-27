@@ -446,7 +446,6 @@
         console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
         let data = parsedEventData.data.result.Tenor;
         console.log('data------>', data)
-        console.log('data 1------>', data.result.Tenor)
         for (let i = 0; i < data.length; i++) {
           let id = data[i].Descr;
           let code = data[i].Code;
