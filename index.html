@@ -40,7 +40,7 @@
           <label for="Pilih Tipe Barang">Pilih Tipe Barang</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm1" onchange="optionSelection()">
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -49,7 +49,7 @@
           <label for="Pilih Merk Barang">Pilih Merk Barang</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm2" disabled>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -65,7 +65,7 @@
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm4" disabled>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -74,7 +74,7 @@
           <label for="Uang Muka">Uang Muka</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm5" disabled>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -85,15 +85,18 @@
 
       </form>
     </div>
+  </div>
+  
+  <div class="main-container2">
 
-    <div class="ele_form hide" id="dana_syariah">
-      <form action="#" class="form" id="myForm">
+    <div class="container hide" id="dana_syariah">
+      <form action="#" class="form-2" id="myForm">
 
         <div class="mb-2">
           <label for="Pilih Tipe Barang">Pilih Merk Motor</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm6">
-              <option value="">Silahkan Pilih</option>
+            <select class="form-control" style="width: 100%;" id="eleForm6" required>
+              <option value="" disabled selected>Silahkan Pilih</option>
               <option value="Yamaha">Yamaha</option>
               <option value="Honda">Honda</option>
               <option value="Kawasaki">Kawasaki</option>
@@ -106,13 +109,13 @@
           <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
           <div>
             <select class="form-control" style="width: 100%;" id="eleForm7">
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
 
         <div class="mb-2">
-          <label for="Jumlah Pinjaman">Jumlah Pinjaman</label>
+          <label for="Jumlah Pinjaman" class="formTitle">Jumlah Pinjaman</label>
           <div class="currency-input">
             <div class="currency-box">
               <span class="currency-symbol">Rp</span>
@@ -159,40 +162,31 @@
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm9">
-              <option value="">Silahkan Pilih</option>
-              <option value="6 bulan">6 bulan</option>
-              <option value="12 bulan">12 bulan</option>
-              <option value="18 bulan">18 bulan</option>
-              <option value="24 bulan">24 bulan</option>
-              <option value="30 bulan">30 bulan</option>
-              <option value="36 bulan">36 bulan</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
+              <option value="6^0.266">6 bulan</option>
+              <option value="12^0.383">12 bulan</option>
+              <option value="18^0.488">18 bulan</option>
+              <option value="24^0.643">24 bulan</option>
+              <option value="30^0.807">30 bulan</option>
+              <option value="36^0.98">36 bulan</option>
             </select>
           </div>
         </div>
 
         <div class="submit_div">
-          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
+          <button type="submit" class="submit" onclick="myFunction('dana_syariah')">Hitung Cicilan Anda</button>
         </div>
-
-        <script>
-          function myFunction() {
-
-
-          }
-
-        </script>
-
       </form>
     </div>
 
-    <div class="ele_form hide" id="mobil_baru">
-      <form action="#" class="form" id="myForm">
+    <div class="container hide" id="mobil_baru">
+      <form action="#" class="form-2" id="myForm">
 
         <div class="mb-2">
           <label for="Pilih Merk Mobil">Pilih Merk Mobil</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm10" required>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -245,7 +239,7 @@
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm12" required>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -254,26 +248,26 @@
           <label for="Uang Muka">Uang Muka</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm13" required>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
 
         <div class="submit_div">
-          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
+          <button type="submit" class="submit" onclick="myFunction('mobil_baru')">Hitung Cicilan Anda</button>
         </div>
 
       </form>
     </div>
 
-    <div class="ele_form hide" id="motor_baru">
-      <form action="#" class="form" id="myForm">
+    <div class="container hide" id="motor_baru">
+      <form action="#" class="form-2" id="myForm">
 
         <div class="mb-2">
           <label for="Pilih Merk Mobil">Pilih Motor</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm14" required>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -326,7 +320,7 @@
           <label for="Jangka Waktu">Jangka Waktu</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm16" required>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
@@ -335,23 +329,32 @@
           <label for="Uang Muka">Uang Muka</label>
           <div class="">
             <select class="form-control" style="width: 100%;" id="eleForm17" required>
-              <option value="">Silahkan Pilih</option>
+              <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
         </div>
 
         <div class="submit_div">
-          <button type="submit" class="submit" onclick="myFunction()">Hitung Cicilan Anda</button>
+          <button type="submit" class="submit" onclick="myFunction('motor_baru')">Hitung Cicilan Anda</button>
         </div>
 
       </form>
+    </div>
+
+    <div class="container calculation hide" id="calculator">
+      <div style="text-align: center">
+        <h2>Estimasi Cicilan Bulanan Anda</h2>
+        <div class="calculationAmount"></div>
+        <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami akan menghubungi Anda.</p>
+        <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold;" onclick="">Ajukan Sekarang</button>
+
+      </div>
     </div>
   </div>
 
 
 
   <script>
-
 
     // document.getElementById("eleForm2").disabled = true;
     // document.getElementById("eleForm3").disabled = true;
@@ -444,12 +447,14 @@
     function nextStep2() {
       console.log('dana syariah step')
       $("#cards").addClass("hide");
+      $(".main-container").addClass("hide");
       $("#dana_syariah").addClass("show");
     }
 
     function nextStep3() {
       console.log('mobil baru step')
       $("#cards").addClass("hide");
+      $(".main-container").addClass("hide");
       $("#mobil_baru").addClass("show");
       generateOption("mobil baru")
     }
@@ -457,13 +462,72 @@
     function nextStep4() {
       console.log('motor baru step')
       $("#cards").addClass("hide");
+      $(".main-container").addClass("hide");
       $("#motor_baru").addClass("show");
       generateOption("motor baru")
     }
 
-    function myFunction() {
+    function calculate(name, price, installment, dp = 0) {
+      console.log('calculating installment')
+
+      price = parseInt(price.replace(/,/g, ""))
+      let installmentCalc = 0
+      if (name === 'mobil_baru' || name === 'motor_baru') {
+          const downpaymentAmount = price * Number(dp)
+          const installmentCode = installment.split('^')
+          const installmentDuration = Number(installmentCode[0])
+          const rate = Number(installmentCode[1])
+          installmentCalc = Math.round(((price - downpaymentAmount) * (1 + rate)) / installmentDuration)
+      } else if (name === 'dana_syariah') {
+          const installmentCode = installment.split('^')
+          const installmentDuration = Number(installmentCode[0])
+          const rate = Number(installmentCode[1])
+          installmentCalc = Math.round((price * (1 + rate)) / installmentDuration)
+      }
+
+      console.log(installmentCalc, "installmentCalc")
+      const content = '<p>Rp. ' + Number(String(installmentCalc).replace(/,/g, "").replace(/[^0-9]/g, "")).toLocaleString("en-ID") + '<br />/Bulan</p>';
+
+      $('.calculationAmount').html(content);
+
+      var form = document.getElementById(name);
+      form.classList.remove("show");
+      $("#calculator").addClass("show");
+    }
+
+    function myFunction(name) {
       event.preventDefault();
       console.log('submit')
+
+      if(name == 'dana_syariah') {
+        // Retrieve the data from the 'dana_syariah' form
+        const danaForm = document.getElementById("dana_syariah");
+        const danaJumlahPinjaman = danaForm.querySelector("#eleForm8").value;
+        const danaJangkaWaktu = danaForm.querySelector("#eleForm9").value;
+
+        calculate(name, danaJumlahPinjaman, danaJangkaWaktu );
+      }
+
+      if(name == 'mobil_baru') {
+        // Retrieve the data from the 'mobil_baru' form
+        const mobilForm = document.getElementById("mobil_baru");
+        const mobilHargaMobil = mobilForm.querySelector("#eleForm11").value;
+        const mobilJangkaWaktu = mobilForm.querySelector("#eleForm12").value;
+        const mobilUangMuka = mobilForm.querySelector("#eleForm13").value;
+
+        calculate(name, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka );
+      }
+      
+      
+      if(name == 'motor_baru') {
+        // Retrieve the data from the 'motor_baru' form
+        const motorForm = document.getElementById("motor_baru");
+        const motorPrice = motorForm.querySelector("#eleForm15").value;
+        const motorJangkaWaktu = motorForm.querySelector("#eleForm16").value;
+        const motorUangMuka = motorForm.querySelector("#eleForm17").value;
+
+        calculate(name, motorPrice, motorJangkaWaktu, motorUangMuka );
+      }
 
       let data = {}
       let data1, data2, data3, data4, data5;
@@ -581,8 +645,8 @@
 
       if (cardName == "motor baru") {
         selectElement1 = document.getElementById("eleForm14");
-        selectElement2 = document.getElementById("eleForm16");
-        selectElement3 = document.getElementById("eleForm17");
+        selectElement2 = document.getElementById("eleForm17");
+        selectElement3 = document.getElementById("eleForm16");
 
         url = "./assets/js/new-motorcycle-data.json";
       }
