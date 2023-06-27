@@ -564,10 +564,16 @@
     }
 
     function hargaFn() {
-      let inputData = document.getElementById('eleForm3');
+      let inputData = document.getElementById('eleForm3').value;
       console.log('Input Data', inputData)
+
+      // jangkaWaktu
       if (inputData !== '' || inputData !== null) {
-        console.log('Data is there')
+        console.log('Data is there');
+        window.parent.postMessage(JSON.stringify({
+          event_code: 'jangkaWaktu',
+          data: inputData
+        }), '*');
       }
     }
 
