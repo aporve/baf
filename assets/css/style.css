@@ -40,6 +40,20 @@ body {
   box-shadow: 0 0 7px #4e4d4d;
 }
 
+.submit_Form {
+  background-color: #002f5f;
+  color: #fff;
+}
+
+.submit_Form .price {
+  width: 80%;
+  height: 20%;
+  background-color: #fff;
+  margin: 1.6rem auto;
+  color: blue;
+  text-align: center;
+}
+
 .form {
   margin: 10%;
 }
@@ -86,8 +100,8 @@ body {
 }
 
 .currency-symbol {
-  color: 
-  white;
+  color:
+    white;
   font-size: 16px;
 }
 
@@ -95,7 +109,9 @@ body {
   padding-left: 30px;
 }
 
-#validationMessage3, #validationMessage2, #validationMessage {
+#validationMessage3,
+#validationMessage2,
+#validationMessage {
   color: red;
   display: none;
   margin-top: 5px;

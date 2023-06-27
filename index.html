@@ -80,10 +80,23 @@
         </div>
 
         <div class="submit_div">
-          <button type="submit" class="submit" onclick="myFunction()" disabled>Hitung Cicilan Anda</button>
+          <button type="submit" class="submit" onclick="myFunction('elektronik')" disabled>Hitung Cicilan Anda</button>
         </div>
 
       </form>
+    </div>
+
+    <div class="ele_form submit_Form hide" id="submit_form">
+      <h3>Estimasi Cicilan Bulanan Anda</h3>
+      <div class="price">
+        <h1>Rp. 2,110,000/ Bulan</h1>
+      </div>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At magni, dolorem placeat eum in quia!</p>
+      <div class="submit_div">
+        <button type="submit" class="submit" onclick="myFunction('AjukanSekarang')" disabled>Hitung Cicilan
+          Anda</button>
+      </div>
     </div>
   </div>
 
@@ -500,6 +513,7 @@
         newData = []
         num = []
         str = ''
+        document.getElementById("eleForm6").disabled = false;
       }
 
     });
@@ -599,28 +613,33 @@
         calculate(name, motorPrice, motorJangkaWaktu, motorUangMuka);
       }
 
-      let data = {}
-      let data1, data2, data3, data4, data5;
+      if ('elektronik') {
+        let data = {}
+        let data1, data2, data3, data4, data5;
 
-      data1 = document.getElementById("eleForm1").value;
-      data2 = document.getElementById("eleForm2").value;
-      data3 = document.getElementById("eleForm3").value;
-      data4 = document.getElementById("eleForm4").value;
-      data5 = document.getElementById("eleForm5").value;
+        data1 = document.getElementById("eleForm1").value;
+        data2 = document.getElementById("eleForm2").value;
+        data3 = document.getElementById("eleForm3").value;
+        data4 = document.getElementById("eleForm4").value;
+        data5 = document.getElementById("eleForm5").value;
 
-      data.data1 = data1;
-      data.data2 = data2;
-      data.data3 = data3;
-      data.data4 = data4;
-      data.data5 = data5;
+        data.data1 = data1;
+        data.data2 = data2;
+        data.data3 = data3;
+        data.data4 = data4;
+        data.data5 = data5;
 
-      console.log(data, 'Data---->')
-      document.getElementById("myForm").reset();
+        console.log(data, 'Data---->')
+        document.getElementById("myForm").reset();
+        $("#ele_form").addClass("hide");
+        $("#submit_form").addClass("show");
+        window.parent.postMessage(JSON.stringify({
+          event_code: 'elektronik_submit',
+          data: data
+        }), '*');
+      }
 
-      // window.parent.postMessage(JSON.stringify({
-      //   event_code: 'custom-recent-order-event',
-      //   data: data
-      // }), '*');
+
 
     }
 
@@ -647,35 +666,6 @@
         }), '*');
       }
     }
-
-    // const validatePrice = (e) => {
-    //     let priceValue = e.target.value.replace(/,/gi, '')
-    //     // console.log(priceValue)
-    //     if (priceValue) {
-    //         if (!Number.isNaN(Number(priceValue)) && Number(priceValue) <= 15000000) {
-    //             if (parseInt(priceValue) < 1000000) {
-    //                 setPriceValidator({ validateStatus: 'error', errorMsg: '*Silahkan input nominal yang sesuai', value: parseInt(priceValue) })
-    //                 form.setFieldsValue({ price: Number(parseInt(priceValue)).toLocaleString('en-ID') })
-    //                 setDisableInstallmentDetailForm(true)
-    //             } else {
-    //                 setPriceValidator({ validateStatus: 'success', errorMsg: '', value: parseInt(priceValue) })
-    //                 form.setFieldsValue({ price: Number(parseInt(priceValue)).toLocaleString('en-ID') })
-    //                 getInstallmentDetail(priceValue)
-    //             }
-    //         } else {
-    //             form.setFieldsValue({ price: Number(parseInt(priceValidator.value)).toLocaleString('en-ID') })
-    //         }
-    //     } else {
-    //         setPriceValidator({ validateStatus: 'error', errorMsg: '*Silahkan input nominal yang sesuai', value: 0 })
-    //         form.setFieldsValue({
-    //             price: 0,
-    //             "installment-duration": '',
-    //             downpayment: ''
-    //         })
-    //         setDisableInstallmentDetailForm(true)
-    //     }
-    // }
-
 
 
 

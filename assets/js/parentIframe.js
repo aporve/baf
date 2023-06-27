@@ -48,6 +48,17 @@ window.addEventListener('message', function (eventData) {
       return;
     }
 
+    if (parsedData?.event_code == 'elektronik_submit') {
+      console.log("\n\n\n <--- elektronik_submit Submited Details parent ---> \n\n\n", parsedData);
+      window.frames.ymIframe.chat.send({
+        event: {
+          code: "elektronik_submit",
+          data: parsedData
+        }
+      }, true);
+      return;
+    }
+
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "testEvent") {
       console.log("\n\n\n <--- Aall data Parent  ---> \n\n\n", parsedData);
