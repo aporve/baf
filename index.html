@@ -94,7 +94,8 @@
 
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At magni, dolorem placeat eum in quia!</p>
       <div class="submit_div">
-        <button type="submit" class="submit" onclick="myFunction('AjukanSekarang')" disabled>Hitung Cicilan
+        <button type="submit" id="submit_btn_1" class="submit" onclick="myFunction('AjukanSekarang')" disabled>Hitung
+          Cicilan
           Anda</button>
       </div>
     </div>
@@ -505,7 +506,7 @@
           str += `<option value=${item.id}>${item.id}</option>`
         }
         console.log('---here---')
-        document.getElementById("eleForm6").disabled = false;
+        document.getElementById("submit_btn_1").disabled = false;
         document.getElementById("eleForm5").innerHTML = str;
 
         descr = []
