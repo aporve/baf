@@ -463,7 +463,8 @@
           console.log('Items->', item)
           str += `<option value=${item.id}>${item.id}</option>`
         }
-        document.getElementById("eleForm4").disabled = false;
+        console.log('---here---')
+        // document.getElementById("eleForm4").disabled = false;
         document.getElementById("eleForm4").innerHTML = str;
 
         descr = []
