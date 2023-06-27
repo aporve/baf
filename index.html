@@ -464,8 +464,36 @@
           str += `<option value=${item.id}>${item.id}</option>`
         }
         console.log('---here---')
-        // document.getElementById("eleForm4").disabled = false;
+        document.getElementById("eleForm5").disabled = false;
         document.getElementById("eleForm4").innerHTML = str;
+
+        descr = []
+        codes = []
+        newData = []
+        num = []
+        str = ''
+
+        data = parsedEventData.data.result.DP;
+        console.log('data------>', data);
+        for (let i = 0; i < data.length; i++) {
+          let id = data[i];
+          // let code = data[i].Code;
+          // console.log('id--->', id)
+          // console.log('code-->', code)
+
+          if (id !== '') {
+            num.push({ "id": id });
+          }
+          console.log('num--->', num);
+        }
+
+        for (var item of num) {
+          console.log('Items->', item)
+          str += `<option value=${item.id}>${item.id}</option>`
+        }
+        console.log('---here---')
+        // document.getElementById("eleForm4").disabled = false;
+        document.getElementById("eleForm5").innerHTML = str;
 
         descr = []
         codes = []
