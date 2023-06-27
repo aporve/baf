@@ -366,6 +366,7 @@
     let descr = []
     let codes = []
     let newData = []
+    let num = []
     let str;
 
     window.addEventListener('message', function (eventData) {
@@ -446,29 +447,29 @@
         console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
         let data = parsedEventData.data.result.Tenor;
         console.log('data------>', data[0])
-        // for (let i = 0; i < data.length; i++) {
-        //   let id = data[i].Descr;
-        //   let code = data[i].Code;
-        //   console.log('id--->', id)
-        //   console.log('code-->', code)
+        for (let i = 0; i < data.length; i++) {
+          let id = data[i];
+          // let code = data[i].Code;
+          // console.log('id--->', id)
+          // console.log('code-->', code)
 
-        //   if (id !== '') {
-        //     newData.push({ "descr": id, "code": code });
-        //   }
-        // }
+          if (id !== '') {
+            num.push({ "id": id });
+          }
+        }
 
-        // for (var item of newData) {
-        //   console.log('Items->', item)
-        //   console.log('Data from array of objects-->', item.descr)
-        //   str += `<option value=${item.code}>${item.descr}</option>`
-        // }
-        // document.getElementById("eleForm4").disabled = false;
-        // document.getElementById("eleForm4").innerHTML = str;
+        for (var item of newData) {
+          console.log('Items->', item)
+          str += `<option value=${item.num}>${item.num}</option>`
+        }
+        document.getElementById("eleForm4").disabled = false;
+        document.getElementById("eleForm4").innerHTML = str;
 
-        // descr = []
-        // codes = []
-        // newData = []
-        // str = ''
+        descr = []
+        codes = []
+        newData = []
+        num = []
+        str = ''
       }
 
     });
