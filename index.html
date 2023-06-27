@@ -634,9 +634,10 @@
         data.data5 = data5;
 
         console.log(data, 'Data---->')
-        document.getElementById("myForm").reset();
         $("#ele_form").addClass("hide");
         $("#submit_form").addClass("show");
+        console.log('---------')
+        document.getElementById("myForm").reset();
         window.parent.postMessage(JSON.stringify({
           event_code: 'elektronik_submit',
           data: data
