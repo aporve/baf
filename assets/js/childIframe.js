@@ -17,6 +17,14 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
+  if (parsedEventData.event_code === "jangkaWaktu") {
+    console.log('data childIframe', parsedEventData.data)
+    parent.postMessage(JSON.stringify({
+      event_code: 'jangkaWaktu-user-input',
+      data: parsedEventData.data
+    }), '*');
+  }
+
 
   if (parsedEventData.event_code === "custom-parent-client-event" && parsedEventData.data) {
     console.log('cloud data---->', parsedEventData.data)

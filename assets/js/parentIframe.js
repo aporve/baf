@@ -37,6 +37,17 @@ window.addEventListener('message', function (eventData) {
       return;
     }
 
+    if (parsedData?.event_code == 'jangkaWaktu-user-input') {
+      console.log("\n\n\n <--- Submited Details parent ---> \n\n\n", parsedData);
+      window.frames.ymIframe.chat.send({
+        event: {
+          code: "jangkaWaktu",
+          data: parsedData
+        }
+      }, true);
+      return;
+    }
+
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "testEvent") {
       console.log("\n\n\n <--- Aall data Parent  ---> \n\n\n", parsedData);
