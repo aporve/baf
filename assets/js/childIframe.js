@@ -17,10 +17,10 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
-  if (parsedEventData.event_code === "jangkaWaktu") {
+  if (parsedEventData.event_code === "jangkaWaktu-parentIframe") {
     console.log('data childIframe', parsedEventData.data)
     parent.postMessage(JSON.stringify({
-      event_code: 'jangkaWaktu-user-input',
+      event_code: 'jangkaWaktu-childIframe',
       data: parsedEventData.data
     }), '*');
   }

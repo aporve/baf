@@ -72,7 +72,7 @@ window.addEventListener('message', function (eventData) {
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "jangkaWaktu") {
       console.log("\n\n\n <--- pilihMerk  ---> \n\n\n", parsedData);
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
-        event_code: 'jangkaWaktu',
+        event_code: 'jangkaWaktu-parentIframe',
         data: parsedData.data.data
       }), '*');
       return;
