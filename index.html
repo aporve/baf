@@ -88,7 +88,14 @@
     </div>
 
     <div class="ele_form submit_Form hide" id="submit_form">
-      <h3>Estimasi Cicilan Bulanan Anda</h3>
+      <h2>Estimasi Cicilan Bulanan Anda</h2>
+      <div class="calculationAmount"></div>
+      <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami
+        akan menghubungi Anda.</p>
+      <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold;" onclick="">Ajukan
+        Sekarang</button>
+
+      <!-- <h3>Estimasi Cicilan Bulanan Anda</h3>
       <div class="price">
         <h1>Rp. 2,110,000/ Bulan</h1>
       </div>
@@ -97,9 +104,9 @@
       <div class="submit_div">
         <button type="submit" class="submit" onclick="myFunction('AjukanSekarang')" disabled>Hitung
           Cicilan
-          Anda</button>
-      </div>
+          Anda</button> -->
     </div>
+  </div>
   </div>
 
   <div class="main-container2">
@@ -634,8 +641,9 @@
         data.data5 = data5;
 
         console.log(data, 'Data---->')
+        $("#ele_form").classList.remove("show");
+        $("#submit_form").classList.remove("hide");
         $("#ele_form").addClass("hide");
-        // $("#ele_form").css("display", "none !important")
         $("#submit_form").addClass("show");
         console.log('---------')
         document.getElementById("myForm").reset();
