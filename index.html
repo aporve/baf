@@ -443,7 +443,7 @@
       if (parsedEventData.event_code === "jangkaWaktu") {
         console.log('jangkaWaktu')
         console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-        console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+        console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
         let data = parsedEventData.data;
         console.log('data------>', data)
         // for (let i = 0; i < data.length; i++) {
@@ -610,6 +610,7 @@
       // jangkaWaktu
       if (inputData !== '' || inputData !== null) {
         console.log('Data is there');
+        document.getElementById("eleForm3").disabled = false;
         window.parent.postMessage(JSON.stringify({
           event_code: 'jangkaWaktu',
           data: inputData
