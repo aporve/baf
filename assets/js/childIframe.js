@@ -42,4 +42,12 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
+  if (parsedEventData.event_code === "jangkaWaktu" && parsedEventData.data) {
+    console.log('jangkaWaktu childIframe---->', parsedEventData.data)
+    document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
+      event_code: 'jangkaWaktu',
+      data: parsedEventData.data
+    }), '*');
+  }
+
 });

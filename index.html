@@ -86,7 +86,7 @@
       </form>
     </div>
   </div>
-  
+
   <div class="main-container2">
 
     <div class="container hide" id="dana_syariah">
@@ -345,8 +345,10 @@
       <div style="text-align: center">
         <h2>Estimasi Cicilan Bulanan Anda</h2>
         <div class="calculationAmount"></div>
-        <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami akan menghubungi Anda.</p>
-        <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold;" onclick="">Ajukan Sekarang</button>
+        <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami
+          akan menghubungi Anda.</p>
+        <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold;" onclick="">Ajukan
+          Sekarang</button>
 
       </div>
     </div>
@@ -430,6 +432,44 @@
         document.getElementById("eleForm2").disabled = false;
         document.getElementById("eleForm3").disabled = false;
         document.getElementById("eleForm2").innerHTML = str;
+
+        descr = []
+        codes = []
+        newData = []
+        str = ''
+      }
+
+
+      if (parsedEventData.event_code === "jangkaWaktu") {
+        console.log('jangkaWaktu')
+        console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
+        console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+        let data = parsedEventData.data;
+        console.log('data------>', data)
+        // for (let i = 0; i < data.length; i++) {
+        //   let id = data[i].Descr;
+        //   let code = data[i].Code;
+        //   console.log('id--->', id)
+        //   console.log('code-->', code)
+
+        //   if (id !== '') {
+        //     newData.push({ "descr": id, "code": code });
+        //   }
+        // }
+
+        // for (var item of newData) {
+        //   console.log('Items->', item)
+        //   console.log('Data from array of objects-->', item.descr)
+        //   str += `<option value=${item.code}>${item.descr}</option>`
+        // }
+        // document.getElementById("eleForm2").disabled = false;
+        // document.getElementById("eleForm3").disabled = false;
+        // document.getElementById("eleForm2").innerHTML = str;
+
+        // descr = []
+        // codes = []
+        // newData = []
+        // str = ''
       }
 
     });
@@ -473,16 +513,16 @@
       price = parseInt(price.replace(/,/g, ""))
       let installmentCalc = 0
       if (name === 'mobil_baru' || name === 'motor_baru') {
-          const downpaymentAmount = price * Number(dp)
-          const installmentCode = installment.split('^')
-          const installmentDuration = Number(installmentCode[0])
-          const rate = Number(installmentCode[1])
-          installmentCalc = Math.round(((price - downpaymentAmount) * (1 + rate)) / installmentDuration)
+        const downpaymentAmount = price * Number(dp)
+        const installmentCode = installment.split('^')
+        const installmentDuration = Number(installmentCode[0])
+        const rate = Number(installmentCode[1])
+        installmentCalc = Math.round(((price - downpaymentAmount) * (1 + rate)) / installmentDuration)
       } else if (name === 'dana_syariah') {
-          const installmentCode = installment.split('^')
-          const installmentDuration = Number(installmentCode[0])
-          const rate = Number(installmentCode[1])
-          installmentCalc = Math.round((price * (1 + rate)) / installmentDuration)
+        const installmentCode = installment.split('^')
+        const installmentDuration = Number(installmentCode[0])
+        const rate = Number(installmentCode[1])
+        installmentCalc = Math.round((price * (1 + rate)) / installmentDuration)
       }
 
       console.log(installmentCalc, "installmentCalc")
@@ -499,34 +539,34 @@
       event.preventDefault();
       console.log('submit')
 
-      if(name == 'dana_syariah') {
+      if (name == 'dana_syariah') {
         // Retrieve the data from the 'dana_syariah' form
         const danaForm = document.getElementById("dana_syariah");
         const danaJumlahPinjaman = danaForm.querySelector("#eleForm8").value;
         const danaJangkaWaktu = danaForm.querySelector("#eleForm9").value;
 
-        calculate(name, danaJumlahPinjaman, danaJangkaWaktu );
+        calculate(name, danaJumlahPinjaman, danaJangkaWaktu);
       }
 
-      if(name == 'mobil_baru') {
+      if (name == 'mobil_baru') {
         // Retrieve the data from the 'mobil_baru' form
         const mobilForm = document.getElementById("mobil_baru");
         const mobilHargaMobil = mobilForm.querySelector("#eleForm11").value;
         const mobilJangkaWaktu = mobilForm.querySelector("#eleForm12").value;
         const mobilUangMuka = mobilForm.querySelector("#eleForm13").value;
 
-        calculate(name, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka );
+        calculate(name, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
       }
-      
-      
-      if(name == 'motor_baru') {
+
+
+      if (name == 'motor_baru') {
         // Retrieve the data from the 'motor_baru' form
         const motorForm = document.getElementById("motor_baru");
         const motorPrice = motorForm.querySelector("#eleForm15").value;
         const motorJangkaWaktu = motorForm.querySelector("#eleForm16").value;
         const motorUangMuka = motorForm.querySelector("#eleForm17").value;
 
-        calculate(name, motorPrice, motorJangkaWaktu, motorUangMuka );
+        calculate(name, motorPrice, motorJangkaWaktu, motorUangMuka);
       }
 
       let data = {}
