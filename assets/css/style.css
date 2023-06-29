@@ -38,12 +38,20 @@ body {
   border: 1px solid gray;
   border-radius: 2%;
   box-shadow: 0 0 7px #4e4d4d;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.tnc {
+  display: inline;
 }
 
 .submit_Form {
   background-color: #002f5f;
   color: #fff;
 }
+
+
 
 .submit_Form .price {
   width: 80%;

@@ -94,26 +94,271 @@
         <div class="calculationAmount">Rp. 2,110,000/ Bulan</div>
         <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami
           akan menghubungi Anda.</p>
-        <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold;">Ajukan
+        <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold;"
+          onclick="showDetailForm()">Ajukan
           Sekarang</button>
 
       </div>
     </div>
 
-    <!-- <div class="ele_form submit_Form hide" id="submit_form">
+    <div class="ele_form hide" id="ele_form_details">
+      <form action="#" class="form">
 
-      <h3>Estimasi Cicilan Bulanan Anda</h3>
-      <div class="price">
-        <h1>Rp. 2,110,000/ Bulan</h1>
-      </div>
+        <div class="mb-2">
+          <label for="Nama Lengkap">Nama Lengkap</label>
+          <div>
+            <input type="text" id="eleDetail1">
+          </div>
+        </div>
 
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At magni, dolorem placeat eum in quia!</p>
-      <div class="submit_div">
-        <button type="submit" class="submit" onclick="myFunction('AjukanSekarang')" disabled>Hitung
-          Cicilan
-          Anda</button>
-      </div>
-    </div> -->
+        <div class="mb-2">
+          <label for="Email">Email</label>
+          <div>
+            <input type="text" id="eleDetail2">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Tanggal Lahir">Tanggal Lahir</label>
+          <div>
+            <input type="date" id="eleDetail3" name="Tanggal Lahir">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Nomor Handphone">Nomor Handphone</label>
+          <div>
+            <input type="number" id="eleDetail4">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Alamat">Alamat</label>
+          <div class="">
+            <textarea id="w3review" name="eleDetails5" rows="4" cols="50"></textarea>
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Kota Tinggal">Kota Tinggal</label>
+          <div>
+            <input type="text" id="eleDetail6">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Jota Pos">Jota Pos</label>
+          <div>
+            <input type="text" id="eleDetail7">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Tipe Pengajuan">Tipe Pengajuan</label>
+          <div>
+            <input type="text" id="eleDetail8">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="kode Promo">kode Promo</label>
+          <div>
+            <input type="text" id="eleDetail9">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <label for="Kode Referensi">Kode Referensi</label>
+          <div>
+            <input type="text" id="eleDetail10">
+          </div>
+        </div>
+
+        <div class="mb-2">
+          <input type="checkbox" id="eleDetail11" name="saya" value="saya1">
+          <label class="tnc" for="saya">Saya setuju dan bersedia menerima Informasi dari Bussan Auto
+            Finance dan rekanan dari Bussan
+            Auto Finance</label><br>
+        </div>
+
+        <div class="mb-2">
+          <input type="checkbox" id="eleDetail12" name="syarat" value="Bike">
+          <label class="tnc" for="syarat">Saya setuju dengan <a data-toggle="modal"
+              data-target="#exampleModalLong">Syarat dan Ketentuan Bussan Auto Finance</a>
+          </label><br>
+        </div>
+
+
+
+
+
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+          Launch demo modal
+        </button> -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+          aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header submit_Form" style="text-align: center;">
+                <h5 style="font-size: 3rem;" class="modal-title" id="exampleModalLongTitle">Syarat dan Ketentuan Website
+                </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Dimohon untuk membaca ketentuan penggunaan dengan seksama, dengan menggunakan website ini, Anda setuju
+                untuk mengikuti peraturan PT. Bussan Auto Finance yang telah ditetapkan.
+                <br><br>
+                <b>Batasan Pengunaan Produk</b>
+                <br><br>
+                Website PT. Bussan Auto Finance dibuat oleh PT. Bussan Auto Finance. Seluruh isi dari website PT. Bussan
+                Auto Finance berada di bawah lindungan hukum hak cipta. Pengguna dapat mengunduh materi untuk
+                kepentingan non-komersial. Dilarang menyalin, mendistribusikan kembali, atau mempublikasi bagian mana
+                pun dari website ini.
+                <br><br>
+                <b>Kepatuhan</b>
+                <br><br>
+                Dengan mengirimkan konten ke website PT. Bussan Auto Finance ini, secara otomatis Anda telah mengizinkan
+                PT. Bussan Auto Finance atau menjamin bahwa pemilik konten tersebut telah membolehkan PT. Bussan Auto
+                Finance, secara bebas royalti, berkelanjutan, tidak dapat dibatalkan, hak dan lisensi non-eksklusif
+                untuk menggunakan, mereproduksi, memodifikasi, mengadaptasi, menerbitkan, menerjemahkan dan
+                mendistribusikan konten (secara keseluruhan atau sebagian) ke seluruh dunia dan/atau untuk memasukkannya
+                ke dalam karya-karya lain dalam bentuk apapun, media atau teknologi yang sekarang dikenal atau
+                selanjutnya dikembangkan untuk ketentuan penuh dari hak cipta yang mungkin ada dalam konten tersebut.
+                Anda menjamin bahwa Anda pemilik materi yang Anda kirim dan bahwa materi tersebut tidak melanggar hak
+                cipta yang dimiliki orang lain. Anda juga mengizinkan pihak lain untuk mengakses, melihat, menyimpan
+                atau memperbanyak konten untuk penggunaan pribadi. Sesuai dengan izin ini, pemilik konten yang terdapat
+                dalam website ini memiliki setiap dan semua hak yang mungkin ada dalam konten tersebut PT. Bussan Auto
+                Finance tidak berkewajiban untuk menggunakan materi yang Anda kirimkan dan berhak untuk tidak
+                menggunakan materi yang sekiranya tidak layak, dengan mengirimkan materi atau bentuk yang berisi nama,
+                alamat dan/atau alamat email, Anda mengetahui bahwa nama, alamat dan/atau alamat e-mail Anda dapat
+                ditempatkan pada satu atau lebih mailing list PT. Bussan Auto Finance.
+                <br><br>
+                <b>Penggantian Rugi</b>
+                <br><br>
+                Website PT. Bussan Auto Finance dibuat oleh PT. Bussan Auto Finance. Seluruh isi dari website PT. Bussan
+                Auto Finance berada di bawah lindungan hukum hak cipta. Pengguna dapat mengunduh materi untuk
+                kepentingan non-komersial. Dilarang menyalin, mendistribusikan kembali, atau mempublikasi bagian mana
+                pun dari website ini.
+                <br><br>
+                <b>Batas Kewajiban</b>
+                <br><br>
+                PT. Bussan Auto Finance tidak mewakili atau menjamin bahwa website PT. Bussan Auto Finance ini akan
+                dapat diakses atau tersedia secara tepat waktu, atau bahwa akses ke website ini tidak akan terganggu
+                atau bebas dari kesalahan. Website ini didistribusikan dengan basis "sebagaimana adanya”, tanpa jaminan
+                apapun, baik tersurat maupun tersirat, termasuk namun tidak terbatas pada jaminan hak atau jaminan
+                tersirat tentang perjualbelian atau kecocokan untuk tujuan tertentu. PT. Bussan Auto Finance (baik
+                perusahaan induk maupun afiliasi, atau petugas, direktur, karyawan, agen, perwakilan, penyedia informasi
+                atau lisensor) tidak bertanggung jawab terhadap kerugian apapun, baik secara langsung, tidak langsung,
+                insidental, khusus, konsekuensial, hukuman atau kerugian lainnya (terlepas dari bentuk tindakan), dengan
+                pengecualian bahwa perusahaan yang terkait dengan PT. Bussan Auto Finance dan produk PT. Bussan Auto
+                Finance, PT. Bussan Auto Finance tidak terafiliasi atau terkait dengan sponsor dari website lain yang
+                ter-hyperlink ke atau dari website PT. Bussan Auto Finance, serta tidak mensponsori konten yang ada di
+                website lain.
+                <br><br>
+                <b>Informasi Tambahan</b>
+                <br><br>
+                Semua produk, material dan informasi PT. Bussan Auto Finance yang terdapat di website ini ditujukan
+                untuk konsumen Indonesia, untuk informasi tentang produk di negara lain, silahkan mengunjungi website
+                khusus untuk negara tersebut. Produk spesifik PT. Bussan Auto Finance yang terdapat dalam website ini
+                mungkin tidak tersedia untuk didistribusikan atau dijual di luar Indonesia.
+                Persyaratan Penggunaan PT. Bussan Auto Finance
+                PT. Bussan Auto Finance, Penyedia layanan resmi, menyediakan website PT. Bussan Auto Finance sebagai
+                infrastruktur online bagi para orangtua untuk bertukar pikiran, pandangan, informasi serta opini.
+                Infrastruktur ini disediakan pada website yang dikenal sebagai Bussan Auto Finance -Pembiayaan Kredit
+                Motor Yamaha Penggunaan atau akses ke website PT. Bussan Auto Finance dianggap sebagai persetujuan dari
+                persyaratan dan ketentuan di bawah ini:
+                <br><br>
+                <b>Konten:</b>
+                <br><br>
+                1. Konten dalam website PT. Bussan Auto Finance yang ditempatkan oleh member adalah pandangan dan opini
+                dari setiap member dan tidak mewakili pandangan, opini atau mengatasnamakan Penyedia Layanan. Penyedia
+                Layanan hanya menyediakan website PT. Bussan Auto Finance sebagai infrastruktur untuk wacana publik dan
+                tidak membuat pernyataan terhadap keakuratan dan ketepatan informasi atau pendapat yang ditetapkan atau
+                dibagikan dalam forum.<br><br>
+                2. Pengguna dari website PT. Bussan Auto Finance mengetahui bahwa informasi yang ditetapkan atau
+                dibagikan<br><br>
+                pada forum tidak ditujukan untuk menggantikan saran yang dianjurkan para profesional. Pengguna harus
+                berhati-hati ketika menggunakan informasi tersebut dan harus selalu berkonsultasi dan mendapatkan saran
+                dari para profesional sebelum melakukan tindakan dari informasi manapun.
+                3. Penyedia Layanan tidak bertanggungjawab atas informasi atau pandangan yang diberikan di website PT.
+                Bussan Auto Finance.<br><br>
+                4. Penyedia Layanan tidak membuat jaminan tersurat maupun tersirat untuk kualitas, ruang lingkup,
+                akurasi<br><br>
+                atau validitas informasi, pandangan atau opini yang disediakan termasuk namun tidak terbatas pada
+                layanan internet, hubungan komunikasi dan file untuk diunduh. Penyedia Layanan juga tidak dapat dan
+                tidak menjamin bahwa isi, link online, file dan fungsi akan bebas dari infeksi virus dan properti
+                lainnya yang mencemarkan atau bersifat merusak.<br><br>
+                5. Anggota PT. Bussan Auto Finance tidak diperkenankan memberikan informasi atau komentar yang
+                menyinggung<br><br>
+                SARA (Suku, Agama, Ras & Antar Golongan), serta harus bebas dari unsur pornografi.
+                6. Anggota PT. Bussan Auto Finance tidak diperkenankan menuliskan komentar yang tidak pantas,
+                menyinggung,
+                melecehkan, dan menghujat tim admin dan sesama anggota dari Fan Page PT. Bussan Auto Finance.<br><br>
+                7. Anggota PT. Bussan Auto Finance tidak diperkenankan menggunakan Fan Page PT. Bussan Auto Finance
+                untuk
+                kepentingan promosi/ MLM/ memasarkan produk / Fan Page lain, atau kegiatan politik & kampanye tertentu
+                8. kecuali dengan ijin tertulis dari PT. Bussan Auto Finance sebelumnya.<br><br>
+                Para anggota PT. Bussan Auto Finance harus saling menghormati sesama dengan tidak memancing konflik atau
+                perdebatan, serta dan diharapkan untuk selalu menggunakan bahasa yang santun.<br><br>
+                9. Semua peraturan ini berlaku untuk setiap aktivitas di PT. Bussan Auto Finance. Aktivitas yang
+                dimaksud
+                antara lain adalah: Diskusi, Comment, Photo, Notes dan segala bentuk pemberian informasi yang dilakukan
+                oleh anggota di website PT. Bussan Auto Finance. <br>
+                Pihak admin website PT. Bussan Auto Finance berhak untuk langsung menghapus segala bentuk pemberian
+                informasi di Fan Page PT. Bussan Auto Finance yang melanggar poin-poin di atas tanpa pemberitahuan
+                sebelumnya.
+                Etiket Online
+                Saat menggunakan website PT. Bussan Auto Finance, pengguna setuju untuk berperilaku sewajarnya dan
+                secara bertanggungjawab, menghormati, tidak berlaku kasar atau memberikan komentar yang menghina para
+                pengguna lain. Penyedia Layanan berhak untuk membatalkan akun pengguna dan/atau menghapus secara
+                permanen pengguna yang tidak mematuhi ketentuan penggunaan yang terkandung di website PT. Bussan Auto
+                Finance.
+                Hak Editorial
+                PT. Bussan Auto Finance, dengan kebijakannya sendiri, berhak untuk memperbaiki atau menghapus posting
+                tanpa pemberitahuan atau penjelasan sebelumnya.
+                Hak Kekayaan Intelektual dan Hak Cipta
+                Penyedia Layanan memiliki semua hak kepemilikan atas kekayaan intelektual yang terkandung dalam website
+                PT. Bussan Auto Finance dan memiliki hak cipta dari semua isi konten tersebut.
+                Syarat Penggunaan
+                Pengguna setuju bahwa sementara ketelitian serta kehati-hatian telah dilakukan dalam menyediakan dan
+                memelihara website PT. Bussan Auto Finance, Penyedia Layanan melepaskan tanggung jawab atas konten atau
+                informasi yang diberikan oleh pengguna di website PT. Bussan Auto Finance. Penyedia Layanan tidak
+                bertanggungjawab baik secara langsung, tidak langsung, insidental, konsekuensial atau kerugian hukum
+                yang timbul dari akses, ketergantungan pada, tindakan karena, atau ketidakmampuan untuk menggunakan
+                website PT. Bussan Auto Finance, atau juga ketidakakuratan, kesalahan pernyataan, kesalahan, atau
+                kelalaian dalam konten tersebut. Tidak ada member, pengguna atau pihak ketiga yang berwenang untuk
+                membuat pernyataan, pendapat atau kontribusi apapun atas nama Penyedia Layanan. Penyedia Layanan berhak
+                untuk meninjau dan mengubah ketentuan penggunaan ini dari waktu ke waktu, tanpa pemberitahuan tertulis
+                sebelumnya. Pengguna dianggap telah menerima ketentuan penggunaan ini dan semua revisi serta
+                modifikasinya, jika ada, untuk melanjutkan akses atau penggunaan website PT. Bussan Auto Finance.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="submit_div">
+          <button type="submit" id="submit_elektronik_details" class="submit" onclick="myFunction('elektronik')"
+            disabled>Hitung
+            Cicilan Anda</button>
+        </div>
+
+      </form>
+    </div>
+
   </div>
 
   <div class="main-container2">
@@ -690,7 +935,12 @@
       }
     }
 
-
+    function showDetailForm() {
+      $("#submit_form").removeClass("show");
+      $("#submit_form").addClass("hide");
+      $("#sele_form_details").removeClass("hide");
+      $("#sele_form_details").addClass("show");
+    }
 
 
 
