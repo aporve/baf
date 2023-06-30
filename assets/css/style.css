@@ -220,6 +220,15 @@ body {
   font-size: 30px;
 }
 
+.w80 {
+  width: 90%;
+}
+
+.bg-white {
+  background: #fff;
+  color: #002f5f;
+}
+
 .show {
   display: block;
 }

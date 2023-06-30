@@ -18,7 +18,7 @@
 
   <div class="main-container">
 
-    <div class="cards" id="cards">
+    <div class="cards hide" id="cards">
       <div class="card_1" onclick="nextStep1()">
         <img src="./assets/image/svg/new-mp-home.svg" alt="">
       </div>
@@ -107,70 +107,70 @@
         <div class="mb-2">
           <label for="Nama Lengkap">Nama Lengkap</label>
           <div>
-            <input type="text" id="eleDetail1">
+            <input class="w80" type="text" id="eleDetail1">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Email">Email</label>
           <div>
-            <input type="text" id="eleDetail2">
+            <input class="w80" type="text" id="eleDetail2">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Tanggal Lahir">Tanggal Lahir</label>
           <div>
-            <input type="date" id="eleDetail3" name="Tanggal Lahir">
+            <input class="w80" type="date" id="eleDetail3" name="Tanggal Lahir">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Nomor Handphone">Nomor Handphone</label>
           <div>
-            <input type="number" id="eleDetail4">
+            <input class="w80" type="number" id="eleDetail4">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Alamat">Alamat</label>
           <div class="">
-            <textarea id="w3review" name="eleDetails5" rows="4" cols="50"></textarea>
+            <textarea class="w80" id="w3review" name="eleDetails5" rows="4" cols="30"></textarea>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Kota Tinggal">Kota Tinggal</label>
           <div>
-            <input type="text" id="eleDetail6">
+            <input class="w80" type="text" id="eleDetail6">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Jota Pos">Jota Pos</label>
           <div>
-            <input type="text" id="eleDetail7">
+            <input class="w80" type="text" id="eleDetail7">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Tipe Pengajuan">Tipe Pengajuan</label>
           <div>
-            <input type="text" id="eleDetail8">
+            <input class="w80" type="text" id="eleDetail8">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="kode Promo">kode Promo</label>
           <div>
-            <input type="text" id="eleDetail9">
+            <input class="w80" type="text" id="eleDetail9">
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Kode Referensi">Kode Referensi</label>
           <div>
-            <input type="text" id="eleDetail10">
+            <input class="w80" type="text" id="eleDetail10">
           </div>
         </div>
 
@@ -196,7 +196,7 @@
               <div class="modal-header submit_Form" style="text-align: center;">
                 <h5 style="font-size: 3rem;" class="modal-title" id="exampleModalLongTitle">Syarat dan Ketentuan Website
                 </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button style="display: none;" type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
@@ -330,7 +330,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                <button style="display: none;" type="button" class="btn btn-primary">Save changes</button>
               </div>
             </div>
           </div>
@@ -350,6 +350,19 @@
 
       </form>
     </div>
+
+    <div class="container calculation bg-white hide" id="success_popup">
+      <div style="text-align: center">
+        <img style="width: 50%;" src="./assets/image/svg/baf.png" alt="">
+        <h2>Terima Kasih</h2>
+
+        <p>Kami telah menerima pengajuan pendanaan Mobil Daihatsu Anda.Tim kami akan menghubungi Anda untuk proses lebih
+          lanjut. </p>
+      </div>
+    </div>
+
+
+
 
   </div>
 
