@@ -912,7 +912,7 @@
 
         console.log('--here--')
         let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2;
-        let data = {}
+        let ele_data = {}
 
         name = $("#eleDetail1").val();
         email = $("#eleDetail2").val();
@@ -931,18 +931,18 @@
         saya1 = $("#eleDetail11").prop("checked")
         saya2 = $("#eleDetail12").prop("checked")
 
-        data.name = name;
-        data.email = email;
-        data.Tanggal = Tanggal;
-        data.Nomor = Nomor;
-        data.Alamat = Alamat;
-        data.Kota = Kota;
-        data.Jota = Jota;
-        data.Tipe = Tipe;
-        data.kodePromo = kodePromo;
-        data.KodeReferensi = KodeReferensi;
-        data.saya1 = saya1;
-        data.saya2 = saya2;
+        ele_data.name = name;
+        ele_data.email = email;
+        ele_data.Tanggal = Tanggal;
+        ele_data.Nomor = Nomor;
+        ele_data.Alamat = Alamat;
+        ele_data.Kota = Kota;
+        ele_data.Jota = Jota;
+        ele_data.Tipe = Tipe;
+        ele_data.kodePromo = kodePromo;
+        ele_data.KodeReferensi = KodeReferensi;
+        ele_data.saya1 = saya1;
+        ele_data.saya2 = saya2;
 
         console.log('data---> ', data)
         console.log(typeof (saya1))
@@ -950,7 +950,7 @@
           console.log('In Validator Data---', data);
           window.parent.postMessage(JSON.stringify({
             event_code: 'ele_nextForm',
-            data: data
+            data: ele_data
           }), '*');
         }
 
