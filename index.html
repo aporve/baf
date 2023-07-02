@@ -18,7 +18,7 @@
 
   <div class="main-container">
 
-    <div class="cards" id="cards">
+    <div class="cards hide" id="cards">
       <div class="card_1" onclick="nextStep1()">
         <img src="./assets/image/svg/new-mp-home.svg" alt="">
       </div>
@@ -101,7 +101,7 @@
       </div>
     </div>
 
-    <div class="ele_form hide" id="ele_form_details">
+    <div class="ele_form" id="ele_form_details">
       <form action="#" class="form">
 
         <div class="mb-2">
@@ -114,7 +114,7 @@
         <div class="mb-2">
           <label for="Email">Email</label>
           <div>
-            <input class="w80" type="text" id="eleDetail2">
+            <input class="w80" type="email" id="eleDetail2">
           </div>
         </div>
 
@@ -182,7 +182,7 @@
         </div>
 
         <div class="mb-2">
-          <input type="checkbox" id="eleDetail12" name="syarat" value="Bike">
+          <input type="checkbox" id="eleDetail12" name="syarat" value="saya2">
           <label class="tnc" for="syarat">Saya setuju dengan <a data-toggle="modal"
               data-target="#exampleModalLong">Syarat dan Ketentuan Bussan Auto Finance</a>
           </label><br>
@@ -337,14 +337,9 @@
         </div>
 
 
-
-
-
-
-
         <div class="submit_div">
-          <button type="submit" id="submit_elektronik_details" class="submit" onclick="myFunction('elektronik')"
-            disabled>Hitung
+          <button type="submit" id="submit_elektronik_details" class="submit"
+            onclick="myFunction('ele_nextForm')">Hitung
             Cicilan Anda</button>
         </div>
 
@@ -910,6 +905,38 @@
           event_code: 'elektronik_submit',
           data: data
         }), '*');
+      }
+
+      if (name == 'ele_nextForm') {
+        $("#ele_form_details").removeClass("show");
+        $("#ele_form_details").removeClass("hide");
+        $("#success_popup").addClass("hide");
+        $("#success_popup").addClass("show");
+
+        console.log('--here--')
+        let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2
+
+        name = $("#eleDetail1").val();
+        email = $("#eleDetail2").val();
+        Tanggal = $("#eleDetail3").val();
+        Nomor = $("#eleDetail4").val();
+        Alamat = $("#eleDetail5").val();
+        Kota = $("#eleDetail6").val();
+        Jota = $("#eleDetail7").val();
+        Tipe = $("#eleDetail8").val();
+        kodePromo = $("#eleDetail9").val();
+        KodeReferensi = $("#eleDetail10").val();
+
+        console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${Jota} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
+        console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
+        saya1 = $("#eleDetail11").prop("checked")
+        saya2 = $("#eleDetail12").prop("checked")
+
+
+        if (name !== '' || email !== '' || Tanggal !== '' || Nomor !== '' || Alamat !== '' || Kota !== '' || Jota !== '' || Tipe !== '' || kodePromo !== '' || KodeReferensi !== '' || saya1 == 'true' || saya2 == 'true') {
+          document.getElementById("submit_elektronik_details").disabled = false;
+        }
+
       }
 
 
