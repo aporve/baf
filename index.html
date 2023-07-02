@@ -944,10 +944,10 @@
         ele_data.saya1 = saya1;
         ele_data.saya2 = saya2;
 
-        console.log('data---> ', data)
+        console.log('data---> ', ele_data)
         console.log(typeof (saya1))
         if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && kodePromo !== '' && KodeReferensi !== '' && saya1 == true && saya2 == true) {
-          console.log('In Validator Data---', data);
+          console.log('In Validator Data---', ele_data);
           window.parent.postMessage(JSON.stringify({
             event_code: 'ele_nextForm',
             data: ele_data
