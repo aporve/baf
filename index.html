@@ -18,7 +18,7 @@
 
   <div class="main-container">
 
-    <div class="cards hide" id="cards">
+    <div class="cards" id="cards">
       <div class="card_1" onclick="nextStep1()">
         <img src="./assets/image/svg/new-mp-home.svg" alt="">
       </div>
@@ -101,7 +101,7 @@
       </div>
     </div>
 
-    <div class="ele_form" id="ele_form_details">
+    <div class="ele_form hide" id="ele_form_details">
       <form action="#" class="form">
 
         <div class="mb-2">
@@ -135,7 +135,7 @@
         <div class="mb-2">
           <label for="Alamat">Alamat</label>
           <div class="">
-            <textarea class="w80" id="w3review" name="eleDetails5" rows="4" cols="30"></textarea>
+            <textarea class="w80" id="eleDetail5" name="eleDetail5" rows="4" cols="30"></textarea>
           </div>
         </div>
 
@@ -908,19 +908,18 @@
       }
 
       if (name == 'ele_nextForm') {
-        $("#ele_form_details").removeClass("show");
-        $("#ele_form_details").removeClass("hide");
-        $("#success_popup").addClass("hide");
-        $("#success_popup").addClass("show");
+
 
         console.log('--here--')
-        let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2
+        let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2;
+        let data = {}
 
         name = $("#eleDetail1").val();
         email = $("#eleDetail2").val();
         Tanggal = $("#eleDetail3").val();
         Nomor = $("#eleDetail4").val();
         Alamat = $("#eleDetail5").val();
+        // Alamat = document.getElementById("eleDetail5").value
         Kota = $("#eleDetail6").val();
         Jota = $("#eleDetail7").val();
         Tipe = $("#eleDetail8").val();
@@ -932,9 +931,27 @@
         saya1 = $("#eleDetail11").prop("checked")
         saya2 = $("#eleDetail12").prop("checked")
 
+        data.name = name;
+        data.email = email;
+        data.Tanggal = Tanggal;
+        data.Nomor = Nomor;
+        data.Alamat = Alamat;
+        data.Kota = Kota;
+        data.Jota = Jota;
+        data.Tipe = Tipe;
+        data.kodePromo = kodePromo;
+        data.KodeReferensi = KodeReferensi;
+        data.saya1 = saya1;
+        data.saya2 = saya2;
 
-        if (name !== '' || email !== '' || Tanggal !== '' || Nomor !== '' || Alamat !== '' || Kota !== '' || Jota !== '' || Tipe !== '' || kodePromo !== '' || KodeReferensi !== '' || saya1 == 'true' || saya2 == 'true') {
-          document.getElementById("submit_elektronik_details").disabled = false;
+        console.log('data---> ', data)
+        console.log(typeof (saya1))
+        if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && kodePromo !== '' && KodeReferensi !== '' && saya1 == true && saya2 == true) {
+          console.log('In Validator Data---', data);
+          window.parent.postMessage(JSON.stringify({
+            event_code: 'ele_nextForm',
+            data: data
+          }), '*');
         }
 
       }

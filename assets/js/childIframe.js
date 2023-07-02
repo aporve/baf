@@ -33,6 +33,14 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
+  if (parsedEventData.event_code === "ele_nextForm") {
+    console.log('data childIframe', parsedEventData.data)
+    parent.postMessage(JSON.stringify({
+      event_code: 'ele_nextForm',
+      data: parsedEventData.data
+    }), '*');
+  }
+
 
   if (parsedEventData.event_code === "custom-parent-client-event" && parsedEventData.data) {
     console.log('cloud data---->', parsedEventData.data)
