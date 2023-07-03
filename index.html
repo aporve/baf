@@ -782,7 +782,6 @@
     });
 
     function nextStep1() {
-      // console.log('nextStep')
       $("#cards").addClass("hide");
       $("#ele_form").addClass("show");
       window.parent.postMessage(JSON.stringify({
@@ -792,14 +791,12 @@
     }
 
     function nextStep2() {
-      // console.log('dana syariah step')
       $("#cards").addClass("hide");
       $(".main-container").addClass("hide");
       $("#dana_syariah").addClass("show");
     }
 
     function nextStep3() {
-      // console.log('mobil baru step')
       $("#cards").addClass("hide");
       $(".main-container").addClass("hide");
       $("#mobil_baru").addClass("show");
@@ -807,7 +804,6 @@
     }
 
     function nextStep4() {
-      // console.log('motor baru step')
       $("#cards").addClass("hide");
       $(".main-container").addClass("hide");
       $("#motor_baru").addClass("show");
@@ -815,7 +811,6 @@
     }
 
     function calculate(name, price, installment, dp = 0) {
-      console.log('calculating installment')
 
       price = parseInt(price.replace(/,/g, ""))
       let installmentCalc = 0
@@ -844,7 +839,6 @@
 
     function myFunction(name) {
       event.preventDefault();
-      // console.log('submit')
 
       if (name == 'dana_syariah') {
         // Retrieve the data from the 'dana_syariah' form
@@ -963,7 +957,6 @@
 
     function optionSelection() {
       let x = document.getElementById("eleForm1").value;
-      // console.log('x-->', x);
       window.parent.postMessage(JSON.stringify({
         event_code: 'custom-select-option-1',
         data: x
@@ -972,9 +965,7 @@
 
     function hargaFn() {
       let inputData = document.getElementById('eleForm3').value;
-      console.log('Input Data', inputData)
 
-      // jangkaWaktu
       if (inputData !== '' || inputData !== null) {
         console.log('Data is there');
         document.getElementById("eleForm4").disabled = false;
