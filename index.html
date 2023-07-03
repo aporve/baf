@@ -644,22 +644,22 @@
     let str;
 
     window.addEventListener('message', function (eventData) {
-      console.log('In INDEX.HTML')
-      const parsedEventData = JSON.parse(eventData.data)
-      console.log(parsedEventData, "parsedEventData");
+      // console.log('In INDEX.HTML')
+      // const parsedEventData = JSON.parse(eventData.data)
+      // console.log(parsedEventData, "parsedEventData");
       if (parsedEventData.event_code === "custom-child-client-event") {
-        console.log('Hard Log')
-        console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
-        console.log("data ---->", parsedEventData.data);
-        console.log("main data ---->", parsedEventData.data.data);
+        // console.log('Hard Log')
+        // console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
+        // console.log("data ---->", parsedEventData.data);
+        // console.log("main data ---->", parsedEventData.data.data);
         // let data = parsedEventData.data.data;
         let data = parsedEventData.data;
 
         for (let i = 0; i < data.length; i++) {
           let id = data[i].Descr;
           let code = data[i].Code;
-          console.log('id--->', id)
-          console.log('code-->', code)
+          // console.log('id--->', id)
+          // console.log('code-->', code)
 
           if (id !== '') {
             newData.push({ "descr": id, "code": code });
@@ -669,8 +669,8 @@
         }
 
         for (var item of newData) {
-          console.log('Items->', item)
-          console.log('Data from array of objects-->', item.descr)
+          // console.log('Items->', item)
+          // console.log('Data from array of objects-->', item.descr)
           str += `<option value=${item.code}>${item.descr}</option>`
           // str += "<option>" + item + "</option>"
         }
@@ -682,15 +682,15 @@
       }
 
       if (parsedEventData.event_code === "pilihMerk") {
-        console.log('Hard Log')
-        console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-        console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+        // console.log('Hard Log')
+        // console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
+        // console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
         let data = parsedEventData.data;
         for (let i = 0; i < data.length; i++) {
           let id = data[i].Descr;
           let code = data[i].Code;
-          console.log('id--->', id)
-          console.log('code-->', code)
+          // console.log('id--->', id)
+          // console.log('code-->', code)
 
           if (id !== '') {
             newData.push({ "descr": id, "code": code });
@@ -700,8 +700,8 @@
         }
 
         for (var item of newData) {
-          console.log('Items->', item)
-          console.log('Data from array of objects-->', item.descr)
+          // console.log('Items->', item)
+          // console.log('Data from array of objects-->', item.descr)
           str += `<option value=${item.code}>${item.descr}</option>`
           // str += "<option>" + item + "</option>"
         }
@@ -717,11 +717,11 @@
 
 
       if (parsedEventData.event_code === "jangkaWaktu-childIframe") {
-        console.log('jangkaWaktu')
-        console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-        console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+        // console.log('jangkaWaktu')
+        // console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
+        // console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
         let data = parsedEventData.data.result.Tenor;
-        console.log('data------>', data);
+        // console.log('data------>', data);
         for (let i = 0; i < data.length; i++) {
           let id = data[i];
           // let code = data[i].Code;
@@ -731,7 +731,7 @@
           if (id !== '') {
             num.push({ "id": id });
           }
-          console.log('num--->', num);
+          // console.log('num--->', num);
         }
 
         for (var item of num) {
@@ -760,14 +760,14 @@
           if (id !== '') {
             num.push({ "id": id });
           }
-          console.log('num--->', num);
+          // console.log('num--->', num);
         }
 
         for (var item of num) {
           console.log('Items->', item)
           str += `<option value=${item.id}>${item.id}</option>`
         }
-        console.log('---here---')
+        // console.log('---here---')
         document.getElementById("submit_elektronik").disabled = false;
         document.getElementById("eleForm5").innerHTML = str;
 
@@ -782,7 +782,7 @@
     });
 
     function nextStep1() {
-      console.log('nextStep')
+      // console.log('nextStep')
       $("#cards").addClass("hide");
       $("#ele_form").addClass("show");
       window.parent.postMessage(JSON.stringify({
@@ -792,14 +792,14 @@
     }
 
     function nextStep2() {
-      console.log('dana syariah step')
+      // console.log('dana syariah step')
       $("#cards").addClass("hide");
       $(".main-container").addClass("hide");
       $("#dana_syariah").addClass("show");
     }
 
     function nextStep3() {
-      console.log('mobil baru step')
+      // console.log('mobil baru step')
       $("#cards").addClass("hide");
       $(".main-container").addClass("hide");
       $("#mobil_baru").addClass("show");
@@ -807,7 +807,7 @@
     }
 
     function nextStep4() {
-      console.log('motor baru step')
+      // console.log('motor baru step')
       $("#cards").addClass("hide");
       $(".main-container").addClass("hide");
       $("#motor_baru").addClass("show");
@@ -877,7 +877,7 @@
       }
 
       if (name == 'elektronik') {
-        console.log('elektronik---')
+        // console.log('elektronik---')
         let data = {}
         let data1, data2, data3, data4, data5;
 
@@ -893,14 +893,14 @@
         data.data4 = data4;
         data.data5 = data5;
 
-        console.log(data, 'Data---->')
+        // console.log(data, 'Data---->')
         // $("#ele_form").classList.remove("show");
         // $("#submit_form").classList.remove("hide");
         $("#ele_form").removeClass("show");
         $("#submit_form").removeClass("hide");
         $("#ele_form").addClass("hide");
         $("#submit_form").addClass("show");
-        console.log('---------')
+        // console.log('---------')
         document.getElementById("myForm").reset();
         window.parent.postMessage(JSON.stringify({
           event_code: 'elektronik_submit',
@@ -911,7 +911,7 @@
       if (name == 'ele_nextForm') {
 
 
-        console.log('--here--')
+        // console.log('--here--')
         let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2;
         let ele_data = {}
 
@@ -927,8 +927,8 @@
         kodePromo = $("#eleDetail9").val();
         KodeReferensi = $("#eleDetail10").val();
 
-        console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${Jota} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
-        console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
+        // console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${Jota} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
+        // console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
         saya1 = $("#eleDetail11").prop("checked")
         saya2 = $("#eleDetail12").prop("checked")
 
@@ -948,7 +948,7 @@
         console.log('data---> ', ele_data)
         console.log(typeof (saya1))
         if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && kodePromo !== '' && KodeReferensi !== '' && saya1 == true && saya2 == true) {
-          console.log('In Validator Data---', ele_data);
+          // console.log('In Validator Data---', ele_data);
           window.parent.postMessage(JSON.stringify({
             event_code: 'ele_nextForm',
             data: ele_data
@@ -963,7 +963,7 @@
 
     function optionSelection() {
       let x = document.getElementById("eleForm1").value;
-      console.log('x-->', x);
+      // console.log('x-->', x);
       window.parent.postMessage(JSON.stringify({
         event_code: 'custom-select-option-1',
         data: x
