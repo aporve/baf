@@ -645,7 +645,7 @@
 
     window.addEventListener('message', function (eventData) {
       // console.log('In INDEX.HTML')
-      // const parsedEventData = JSON.parse(eventData.data)
+      const parsedEventData = JSON.parse(eventData.data)
       // console.log(parsedEventData, "parsedEventData");
       if (parsedEventData.event_code === "custom-child-client-event") {
         // console.log('Hard Log')
