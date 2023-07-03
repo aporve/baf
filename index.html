@@ -735,10 +735,10 @@
         }
 
         for (var item of num) {
-          console.log('Items->', item)
+          // console.log('Items->', item)
           str += `<option value=${item.id}>${item.id}</option>`
         }
-        console.log('---here---')
+        // console.log('---here---')
         document.getElementById("eleForm5").disabled = false;
         document.getElementById("submit_elektronik").disabled = false;
         document.getElementById("eleForm4").innerHTML = str;
@@ -750,7 +750,7 @@
         str = ''
 
         data = parsedEventData.data.result.DP;
-        console.log('data------>', data);
+        // console.log('data------>', data);
         for (let i = 0; i < data.length; i++) {
           let id = data[i];
           // let code = data[i].Code;
@@ -764,7 +764,7 @@
         }
 
         for (var item of num) {
-          console.log('Items->', item)
+          // console.log('Items->', item)
           str += `<option value=${item.id}>${item.id}</option>`
         }
         // console.log('---here---')
@@ -844,7 +844,7 @@
 
     function myFunction(name) {
       event.preventDefault();
-      console.log('submit')
+      // console.log('submit')
 
       if (name == 'dana_syariah') {
         // Retrieve the data from the 'dana_syariah' form
