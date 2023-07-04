@@ -5,138 +5,139 @@ let num = []
 let str;
 
 window.addEventListener('message', function (eventData) {
-    console.log('In INDEX.HTML')
+    // console.log('In INDEX.HTML')
     const parsedEventData = JSON.parse(eventData.data)
-    console.log(parsedEventData, "parsedEventData");
+    // console.log(parsedEventData, "parsedEventData");
     if (parsedEventData.event_code === "custom-child-client-event") {
-    console.log('Hard Log')
-    console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    console.log("data ---->", parsedEventData.data);
-    console.log("main data ---->", parsedEventData.data.data);
-    let data = parsedEventData.data.data;
+      // console.log('Hard Log')
+      // console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
+      // console.log("data ---->", parsedEventData.data);
+      // console.log("main data ---->", parsedEventData.data.data);
+      // let data = parsedEventData.data.data;
+      let data = parsedEventData.data;
 
-    for (let i = 0; i < data.length; i++) {
+      for (let i = 0; i < data.length; i++) {
         let id = data[i].Descr;
         let code = data[i].Code;
-        console.log('id--->', id)
-        console.log('code-->', code)
+        // console.log('id--->', id)
+        // console.log('code-->', code)
 
         if (id !== '') {
-        newData.push({ "descr": id, "code": code });
-        // descr.push(id);
-        // codes.push(code);
+          newData.push({ "descr": id, "code": code });
+          // descr.push(id);
+          // codes.push(code);
         }
-    }
+      }
 
-    for (var item of newData) {
-        console.log('Items->', item)
-        console.log('Data from array of objects-->', item.descr)
+      for (var item of newData) {
+        // console.log('Items->', item)
+        // console.log('Data from array of objects-->', item.descr)
         str += `<option value=${item.code}>${item.descr}</option>`
         // str += "<option>" + item + "</option>"
-    }
-    document.getElementById("eleForm1").innerHTML = str;
-    descr = []
-    codes = []
-    newData = []
-    str = ''
+      }
+      document.getElementById("eleForm1").innerHTML = str;
+      descr = []
+      codes = []
+      newData = []
+      str = ''
     }
 
     if (parsedEventData.event_code === "pilihMerk") {
-    console.log('Hard Log')
-    console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
-    let data = parsedEventData.data;
-    for (let i = 0; i < data.length; i++) {
+      // console.log('Hard Log')
+      // console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
+      // console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+      let data = parsedEventData.data;
+      for (let i = 0; i < data.length; i++) {
         let id = data[i].Descr;
         let code = data[i].Code;
-        console.log('id--->', id)
-        console.log('code-->', code)
+        // console.log('id--->', id)
+        // console.log('code-->', code)
 
         if (id !== '') {
-        newData.push({ "descr": id, "code": code });
-        // descr.push(id);
-        // codes.push(code);
+          newData.push({ "descr": id, "code": code });
+          // descr.push(id);
+          // codes.push(code);
         }
-    }
+      }
 
-    for (var item of newData) {
-        console.log('Items->', item)
-        console.log('Data from array of objects-->', item.descr)
+      for (var item of newData) {
+        // console.log('Items->', item)
+        // console.log('Data from array of objects-->', item.descr)
         str += `<option value=${item.code}>${item.descr}</option>`
         // str += "<option>" + item + "</option>"
-    }
-    document.getElementById("eleForm2").disabled = false;
-    document.getElementById("eleForm3").disabled = false;
-    document.getElementById("eleForm2").innerHTML = str;
+      }
+      document.getElementById("eleForm2").disabled = false;
+      document.getElementById("eleForm3").disabled = false;
+      document.getElementById("eleForm2").innerHTML = str;
 
-    descr = []
-    codes = []
-    newData = []
-    str = ''
+      descr = []
+      codes = []
+      newData = []
+      str = ''
     }
 
 
     if (parsedEventData.event_code === "jangkaWaktu-childIframe") {
-    console.log('jangkaWaktu')
-    console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
-    let data = parsedEventData.data.result.Tenor;
-    console.log('data------>', data);
-    for (let i = 0; i < data.length; i++) {
+      // console.log('jangkaWaktu')
+      // console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
+      // console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+      let data = parsedEventData.data.result.Tenor;
+      // console.log('data------>', data);
+      for (let i = 0; i < data.length; i++) {
         let id = data[i];
         // let code = data[i].Code;
         // console.log('id--->', id)
         // console.log('code-->', code)
 
         if (id !== '') {
-        num.push({ "id": id });
+          num.push({ "id": id });
         }
-        console.log('num--->', num);
-    }
+        // console.log('num--->', num);
+      }
 
-    for (var item of num) {
-        console.log('Items->', item)
+      for (var item of num) {
+        // console.log('Items->', item)
         str += `<option value=${item.id}>${item.id}</option>`
-    }
-    console.log('---here---')
-    document.getElementById("eleForm5").disabled = false;
-    document.getElementById("submit_elektronik").disabled = false;
-    document.getElementById("eleForm4").innerHTML = str;
+      }
+      // console.log('---here---')
+      document.getElementById("eleForm5").disabled = false;
+      document.getElementById("submit_elektronik").disabled = false;
+      document.getElementById("eleForm4").innerHTML = str;
 
-    descr = []
-    codes = []
-    newData = []
-    num = []
-    str = ''
+      descr = []
+      codes = []
+      newData = []
+      num = []
+      str = ''
 
-    data = parsedEventData.data.result.DP;
-    console.log('data------>', data);
-    for (let i = 0; i < data.length; i++) {
+      data = parsedEventData.data.result.DP;
+      // console.log('data------>', data);
+      for (let i = 0; i < data.length; i++) {
         let id = data[i];
         // let code = data[i].Code;
         // console.log('id--->', id)
         // console.log('code-->', code)
 
         if (id !== '') {
-        num.push({ "id": id });
+          num.push({ "id": id });
         }
-        console.log('num--->', num);
-    }
+        // console.log('num--->', num);
+      }
 
-    for (var item of num) {
-        console.log('Items->', item)
+      for (var item of num) {
+        // console.log('Items->', item)
         str += `<option value=${item.id}>${item.id}</option>`
-    }
-    console.log('---here---')
-    document.getElementById("submit_elektronik").disabled = false;
-    document.getElementById("eleForm5").innerHTML = str;
+      }
+      // console.log('---here---')
+      document.getElementById("submit_elektronik").disabled = false;
+      document.getElementById("eleForm5").innerHTML = str;
 
-    descr = []
-    codes = []
-    newData = []
-    num = []
-    str = ''
-    // document.getElementById("eleForm6").disabled = false;
+      descr = []
+      codes = []
+      newData = []
+      num = []
+      str = ''
+      // document.getElementById("eleForm6").disabled = false;
     }
 
 });
@@ -272,87 +273,85 @@ function myFunction(name) {
     }
 
     if (name == 'elektronik') {
-    console.log('elektronik---')
-    let data = {}
-    let data1, data2, data3, data4, data5;
+        // console.log('elektronik---')
+        let data = {}
+        let data1, data2, data3, data4, data5;
 
-    data1 = document.getElementById("eleForm1").value;
-    data2 = document.getElementById("eleForm2").value;
-    data3 = document.getElementById("eleForm3").value;
-    data4 = document.getElementById("eleForm4").value;
-    data5 = document.getElementById("eleForm5").value;
+        data1 = document.getElementById("eleForm1").value;
+        data2 = document.getElementById("eleForm2").value;
+        data3 = document.getElementById("eleForm3").value;
+        data4 = document.getElementById("eleForm4").value;
+        data5 = document.getElementById("eleForm5").value;
 
-    data.data1 = data1;
-    data.data2 = data2;
-    data.data3 = data3;
-    data.data4 = data4;
-    data.data5 = data5;
+        data.data1 = data1;
+        data.data2 = data2;
+        data.data3 = data3;
+        data.data4 = data4;
+        data.data5 = data5;
 
-    console.log(data, 'Data---->')
-    // $("#ele_form").classList.remove("show");
-    // $("#submit_form").classList.remove("hide");
-    $("#ele_form").removeClass("show");
-    $("#submit_form").removeClass("hide");
-    $("#ele_form").addClass("hide");
-    $("#submit_form").addClass("show");
-    console.log('---------')
-    document.getElementById("myForm").reset();
-    window.parent.postMessage(JSON.stringify({
-        event_code: 'elektronik_submit',
-        data: data
-    }), '*');
-    }
-
-    if (name == 'ele_nextForm') {
-
-
-    console.log('--here--')
-    let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2;
-    let ele_data = {}
-
-    name = $("#eleDetail1").val();
-    email = $("#eleDetail2").val();
-    Tanggal = $("#eleDetail3").val();
-    Nomor = $("#eleDetail4").val();
-    Alamat = $("#eleDetail5").val();
-    // Alamat = document.getElementById("eleDetail5").value
-    Kota = $("#eleDetail6").val();
-    Jota = $("#eleDetail7").val();
-    Tipe = $("#eleDetail8").val();
-    kodePromo = $("#eleDetail9").val();
-    KodeReferensi = $("#eleDetail10").val();
-
-    console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${Jota} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
-    console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
-    saya1 = $("#eleDetail11").prop("checked")
-    saya2 = $("#eleDetail12").prop("checked")
-
-    ele_data.name = name;
-    ele_data.email = email;
-    ele_data.Tanggal = Tanggal;
-    ele_data.Nomor = Nomor;
-    ele_data.Alamat = Alamat;
-    ele_data.Kota = Kota;
-    ele_data.Jota = Jota;
-    ele_data.Tipe = Tipe;
-    ele_data.kodePromo = kodePromo;
-    ele_data.KodeReferensi = KodeReferensi;
-    ele_data.saya1 = saya1;
-    ele_data.saya2 = saya2;
-
-    console.log('data---> ', ele_data)
-    console.log(typeof (saya1))
-    if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && kodePromo !== '' && KodeReferensi !== '' && saya1 == true && saya2 == true) {
-        console.log('In Validator Data---', ele_data);
+        // console.log(data, 'Data---->')
+        // $("#ele_form").classList.remove("show");
+        // $("#submit_form").classList.remove("hide");
+        $("#ele_form").removeClass("show");
+        $("#submit_form").removeClass("hide");
+        $("#ele_form").addClass("hide");
+        $("#submit_form").addClass("show");
+        // console.log('---------')
+        document.getElementById("myForm").reset();
         window.parent.postMessage(JSON.stringify({
-        event_code: 'ele_nextForm',
-        data: ele_data
+          event_code: 'elektronik_submit',
+          data: data
         }), '*');
-    }
+      }
 
-    }
+      if (name == 'ele_nextForm') {
 
 
+        // console.log('--here--')
+        let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2;
+        let ele_data = {}
+
+        name = $("#eleDetail1").val();
+        email = $("#eleDetail2").val();
+        Tanggal = $("#eleDetail3").val();
+        Nomor = $("#eleDetail4").val();
+        Alamat = $("#eleDetail5").val();
+        // Alamat = document.getElementById("eleDetail5").value
+        Kota = $("#eleDetail6").val();
+        Jota = $("#eleDetail7").val();
+        Tipe = $("#eleDetail8").val();
+        kodePromo = $("#eleDetail9").val();
+        KodeReferensi = $("#eleDetail10").val();
+
+        // console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${Jota} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
+        // console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
+        saya1 = $("#eleDetail11").prop("checked")
+        saya2 = $("#eleDetail12").prop("checked")
+
+        ele_data.name = name;
+        ele_data.email = email;
+        ele_data.Tanggal = Tanggal;
+        ele_data.Nomor = Nomor;
+        ele_data.Alamat = Alamat;
+        ele_data.Kota = Kota;
+        ele_data.Jota = Jota;
+        ele_data.Tipe = Tipe;
+        ele_data.kodePromo = kodePromo;
+        ele_data.KodeReferensi = KodeReferensi;
+        ele_data.saya1 = saya1;
+        ele_data.saya2 = saya2;
+
+        console.log('data---> ', ele_data)
+        console.log(typeof (saya1))
+        if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && kodePromo !== '' && KodeReferensi !== '' && saya1 == true && saya2 == true) {
+          // console.log('In Validator Data---', ele_data);
+          window.parent.postMessage(JSON.stringify({
+            event_code: 'ele_nextForm',
+            data: ele_data
+          }), '*');
+        }
+
+      }
 
 }
 
@@ -367,16 +366,14 @@ function optionSelection() {
 
 function hargaFn() {
     let inputData = document.getElementById('eleForm3').value;
-    console.log('Input Data', inputData)
 
-    // jangkaWaktu
     if (inputData !== '' || inputData !== null) {
-    console.log('Data is there');
-    document.getElementById("eleForm4").disabled = false;
-    window.parent.postMessage(JSON.stringify({
+      console.log('Data is there');
+      document.getElementById("eleForm4").disabled = false;
+      window.parent.postMessage(JSON.stringify({
         event_code: 'harga',
         data: inputData
-    }), '*');
+      }), '*');
     }
 }
 

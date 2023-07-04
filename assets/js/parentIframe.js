@@ -16,7 +16,6 @@ window.addEventListener('message', function (eventData) {
     let parsedData = JSON.parse(eventData.data)
 
     if (parsedData?.event_code == 'custom-parenttoroot-recent-order-event') {
-      console.log("\n\n\n <--- Submited Details parent ---> \n\n\n", parsedData);
       window.frames.ymIframe.chat.send({
         event: {
           code: "submit_details",
@@ -27,7 +26,6 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'custom-parenttoroot-select-option-1') {
-      console.log("\n\n\n <--- Submited Details parent ---> \n\n\n", parsedData);
       window.frames.ymIframe.chat.send({
         event: {
           code: "pilihMerk",
@@ -38,7 +36,6 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'harga') {
-      console.log("\n\n\n <--- Submited Details parent ---> \n\n\n", parsedData);
       window.frames.ymIframe.chat.send({
         event: {
           code: "harga",
@@ -49,7 +46,6 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'elektronik_submit') {
-      console.log("\n\n\n <--- elektronik_submit Submited Details parent ---> \n\n\n", parsedData);
       window.frames.ymIframe.chat.send({
         event: {
           code: "elektronik_submit",
@@ -60,7 +56,6 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'ele_nextForm') {
-      console.log("\n\n\n <--- ele_nextForm Submited Details parent ---> \n\n\n", parsedData);
       window.frames.ymIframe.chat.send({
         event: {
           code: "ele_nextForm",
@@ -72,7 +67,6 @@ window.addEventListener('message', function (eventData) {
 
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "testEvent") {
-      console.log("\n\n\n <--- Aall data Parent  ---> \n\n\n", parsedData);
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'custom-parent-client-event',
         data: parsedData.data.data
@@ -81,7 +75,6 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "pilihMerk") {
-      console.log("\n\n\n <--- pilihMerk  ---> \n\n\n", parsedData);
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'pilihMerk',
         data: parsedData.data.data
@@ -92,7 +85,6 @@ window.addEventListener('message', function (eventData) {
     // jangkaWaktu
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "jangkaWaktu") {
-      console.log("\n\n\n <--- pilihMerk  ---> \n\n\n", parsedData);
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'jangkaWaktu-parentIframe',
         data: parsedData.data.data
