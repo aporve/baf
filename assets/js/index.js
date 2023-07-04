@@ -147,7 +147,8 @@ window.addEventListener('message', function (eventData) {
     console.log("\n\n\n\n\n\n\n <---- hitungAnda-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
     let data = parsedEventData.data
     let res = data.result.AngsuranRp
-    document.getElementById("eleForm2").innerHTML = str;
+    console.log('res--->', res)
+    document.getElementById("calcAmount").innerHTML = str;
     // calcAmount
   }
 
