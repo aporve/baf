@@ -93,7 +93,7 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "hitungAnda") {
-      console.log('1-2')
+      console.log('1-2---->')
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'hitungAnda_parentIframe',
         data: parsedData.data.data
