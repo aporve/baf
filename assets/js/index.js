@@ -145,12 +145,24 @@ window.addEventListener('message', function (eventData) {
     console.log('hitungAnda-childIframe')
     console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
     console.log("\n\n\n\n\n\n\n <---- hitungAnda-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+    let data = parsedEventData.data
+    let res = data.result.AngsuranRp
+    document.getElementById("eleForm2").innerHTML = str;
+    // calcAmount
   }
 
   if (parsedEventData.event_code === "submitLeads-childIframe") {
     console.log('submitLeads-childIframe')
     console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    console.log("\n\n\n\n\n\n\n <---- hitungAnda-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+    console.log("\n\n\n\n\n\n\n <---- submitLeads-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
+    let data = parsedEventData.data
+    console.log('Data of submit leads----', data)
+    $("#ele_form_details").removeClass("show");
+    $("#ele_form_details").addClass("hide");
+    $("#success_popup").removeClass("hide");
+    $("#success_popup").addClass("show");
+
+
   }
 
 });
