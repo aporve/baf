@@ -85,9 +85,9 @@ window.addEventListener('message', function (eventData) {
     // console.log('data------>', data);
     for (let i = 0; i < data.length; i++) {
       let id = data[i];
-      // let code = data[i].Code;
-      // console.log('id--->', id)
-      // console.log('code-->', code)
+      let code = data[i].Code;
+      console.log('id--->', id)
+      console.log('code-->', code)
 
       if (id !== '') {
         num.push({ "id": id });
@@ -96,8 +96,8 @@ window.addEventListener('message', function (eventData) {
     }
 
     for (var item of num) {
-      // console.log('Items->', item)
-      str += `<option value=${item.id}>${item.id}</option>`
+      console.log('Items->', item)
+      str += `<option value=${item.id}>${item.id} Bulan</option>`
     }
     // console.log('---here---')
     document.getElementById("eleForm5").disabled = false;
@@ -125,8 +125,8 @@ window.addEventListener('message', function (eventData) {
     }
 
     for (var item of num) {
-      // console.log('Items->', item)
-      str += `<option value=${item.id}>${item.id}</option>`
+      console.log('Items->', item)
+      str += `<option value=${item.id}>${(item.id * 100).toFixed()}%</option>`
     }
     // console.log('---here---')
     document.getElementById("submit_elektronik").disabled = false;
