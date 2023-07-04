@@ -59,6 +59,7 @@ window.addEventListener('message', function (eventData) {
   }
 
   if (parsedEventData.event_code === "hitungAnda_parentIframe" && parsedEventData.data) {
+    console.log('1-1')
     document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
       event_code: 'hitungAnda-childIframe',
       data: parsedEventData.data

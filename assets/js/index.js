@@ -148,7 +148,7 @@ window.addEventListener('message', function (eventData) {
     let data = parsedEventData.data
     let res = data.result.AngsuranRp
     console.log('res--->', res)
-    document.getElementById("calcAmount").innerHTML = str;
+    document.getElementById("calcAmount").innerHTML = res;
     // calcAmount
   }
 
@@ -315,7 +315,7 @@ function myFunction(name) {
     data.data4 = data4;
     data.data5 = data5;
 
-    // console.log(data, 'Data---->')
+    console.log(data, 'Data---->')
     // $("#ele_form").classList.remove("show");
     // $("#submit_form").classList.remove("hide");
     $("#ele_form").removeClass("show");
