@@ -130,16 +130,14 @@ window.addEventListener('message', function (eventData) {
     }
     // console.log('---here---')
     document.getElementById("submit_elektronik").disabled = false;
-    document.getElementById("eleForm").innerHTML = str;
+    document.getElementById("eleForm5").innerHTML = str;
 
     descr = []
     codes = []
     newData = []
     num = []
     str = ''
-    document.getElementById("eleForm6").value = Math.round(parseInt(parsedEventData.data.result.IntRate) * 100);
-    document.getElementById("eleForm7").value = parsedEventData.data.result.Admin;
-    document.getElementById("eleForm8").value = Math.round(parseInt(parsedEventData.data.result.Asuransi) * 100);
+    // document.getElementById("eleForm6").disabled = false;
   }
 
 
