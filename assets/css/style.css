@@ -119,6 +119,7 @@ body {
 
 #validationMessage3,
 #validationMessage2,
+#validationMessage1,
 #validationMessage {
   color: red;
   display: none;
