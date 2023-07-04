@@ -92,6 +92,23 @@ window.addEventListener('message', function (eventData) {
       return;
     }
 
+    if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "hitungAnda") {
+      document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+        event_code: 'hitungAnda_parentIframe',
+        data: parsedData.data.data
+      }), '*');
+      return;
+    }
+
+    if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "submitLeads") {
+      document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+        event_code: 'submitLeads_parentIframe',
+        data: parsedData.data.data
+      }), '*');
+      return;
+    }
+
+
 
   } catch (error) {
     console.error(error);

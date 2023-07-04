@@ -58,5 +58,19 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
+  if (parsedEventData.event_code === "hitungAnda_parentIframe" && parsedEventData.data) {
+    document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
+      event_code: 'hitungAnda-childIframe',
+      data: parsedEventData.data
+    }), '*');
+  }
+
+  if (parsedEventData.event_code === "submitLeads_parentIframe" && parsedEventData.data) {
+    document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
+      event_code: 'submitLeads-childIframe',
+      data: parsedEventData.data
+    }), '*');
+  }
+
   //comment 
 });
