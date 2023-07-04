@@ -85,9 +85,9 @@ window.addEventListener('message', function (eventData) {
     // console.log('data------>', data);
     for (let i = 0; i < data.length; i++) {
       let id = data[i];
-      let code = data[i].Code;
-      console.log('id--->', id)
-      console.log('code-->', code)
+      // let code = data[i].Code;
+      // console.log('id--->', id)
+      // console.log('code-->', code)
 
       if (id !== '') {
         num.push({ "id": id });
@@ -130,14 +130,16 @@ window.addEventListener('message', function (eventData) {
     }
     // console.log('---here---')
     document.getElementById("submit_elektronik").disabled = false;
-    document.getElementById("eleForm5").innerHTML = str;
+    document.getElementById("eleForm").innerHTML = str;
 
     descr = []
     codes = []
     newData = []
     num = []
     str = ''
-    // document.getElementById("eleForm6").disabled = false;
+    document.getElementById("eleForm6").value = Math.round(parseInt(parsedEventData.data.result.IntRate) * 100);
+    document.getElementById("eleForm7").value = parsedEventData.data.result.Admin;
+    document.getElementById("eleForm8").value = Math.round(parseInt(parsedEventData.data.result.Asuransi) * 100);
   }
 
 
@@ -308,12 +310,18 @@ function myFunction(name) {
     data3 = document.getElementById("eleForm3").value;
     data4 = document.getElementById("eleForm4").value;
     data5 = document.getElementById("eleForm5").value;
+    data6 = document.getElementById("eleForm6").value;
+    data7 = document.getElementById("eleForm7").value;
+    data8 = document.getElementById("eleForm8").value;
 
     data.data1 = data1;
     data.data2 = data2;
     data.data3 = data3;
     data.data4 = data4;
     data.data5 = data5;
+    data.data6 = data6;
+    data.data7 = data7;
+    data.data8 = data8;
 
     // console.log(data, 'Data---->')
     // $("#ele_form").classList.remove("show");
@@ -408,8 +416,6 @@ function showDetailForm() {
   $("#submit_form").addClass("hide");
   $("#ele_form_details").removeClass("hide");
   $("#ele_form_details").addClass("show");
-  $(".main-container").removeClass("hide");
-  $(".main-container2").addClass("hide");
 }
 
 
