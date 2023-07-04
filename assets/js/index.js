@@ -145,10 +145,6 @@ window.addEventListener('message', function (eventData) {
     console.log('hitungAnda-childIframe')
     console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
     console.log("\n\n\n\n\n\n\n <---- hitungAnda-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
-    $("#ele_form").removeClass("show");
-    $("#submit_form").removeClass("hide");
-    $("#ele_form").addClass("hide");
-    $("#submit_form").addClass("show");
     let data = parsedEventData.data
     let res = data.result.AngsuranRp
     console.log('res--->', res)
@@ -319,19 +315,13 @@ function myFunction(name) {
     data.data4 = data4;
     data.data5 = data5;
 
-    console.log(data, 'Data---->')
+    // console.log(data, 'Data---->')
     // $("#ele_form").classList.remove("show");
     // $("#submit_form").classList.remove("hide");
-
-
-    // $("#ele_form").removeClass("show");
-    // $("#submit_form").removeClass("hide");
-    // $("#ele_form").addClass("hide");
-    // $("#submit_form").addClass("show");
-
-
-
-
+    $("#ele_form").removeClass("show");
+    $("#submit_form").removeClass("hide");
+    $("#ele_form").addClass("hide");
+    $("#submit_form").addClass("show");
     // console.log('---------')
     document.getElementById("myForm").reset();
     window.parent.postMessage(JSON.stringify({
