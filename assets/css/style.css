@@ -144,7 +144,7 @@ body {
 
 .form-2 {
   padding: 0 20px 0 20px;
-  min-height: 600px;
+  min-height: 500px;
   border: 2px grey solid;
   border-radius: 20px;
   box-shadow: 0 2px 4px 0px rgba(68, 68, 68, 0.2), 0 4px 20px 0 rgba(54, 54, 54, 0.19);
