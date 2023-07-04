@@ -408,8 +408,6 @@ function showDetailForm() {
   $("#submit_form").addClass("hide");
   $("#ele_form_details").removeClass("hide");
   $("#ele_form_details").addClass("show");
-  $(".main-container").removeClass("hide");
-  $(".main-container2").addClass("hide");
 }
 
 
