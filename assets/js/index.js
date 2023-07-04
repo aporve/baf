@@ -96,8 +96,8 @@ window.addEventListener('message', function (eventData) {
     }
 
     for (var item of num) {
-      console.log('Items->', item)
-      str += `<option value=${item.id}>${item.id} Bulan</option>`
+      // console.log('Items->', item)
+      str += `<option value=${item.id}>${item.id}</option>`
     }
     // console.log('---here---')
     document.getElementById("eleForm5").disabled = false;
@@ -125,8 +125,8 @@ window.addEventListener('message', function (eventData) {
     }
 
     for (var item of num) {
-      console.log('Items->', item)
-      str += `<option value=${item.id}>${(item.id * 100).toFixed()}%</option>`
+      // console.log('Items->', item)
+      str += `<option value=${item.id}>${item.id}</option>`
     }
     // console.log('---here---')
     document.getElementById("submit_elektronik").disabled = false;
@@ -308,18 +308,12 @@ function myFunction(name) {
     data3 = document.getElementById("eleForm3").value;
     data4 = document.getElementById("eleForm4").value;
     data5 = document.getElementById("eleForm5").value;
-    data6 = document.getElementById("eleForm6").value;
-    data7 = document.getElementById("eleForm7").value;
-    data8 = document.getElementById("eleForm8").value;
 
     data.data1 = data1;
     data.data2 = data2;
     data.data3 = data3;
     data.data4 = data4;
     data.data5 = data5;
-    data.data6 = data6;
-    data.data7 = data7;
-    data.data8 = data8;
 
     // console.log(data, 'Data---->')
     // $("#ele_form").classList.remove("show");
@@ -414,6 +408,8 @@ function showDetailForm() {
   $("#submit_form").addClass("hide");
   $("#ele_form_details").removeClass("hide");
   $("#ele_form_details").addClass("show");
+  $(".main-container").removeClass("hide");
+  $(".main-container2").addClass("hide");
 }
 
 
