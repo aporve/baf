@@ -4,8 +4,6 @@ let newData = []
 let num = []
 let str;
 
-let payload = window.location.href;
-console.log('-----payload-----', payload)
 
 window.addEventListener('message', function (eventData) {
   // console.log('In INDEX.HTML')
@@ -156,6 +154,11 @@ window.addEventListener('message', function (eventData) {
   }
 
   if (parsedEventData.event_code === "submitLeads-childIframe") {
+
+    let payload = window.location.href;
+    console.log('-----payload-----', payload)
+
+
     console.log('submitLeads-childIframe')
     console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
     console.log("\n\n\n\n\n\n\n <---- submitLeads-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
