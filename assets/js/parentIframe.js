@@ -67,6 +67,7 @@ window.addEventListener('message', function (eventData) {
 
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "testEvent") {
+      console.log('Test Api---', parsedData.data.data)
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'custom-parent-client-event',
         data: parsedData.data.data
@@ -75,6 +76,7 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "pilihMerk") {
+      console.log('pilihMerk', parsedData.data.data)
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'pilihMerk',
         data: parsedData.data.data
@@ -85,6 +87,7 @@ window.addEventListener('message', function (eventData) {
     // jangkaWaktu
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "jangkaWaktu") {
+      console.log('jangkaWaktu--->', parsedData.data.data)
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'jangkaWaktu-parentIframe',
         data: parsedData.data.data
@@ -93,7 +96,7 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "hitungAnda") {
-      console.log('1-2---->')
+      console.log('hitungAnda--->', parsedData.data.data)
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'hitungAnda_parentIframe',
         data: parsedData.data.data
@@ -102,6 +105,7 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "submitLeads") {
+      console.log('submitLeads--->', parsedData.data.data)
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'submitLeads_parentIframe',
         data: parsedData.data.data
