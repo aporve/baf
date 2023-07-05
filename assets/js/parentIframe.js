@@ -105,7 +105,7 @@ window.addEventListener('message', function (eventData) {
     }
 
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "submitLeads") {
-      console.log('submitLeads--->', parsedData.data.data)
+      console.log('submitLeads--->', parsedData)
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
         event_code: 'submitLeads_parentIframe',
         data: parsedData.data.data
