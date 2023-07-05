@@ -4,6 +4,9 @@ let newData = []
 let num = []
 let str;
 
+let payload = window.location.href;
+console.log('-----payload-----', payload)
+
 window.addEventListener('message', function (eventData) {
   // console.log('In INDEX.HTML')
   const parsedEventData = JSON.parse(eventData.data)
