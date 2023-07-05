@@ -414,6 +414,10 @@ function showDetailForm() {
   $(eleDetail8).val(card)
   $("#submit_form").removeClass("show");
   $("#submit_form").addClass("hide");
+
+  $("#calculator").removeClass("show");
+  $("#calculator").addClass("hide");
+
   $("#ele_form_details").removeClass("hide");
   $("#ele_form_details").addClass("show");
 }
