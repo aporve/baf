@@ -157,7 +157,7 @@ window.addEventListener('message', function (eventData) {
 
     let payload = window.location.href;
     console.log('-----payload-----', payload)
-
+    console.log('Added Payload code----')
 
     console.log('submitLeads-childIframe')
     console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
