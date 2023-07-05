@@ -3,7 +3,7 @@ let codes = []
 let newData = []
 let num = []
 let str;
-
+let card;
 
 window.addEventListener('message', function (eventData) {
   // console.log('In INDEX.HTML')
@@ -209,7 +209,8 @@ function formatter(keyId, validationMsg) {
   }
 }
 
-function nextStep1() {
+function nextStep1(data) {
+  card = data
   console.log('nextStep')
   $("#cards").addClass("hide");
   $("#ele_form").addClass("show");
@@ -375,7 +376,7 @@ function myFunction(name) {
 
     console.log('data---> ', ele_data)
     console.log(typeof (saya1))
-    if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && kodePromo !== '' && KodeReferensi !== '' && saya1 == true && saya2 == true) {
+    if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && saya1 == true && saya2 == true) {
       // console.log('In Validator Data---', ele_data);
       window.parent.postMessage(JSON.stringify({
         event_code: 'ele_nextForm',
@@ -410,6 +411,7 @@ function hargaFn() {
 }
 
 function showDetailForm() {
+  $(eleDetail8).val(card)
   $("#submit_form").removeClass("show");
   $("#submit_form").addClass("hide");
   $("#ele_form_details").removeClass("hide");
