@@ -155,19 +155,34 @@ window.addEventListener('message', function (eventData) {
 
   if (parsedEventData.event_code === "submitLeads-childIframe") {
 
-    let payload = window.location.href;
-    console.log('-----payload-----', payload)
-    console.log('Added Payload code----')
+    // let payload = window.location.href;
+    // console.log('-----payload-----', payload)
+    // console.log('Added Payload code----')
 
     console.log('submitLeads-childIframe')
     console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
     console.log("\n\n\n\n\n\n\n <---- submitLeads-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
     let data = parsedEventData.data
     console.log('Data of submit leads----', data)
-    $("#ele_form_details").removeClass("show");
-    $("#ele_form_details").addClass("hide");
-    $("#success_popup").removeClass("hide");
-    $("#success_popup").addClass("show");
+
+    let payload = JSON.parse(data.payload);
+    console.log('payload 1-2---', payload);
+    let statusCode = data.statusCode
+    console.log('statusCode---', statusCode)
+
+    if (statusCode == '200') {
+      $("#ele_form_details").removeClass("show");
+      $("#ele_form_details").addClass("hide");
+      $("#success_popup").removeClass("hide");
+      $("#success_popup").addClass("show");
+
+      window.parent.postMessage(JSON.stringify({
+        event_code: 'leadsSuccess',
+        data: payload
+      }), '*');
+
+    }
+
 
 
   }
