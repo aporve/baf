@@ -21,13 +21,24 @@ body {
 }
 
 .cards {
-  height: 100%;
-  margin: auto 40%;
+  height: 100vh;
+  width: 350px;
+  margin: auto auto;
 }
 
 
-.card_1 {
-  margin-top: 20px;
+
+.card_1,
+.card_2,
+.card_3,
+.card_4 {
+
+  padding: 20px 0;
+  width: 100%;
+}
+
+.image {
+  width: 100%;
 }
 
 .ele_form {
