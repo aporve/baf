@@ -4,10 +4,10 @@
   box-sizing: border-box;
 }
 
-html,
+/* html,
 body {
   height: 100%;
-}
+} */
 
 .main-container-2 {
   display: flex;

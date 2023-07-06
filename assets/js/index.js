@@ -10,23 +10,22 @@ window.addEventListener('message', function (eventData) {
   const parsedEventData = JSON.parse(eventData.data)
   // console.log(parsedEventData, "parsedEventData");
   if (parsedEventData.event_code === "custom-child-client-event") {
-    // console.log('Hard Log')
-    // console.log("\n\n\n\n\n\n\n <---- parsed event data ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    // console.log("data ---->", parsedEventData.data);
-    // console.log("main data ---->", parsedEventData.data.data);
+    console.log('Hard Log')
+
     // let data = parsedEventData.data.data;
     let data = parsedEventData.data;
+    console.log('data---->>>>>', data)
 
     for (let i = 0; i < data.length; i++) {
       let id = data[i].Descr;
       let code = data[i].Code;
-      // console.log('id--->', id)
-      // console.log('code-->', code)
+      console.log('id--->', id)
+      console.log('code-->', code)
 
       if (id !== '') {
         newData.push({ "descr": id, "code": code });
-        // descr.push(id);
-        // codes.push(code);
+        descr.push(id);
+        codes.push(code);
       }
     }
 
@@ -41,6 +40,7 @@ window.addEventListener('message', function (eventData) {
     codes = []
     newData = []
     str = ''
+    console.log('finish--->')
   }
 
   if (parsedEventData.event_code === "pilihMerk") {
