@@ -156,7 +156,7 @@ window.addEventListener('message', function (eventData) {
   if (parsedEventData.event_code === "submitLeads-childIframe") {
 
     let url = window.location.href;
-    console.log('-----payload-----', payload)
+    console.log('-----payload-----', url)
     console.log('Added Payload code----')
 
     console.log('submitLeads-childIframe')
