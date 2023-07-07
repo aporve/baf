@@ -156,17 +156,18 @@ window.addEventListener('message', function (eventData) {
   if (parsedEventData.event_code === "submitLeads-childIframe") {
 
     let url = window.location.href;
+    // let url = 'https://aporve.github.io/baf/index.html?sender=6332645866783662&frameId=0';
     console.log('-----payload-----', url)
     console.log('Added Payload code----')
+    let urlParams = new URL(url);
+    console.log(urlParams.searchParams.get('sender'));
+    let sender = urlParams.searchParams.get('sender');
 
     console.log('submitLeads-childIframe')
     console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
     console.log("\n\n\n\n\n\n\n <---- submitLeads-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
     let data = parsedEventData.data
     console.log('Data of submit leads----', data)
-
-    let payload = JSON.parse(data.payload);
-    console.log('payload 1-2---', payload);
     let statusCode = data.statusCode
     console.log('statusCode---', statusCode)
 
@@ -178,7 +179,7 @@ window.addEventListener('message', function (eventData) {
 
       window.parent.postMessage(JSON.stringify({
         event_code: 'leadsSuccess',
-        data: payload
+        data: sender
       }), '*');
 
     }
