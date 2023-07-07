@@ -36,6 +36,15 @@ window.addEventListener('message', function (eventData) {
     }), '*');
   }
 
+  if (parsedEventData.event_code === "leadsSuccess") {
+    parent.postMessage(JSON.stringify({
+      event_code: 'leadsSuccess',
+      data: parsedEventData.data
+    }), '*');
+  }
+
+
+
 
   if (parsedEventData.event_code === "custom-parent-client-event" && parsedEventData.data) {
     console.log('custom-parent-client-Test Event child Iframe----', parsedEventData.data)

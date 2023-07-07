@@ -66,6 +66,18 @@ window.addEventListener('message', function (eventData) {
     }
 
 
+
+    if (parsedData?.event_code == 'leadsSuccess') {
+      window.frames.ymIframe.chat.send({
+        event: {
+          code: "leadsSuccess",
+          data: parsedData
+        }
+      }, true);
+      return;
+    }
+
+
     if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "testEvent") {
       console.log('Test Api---', parsedData.data.data)
       document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
