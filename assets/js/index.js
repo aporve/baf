@@ -188,6 +188,23 @@ window.addEventListener('message', function (eventData) {
 
   }
 
+  if (parsedEventData.event_code == "api_failure") {
+
+
+    $("#ele_form").removeClass("show");
+    $("#ele_form").addClass("hide");
+    $("#submit_form").removeClass("show");
+    $("#submit_form").addClass("hide");
+    $("#ele_form_details").removeClass("show");
+    $("#ele_form_details").addClass("hide");
+    $("#success_popup").removeClass("show");
+    $("#success_popup").addClass("hide");
+
+    $("#failure_popup").removeClass("hide");
+    $("#failure_popup").addClass("show");
+
+  }
+
 });
 
 function formatter(keyId, validationMsg) {
