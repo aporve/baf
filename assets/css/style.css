@@ -210,19 +210,6 @@ body {
 }
 
 
-.popup {
-  color: white;
-  animation: fadeIn 0.5s;
-  padding: 20px;
-  max-height: 600px;
-  max-width: 80vw;
-  width: 350px;
-  border: 2px solid grey;
-  border-radius: 30px;
-  background-color: #3576bb;
-  box-shadow: 0 2px 4px 0px rgba(68, 68, 68, 0.2), 0 4px 20px 0 rgba(54, 54, 54, 0.19);
-}
-
 @media (max-width: 768px) {
   .calculation {
     width: 80%;
