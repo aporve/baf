@@ -101,7 +101,7 @@ window.addEventListener('message', function (eventData) {
     str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of num) {
       // console.log('Items->', item)
-      str += `<option value=${item.id}>${item.id}</option>`
+      str += `<option value=${item.id}>${item.id} Bulan</option>`
     }
     // console.log('---here---')
     document.getElementById("eleForm5").disabled = false;
@@ -131,7 +131,7 @@ window.addEventListener('message', function (eventData) {
     str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of num) {
       // console.log('Items->', item)
-      str += `<option value=${item.id}>${item.id}</option>`
+      str += `<option value=${item.id}>${(item.id * 100).toFixed()}%</option>`
     }
     // console.log('---here---')
     document.getElementById("submit_elektronik").disabled = false;
