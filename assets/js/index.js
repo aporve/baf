@@ -153,7 +153,7 @@ window.addEventListener('message', function (eventData) {
     let data = parsedEventData.data
     let res = data.result.AngsuranRp
     console.log('res--->', res)
-    document.getElementById("calcAmount").innerHTML = res;
+    document.getElementById("calcAmount").innerHTML = `Rp. ${Number(String(res).replace(/,/g, "").replace(/[^0-9]/g, "")).toLocaleString("en-ID")} <br />/Bulan`;
     // calcAmount
   }
 
