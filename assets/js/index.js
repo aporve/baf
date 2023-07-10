@@ -154,7 +154,6 @@ window.addEventListener('message', function (eventData) {
     let res = data.result.AngsuranRp
     console.log('res--->', res)
     document.getElementById("calcAmount").innerHTML = `Rp. ${Number(String(res).replace(/,/g, "").replace(/[^0-9]/g, "")).toLocaleString("en-ID")} <br />/Bulan`;
-    // calcAmount
   }
 
   if (parsedEventData.event_code === "submitLeads-childIframe") {
