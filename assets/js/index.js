@@ -29,6 +29,7 @@ window.addEventListener('message', function (eventData) {
       }
     }
 
+    str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of newData) {
       // console.log('Items->', item)
       // console.log('Data from array of objects-->', item.descr)
@@ -61,6 +62,7 @@ window.addEventListener('message', function (eventData) {
       }
     }
 
+    str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of newData) {
       // console.log('Items->', item)
       // console.log('Data from array of objects-->', item.descr)
@@ -96,6 +98,7 @@ window.addEventListener('message', function (eventData) {
       // console.log('num--->', num);
     }
 
+    str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of num) {
       // console.log('Items->', item)
       str += `<option value=${item.id}>${item.id}</option>`
@@ -125,6 +128,7 @@ window.addEventListener('message', function (eventData) {
       // console.log('num--->', num);
     }
 
+    str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of num) {
       // console.log('Items->', item)
       str += `<option value=${item.id}>${item.id}</option>`
