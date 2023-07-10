@@ -165,7 +165,7 @@
         </div>
 
         <div class="mb-2">
-          <label for="kode Promo">kode Promo</label>
+          <label for="kode Promo">Kode Promo</label>
           <div>
             <input class="w80" type="text" id="eleDetail9">
           </div>
@@ -343,7 +343,7 @@
 
         <div class="submit_div">
           <button type="submit" id="submit_elektronik_details" class="submit"
-            onclick="myFunction('ele_nextForm')">Hitung
+            onclick="myFunction('ele_nextForm')" style="margin-bottom: 80px;">Hitung
             Cicilan Anda</button>
         </div>
 
@@ -355,7 +355,7 @@
         <img style="width: 50%;" src="./assets/image/svg/baf.png" alt="">
         <h2>Terima Kasih</h2>
 
-        <p>Kami telah menerima pengajuan pendanaan Mobil Daihatsu Anda.Tim kami akan menghubungi Anda untuk proses lebih
+        <p>Kami telah menerima pengajuan pendanaan Mobil baru Anda. Tim kami akan menghubungi Anda untuk proses lebih
           lanjut. </p>
       </div>
     </div>
@@ -379,23 +379,25 @@
 
         <div class="mb-2">
           <label for="Pilih Tipe Barang">Pilih Merk Motor</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm6" required>
+          <div id="eleForm6">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
               <option value="Yamaha">Yamaha</option>
               <option value="Honda">Honda</option>
               <option value="Kawasaki">Kawasaki</option>
               <option value="Suzuki">Suzuki</option>
             </select>
+            <span style="display: none; color: red;">Silahkan pilih merk motor terlebih dahulu</span>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Pilih Merk Barang">Tahun Pembuatan Motor</label>
-          <div>
-            <select class="form-control" style="width: 100%;" id="eleForm7">
+          <div id="eleForm7">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
+            <span style="display: none; color: red;">Silahkan tentukan tahun pembuatan motor terlebih dahulu</span>
           </div>
         </div>
 
@@ -412,8 +414,8 @@
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm9">
+          <div id="eleForm9">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
               <option value="6^0.266">6 bulan</option>
               <option value="12^0.383">12 bulan</option>
@@ -422,6 +424,7 @@
               <option value="30^0.807">30 bulan</option>
               <option value="36^0.98">36 bulan</option>
             </select>
+            <span style="display: none; color: red;">Silahkan tentukan jangka waktu pinjaman terlebih dahulu</span>
           </div>
         </div>
 
@@ -436,10 +439,11 @@
 
         <div class="mb-2">
           <label for="Pilih Merk Mobil">Pilih Merk Mobil</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm10" required>
+          <div id="eleForm10">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
+            <span style="display: none; color: red;">Silahkan pilih merk mobil terlebih dahulu</span>
           </div>
         </div>
 
@@ -456,19 +460,21 @@
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm12" required>
+          <div id="eleForm12">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
+            <span style="display: none; color: red;">Silahkan tentukan jangka waktu pinjaman terlebih dahulu</span>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Uang Muka">Uang Muka</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm13" required>
+          <div id="eleForm13">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
+            <span style="display: none; color: red;">Silahkan tentukan jumlah uang muka terlebih dahulu</span>
           </div>
         </div>
 
@@ -484,10 +490,11 @@
 
         <div class="mb-2">
           <label for="Pilih Merk Mobil">Pilih Motor</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm14" required>
+          <div id="eleForm14">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
+            <span style="display: none; color: red;">Silahkan pilih tipe motor terlebih dahulu</span>
           </div>
         </div>
         <!-- New jumlah pinjaman input for motor yamaha baru with validation -->
@@ -504,19 +511,21 @@
 
         <div class="mb-2">
           <label for="Jangka Waktu">Jangka Waktu</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm16" required>
+          <div id="eleForm16">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
+            <span style="display: none; color: red;">Silahkan tentukan jangka waktu pinjaman terlebih dahulu</span>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Uang Muka">Uang Muka</label>
-          <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm17" required>
+          <div id="eleForm17">
+            <select class="form-control" style="width: 100%;" required>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
+            <span style="display: none; color: red;">Silahkan tentukan jumlah uang muka terlebih dahulu</span>
           </div>
         </div>
 

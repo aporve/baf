@@ -280,7 +280,7 @@ function nextStep4() {
 }
 
 function calculate(name, price, installment, dp = 0) {
-  console.log('calculating installment')
+  console.log('calculating installment', price)
 
   price = parseInt(price.replace(/,/g, ""))
   let installmentCalc = 0
@@ -314,31 +314,72 @@ function myFunction(name) {
   if (name == 'dana_syariah') {
     // Retrieve the data from the 'dana_syariah' form
     const danaForm = document.getElementById("dana_syariah");
+    const danaMerkMotor = danaForm.querySelector("#eleForm6 select").value;
+    const danaTahunBuat = danaForm.querySelector("#eleForm7 select").value;
     const danaJumlahPinjaman = danaForm.querySelector("#eleForm8").value;
-    const danaJangkaWaktu = danaForm.querySelector("#eleForm9").value;
+    const danaJangkaWaktu = danaForm.querySelector("#eleForm9 select").value;
 
-    calculate(name, danaJumlahPinjaman, danaJangkaWaktu);
+    switch(true) {
+      case danaMerkMotor == "":
+        danaForm.querySelector("#eleForm6 span").style.display = "block"
+      case danaTahunBuat == "":
+        danaForm.querySelector("#eleForm7 span").style.display = "block"
+      case danaJumlahPinjaman == "":
+        danaForm.querySelector("#validationMessage").style.display = "block"
+      case danaJangkaWaktu == "":
+        danaForm.querySelector("#eleForm9 span").style.display = "block"
+      break;
+      default:
+        calculate(name, danaJumlahPinjaman, danaJangkaWaktu);
+    }
   }
 
   if (name == 'mobil_baru') {
     // Retrieve the data from the 'mobil_baru' form
     const mobilForm = document.getElementById("mobil_baru");
+    const mobilMerkMobil = mobilForm.querySelector("#eleForm10 select").value;
     const mobilHargaMobil = mobilForm.querySelector("#eleForm11").value;
-    const mobilJangkaWaktu = mobilForm.querySelector("#eleForm12").value;
-    const mobilUangMuka = mobilForm.querySelector("#eleForm13").value;
+    const mobilJangkaWaktu = mobilForm.querySelector("#eleForm12 select").value;
+    const mobilUangMuka = mobilForm.querySelector("#eleForm13 select").value;
 
-    calculate(name, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
+    switch(true) {
+      case mobilMerkMobil == "":
+        mobilForm.querySelector("#eleForm10 span").style.display = "block"
+      case mobilJangkaWaktu == "":
+        mobilForm.querySelector("#eleForm12 span").style.display = "block"
+      case mobilHargaMobil == "":
+        mobilForm.querySelector("#validationMessage2").style.display = "block"
+      case mobilUangMuka == "":
+        mobilForm.querySelector("#eleForm13 span").style.display = "block"
+      break;
+      default:
+        calculate(name, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
+    }
+
   }
 
 
   if (name == 'motor_baru') {
     // Retrieve the data from the 'motor_baru' form
     const motorForm = document.getElementById("motor_baru");
+    const motorTipe = motorForm.querySelector("#eleForm14 select").value;
     const motorPrice = motorForm.querySelector("#eleForm15").value;
-    const motorJangkaWaktu = motorForm.querySelector("#eleForm16").value;
-    const motorUangMuka = motorForm.querySelector("#eleForm17").value;
+    const motorJangkaWaktu = motorForm.querySelector("#eleForm16 select").value;
+    const motorUangMuka = motorForm.querySelector("#eleForm17 select").value;
 
-    calculate(name, motorPrice, motorJangkaWaktu, motorUangMuka);
+    switch(true) {
+      case motorTipe == "":
+        motorForm.querySelector("#eleForm14 span").style.display = "block"
+      case motorJangkaWaktu == "":
+        motorForm.querySelector("#eleForm16 span").style.display = "block"
+      case motorPrice == "":
+        motorForm.querySelector("#validationMessage3").style.display = "block"
+      case motorUangMuka == "":
+        motorForm.querySelector("#eleForm17 span").style.display = "block"
+      break;
+      default:
+        calculate(name, motorPrice, motorJangkaWaktu, motorUangMuka);
+    }
   }
 
   if (name == 'elektronik') {
@@ -460,7 +501,7 @@ function showDetailForm() {
 
 
 // Get the select element
-var selectElement = document.getElementById("eleForm7");
+var selectElement = document.querySelector("#eleForm7 select");
 
 // Get the current year
 var currentYear = new Date().getFullYear();
@@ -483,17 +524,17 @@ function generateOption(cardName) {
   var selectElement1, selectElement2, selectElement3, url;
 
   if (cardName == "mobil baru") {
-    selectElement1 = document.getElementById("eleForm10");
-    selectElement2 = document.getElementById("eleForm12");
-    selectElement3 = document.getElementById("eleForm13");
+    selectElement1 = document.querySelector("#eleForm10 select");
+    selectElement2 = document.querySelector("#eleForm12 select");
+    selectElement3 = document.querySelector("#eleForm13 select");
 
     url = "./assets/js/new-car-data.json";
   }
 
   if (cardName == "motor baru") {
-    selectElement1 = document.getElementById("eleForm14");
-    selectElement2 = document.getElementById("eleForm17");
-    selectElement3 = document.getElementById("eleForm16");
+    selectElement1 = document.querySelector("#eleForm14 select");
+    selectElement2 = document.querySelector("#eleForm17 select");
+    selectElement3 = document.querySelector("#eleForm16 select");
 
     url = "./assets/js/new-motorcycle-data.json";
   }
