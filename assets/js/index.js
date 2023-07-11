@@ -4,6 +4,7 @@ let newData = []
 let num = []
 let str;
 let card;
+let TIPE_PENGAJUAN = ""
 
 var today = new Date();
 var maxDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate()).toISOString().split('T')[0];
@@ -179,10 +180,15 @@ window.addEventListener('message', function (eventData) {
     console.log('statusCode---', statusCode)
 
     if (statusCode == '200') {
+      let popupMsg = `Kami telah menerima pengajuan pendanaan ${card} Anda. Tim kami akan menghubungi Anda untuk proses lebih
+      lanjut.`
       $("#ele_form_details").removeClass("show");
       $("#ele_form_details").addClass("hide");
       $("#success_popup").removeClass("hide");
       $("#success_popup").addClass("show");
+      $("#popupmsg").text(popupMsg);
+
+      console.log(popupMsg, "popupMsg");
 
       window.parent.postMessage(JSON.stringify({
         event_code: 'leadsSuccess',
@@ -285,6 +291,7 @@ function nextStep4() {
 
 function calculate(name, price, installment, dp = 0) {
   console.log('calculating installment', price)
+  TIPE_PENGAJUAN = name
 
   price = parseInt(price.replace(/,/g, ""))
   let installmentCalc = 0
@@ -431,7 +438,7 @@ function myFunction(name) {
     Alamat = $("#eleDetail5>textarea").val();
     Kota = $("#eleDetail6>input").val();
     PostalCode = $("#eleDetail7>input").val();
-    Tipe = $("#eleDetail8>input").val();
+    Tipe = $("#eleDetail8").val();
     kodePromo = $("#eleDetail9>input").val();
     KodeReferensi = $("#eleDetail10>input").val();
 
@@ -468,7 +475,6 @@ function myFunction(name) {
     document.querySelector("#eleDetail5 span").style.display = "none"
     document.querySelector("#eleDetail6 span").style.display = "none"
     document.querySelector("#eleDetail7 span").style.display = "none"
-    document.querySelector("#eleDetail8 span").style.display = "none"
     document.querySelector("#eleDetail12 span").style.display = "none"
     
     if(name == ""){
@@ -497,10 +503,6 @@ function myFunction(name) {
     }
     if(PostalCode == "" || !isValidPostalCode(PostalCode)){
       document.querySelector("#eleDetail7 span").style.display = "block"
-      isOk = false
-    }
-    if(Tipe == ""){
-      document.querySelector("#eleDetail8 span").style.display = "block"
       isOk = false
     }
     if(!saya2){
@@ -559,6 +561,14 @@ function hargaFn() {
 }
 
 function showDetailForm() {
+  if (TIPE_PENGAJUAN == 'mobil_baru') {
+    card = "Mobil Baru"
+  } else if (TIPE_PENGAJUAN == 'motor_baru') {
+    card = "Motor Baru Yamaha"
+  } else if (TIPE_PENGAJUAN == 'dana_syariah') {
+    card = "Dana Syariah"
+  }
+
   $(eleDetail8).val(card)
   $("#submit_form").removeClass("show");
   $("#submit_form").addClass("hide");
@@ -578,7 +588,7 @@ var selectElement = document.querySelector("#eleForm7 select");
 var currentYear = new Date().getFullYear();
 
 // Start the loop from 2010 until the current year
-for (var year = 2010; year <= currentYear; year++) {
+for (var year = currentYear; year >= 2010; year--) {
   // Create a new option element
   var option = document.createElement("option");
 
