@@ -5,6 +5,10 @@ let num = []
 let str;
 let card;
 
+var today = new Date();
+var maxDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate()).toISOString().split('T')[0];
+document.getElementById('eleDetail3').setAttribute('max', maxDate);
+
 window.addEventListener('message', function (eventData) {
   // console.log('In INDEX.HTML')
   const parsedEventData = JSON.parse(eventData.data)
@@ -418,7 +422,7 @@ function myFunction(name) {
 
 
     // console.log('--here--')
-    let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2;
+    let name, email, Tanggal, Nomor, Alamat, Kota, PostalCode, Tipe, kodePromo, KodeReferensi, saya1, saya2;
     let ele_data = {}
 
     name = $("#eleDetail1").val();
@@ -426,34 +430,59 @@ function myFunction(name) {
     Tanggal = $("#eleDetail3").val();
     Nomor = $("#eleDetail4").val();
     Alamat = $("#eleDetail5").val();
-    // Alamat = document.getElementById("eleDetail5").value
     Kota = $("#eleDetail6").val();
-    Jota = $("#eleDetail7").val();
+    PostalCode = $("#eleDetail7").val();
     Tipe = $("#eleDetail8").val();
     kodePromo = $("#eleDetail9").val();
     KodeReferensi = $("#eleDetail10").val();
 
-    // console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${Jota} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
+    // console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${PostalCode} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
     // console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
     saya1 = $("#eleDetail11").prop("checked")
     saya2 = $("#eleDetail12").prop("checked")
 
-    ele_data.name = name;
-    ele_data.email = email;
-    ele_data.Tanggal = Tanggal;
-    ele_data.Nomor = Nomor;
-    ele_data.Alamat = Alamat;
-    ele_data.Kota = Kota;
-    ele_data.Jota = Jota;
-    ele_data.Tipe = Tipe;
-    ele_data.kodePromo = kodePromo;
-    ele_data.KodeReferensi = KodeReferensi;
-    ele_data.saya1 = saya1;
-    ele_data.saya2 = saya2;
+    switch(true) {
+      case name == "":
+        danaForm.querySelector("#eleForm6 span").style.display = "block"
+      case email == "":
+        danaForm.querySelector("#eleForm7 span").style.display = "block"
+      case Tanggal == "":
+        var selectedDate = new Date(input.value);
+        var currentDate = new Date();
+        var yearsDiff = currentDate.getFullYear() - selectedDate.getFullYear();
+
+        if (yearsDiff < 17) {
+          validationMessage.style.display = "block";
+          input.value = ""; // Clear the input value
+        } else {
+          validationMessage.style.display = "none";
+        }
+        danaForm.querySelector("#validationMessage").style.display = "block"
+      case Nomor == "":
+        danaForm.querySelector("#eleForm9 span").style.display = "block"
+      case Alamat == "":
+        danaForm.querySelector("#eleForm9 span").style.display = "block"
+      case Kota == "":
+        danaForm.querySelector("#eleForm9 span").style.display = "block"
+      break;
+      default:
+        ele_data.name = name;
+        ele_data.email = email;
+        ele_data.Tanggal = Tanggal;
+        ele_data.Nomor = Nomor;
+        ele_data.Alamat = Alamat;
+        ele_data.Kota = Kota;
+        ele_data.Jota = PostalCode;
+        ele_data.Tipe = Tipe;
+        ele_data.kodePromo = kodePromo;
+        ele_data.KodeReferensi = KodeReferensi;
+        ele_data.saya1 = saya1;
+        ele_data.saya2 = saya2;
+
 
     console.log('data---> ', ele_data)
     console.log(typeof (saya1))
-    if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && saya1 == true && saya2 == true) {
+    if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && PostalCode !== '' && Tipe !== '' && saya1 == true && saya2 == true) {
       console.log('In Validator Data---', ele_data);
       window.parent.postMessage(JSON.stringify({
         event_code: 'ele_nextForm',
