@@ -166,9 +166,8 @@
 
         <div class="mb-2">
           <label for="Tipe Pengajuan">Tipe Pengajuan</label>
-          <div id="eleDetail8">
-            <input class="w80" type="text">
-            <span style="display: none; color: red;">Silahkan masuka tipe pengajuan terlebih dahulu</span>
+          <div>
+            <input class="w80" type="text" id="eleDetail8" disabled>
           </div>
         </div>
 
@@ -352,8 +351,8 @@
 
         <div class="submit_div">
           <button type="submit" id="submit_elektronik_details" class="submit"
-            onclick="myFunction('ele_nextForm')" style="margin-bottom: 80px;">Hitung
-            Cicilan Anda</button>
+            onclick="myFunction('ele_nextForm')" style="margin-bottom: 80px;">Ajukan
+            Cicilan</button>
         </div>
 
       </form>
@@ -364,8 +363,7 @@
         <img style="width: 50%;" src="./assets/image/svg/baf.png" alt="">
         <h2>Terima Kasih</h2>
 
-        <p>Kami telah menerima pengajuan pendanaan Mobil baru Anda. Tim kami akan menghubungi Anda untuk proses lebih
-          lanjut. </p>
+        <p id="popupmsg"></p>
       </div>
     </div>
 
