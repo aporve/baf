@@ -257,7 +257,7 @@ function calculate(name, merk, price, installment, dp = 0) {
     const rate = Number(installmentCode[1])
     installmentCalc = Math.round(((price - downpaymentAmount) * (1 + rate)) / installmentDuration)
 
-    OBJ_NOT_MP = {pinjaman:price, dp:downpaymentAmount, tenor:installmentDuration, jenisBrg:merk}
+    OBJ_NOT_MP = {pinjaman:price, dp, tenor:installmentDuration, jenisBrg:merk}
   } else if (name === 'dana_syariah') {
     const installmentCode = installment.split('^')
     const installmentDuration = Number(installmentCode[0])
