@@ -120,7 +120,7 @@
           <label for="Email">Email</label>
           <div id="eleDetail2">
             <input class="w80" type="email">
-            <span style="display: none; color: red;">Silahkan masukkan email terlebih dahulu</span>
+            <span style="display: none; color: red;">Silahkan masukan email yang valid terlebih dahulu</span>
           </div>
         </div>
 
@@ -160,14 +160,15 @@
           <label for="Kode Pos">Kode Pos</label>
           <div id="eleDetail7">
             <input class="w80" type="text">
-            <span style="display: none; color: red;">Silahkan tentukan tahun pembuatan motor terlebih dahulu</span>
+            <span style="display: none; color: red;">Silahkan masukan kode pos yang valid terlebih dahulu</span>
           </div>
         </div>
 
         <div class="mb-2">
           <label for="Tipe Pengajuan">Tipe Pengajuan</label>
-          <div>
-            <input class="w80" type="text" id="eleDetail8">
+          <div id="eleDetail8">
+            <input class="w80" type="text">
+            <span style="display: none; color: red;">Silahkan masuka tipe pengajuan terlebih dahulu</span>
           </div>
         </div>
 
@@ -192,11 +193,12 @@
             Auto Finance</label><br>
         </div>
 
-        <div class="mb-2">
-          <input type="checkbox" id="eleDetail12" name="syarat" value="saya2">
+        <div class="mb-2" id="eleDetail12">
+          <input type="checkbox" name="syarat" value="saya2">
           <label class="tnc" for="syarat">Saya setuju dengan <a data-toggle="modal"
               data-target="#exampleModalLong">Syarat dan Ketentuan Bussan Auto Finance</a>
           </label><br>
+          <span style="display: none; color: red;">Anda harus menyetujui Syarat & Ketentuan terlebih dahulu sebelum melanjutkan</span>
         </div>
 
 
