@@ -5,19 +5,16 @@ let num = []
 let str;
 let card;
 let TIPE_PENGAJUAN = ""
+let OBJ_NOT_MP = {pinjaman:'', dp:'', tenor:'', jenisBrg:''}
 
 var today = new Date();
 var maxDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate()).toISOString().split('T')[0];
 document.querySelector('#eleDetail3 input').setAttribute('max', maxDate);
 
 window.addEventListener('message', function (eventData) {
-  // console.log('In INDEX.HTML')
   const parsedEventData = JSON.parse(eventData.data)
-  // console.log(parsedEventData, "parsedEventData");
   if (parsedEventData.event_code === "custom-child-client-event") {
-    console.log('Hard Log')
 
-    // let data = parsedEventData.data.data;
     let data = parsedEventData.data;
     console.log('data---->>>>>', data)
 
@@ -36,10 +33,7 @@ window.addEventListener('message', function (eventData) {
 
     str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of newData) {
-      // console.log('Items->', item)
-      // console.log('Data from array of objects-->', item.descr)
       str += `<option value=${item.code}>${item.descr}</option>`
-      // str += "<option>" + item + "</option>"
     }
     document.getElementById("eleForm1").innerHTML = str;
     descr = []
@@ -50,29 +44,19 @@ window.addEventListener('message', function (eventData) {
   }
 
   if (parsedEventData.event_code === "pilihMerk") {
-    // console.log('Hard Log')
-    // console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    // console.log("\n\n\n\n\n\n\n <---- pilihMerk Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
     let data = parsedEventData.data;
     for (let i = 0; i < data.length; i++) {
       let id = data[i].Descr;
       let code = data[i].Code;
-      // console.log('id--->', id)
-      // console.log('code-->', code)
 
       if (id !== '') {
         newData.push({ "descr": id, "code": code });
-        // descr.push(id);
-        // codes.push(code);
       }
     }
 
     str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of newData) {
-      // console.log('Items->', item)
-      // console.log('Data from array of objects-->', item.descr)
       str += `<option value=${item.code}>${item.descr}</option>`
-      // str += "<option>" + item + "</option>"
     }
     document.getElementById("eleForm2").disabled = false;
     document.getElementById("eleForm3").disabled = false;
@@ -86,29 +70,20 @@ window.addEventListener('message', function (eventData) {
 
 
   if (parsedEventData.event_code === "jangkaWaktu-childIframe") {
-    // console.log('jangkaWaktu')
-    // console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    // console.log("\n\n\n\n\n\n\n <---- jangkaWaktu Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
     let data = parsedEventData.data.result.Tenor;
-    // console.log('data------>', data);
     for (let i = 0; i < data.length; i++) {
       let id = data[i];
-      // let code = data[i].Code;
-      // console.log('id--->', id)
-      // console.log('code-->', code)
 
       if (id !== '') {
         num.push({ "id": id });
       }
-      // console.log('num--->', num);
     }
 
     str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of num) {
-      // console.log('Items->', item)
       str += `<option value=${item.id}>${item.id} Bulan</option>`
     }
-    // console.log('---here---')
+    
     document.getElementById("eleForm5").disabled = false;
     document.getElementById("submit_elektronik").disabled = false;
     document.getElementById("eleForm4").innerHTML = str;
@@ -120,25 +95,18 @@ window.addEventListener('message', function (eventData) {
     str = ''
 
     data = parsedEventData.data.result.DP;
-    // console.log('data------>', data);
     for (let i = 0; i < data.length; i++) {
       let id = data[i];
-      // let code = data[i].Code;
-      // console.log('id--->', id)
-      // console.log('code-->', code)
 
       if (id !== '') {
         num.push({ "id": id });
       }
-      // console.log('num--->', num);
     }
 
     str += `<option value="" disabled selected>Silahkan Pilih</option>`
     for (var item of num) {
-      // console.log('Items->', item)
       str += `<option value=${item.id}>${(item.id * 100).toFixed()}%</option>`
     }
-    // console.log('---here---')
     document.getElementById("submit_elektronik").disabled = false;
     document.getElementById("eleForm5").innerHTML = str;
 
@@ -147,14 +115,10 @@ window.addEventListener('message', function (eventData) {
     newData = []
     num = []
     str = ''
-    // document.getElementById("eleForm6").disabled = false;
   }
 
 
   if (parsedEventData.event_code === "hitungAnda-childIframe") {
-    console.log('hitungAnda-childIframe')
-    console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    console.log("\n\n\n\n\n\n\n <---- hitungAnda-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
     let data = parsedEventData.data
     let res = data.result.AngsuranRp
     console.log('res--->', res)
@@ -164,16 +128,12 @@ window.addEventListener('message', function (eventData) {
   if (parsedEventData.event_code === "submitLeads-childIframe") {
 
     let url = window.location.href;
-    // let url = 'https://aporve.github.io/baf/index.html?sender=6332645866783662&frameId=0';
     console.log('-----payload-----', url)
     console.log('Added Payload code----')
     let urlParams = new URL(url);
     console.log(urlParams.searchParams.get('sender'));
     let sender = urlParams.searchParams.get('sender');
 
-    console.log('submitLeads-childIframe')
-    console.log("\n\n\n\n\n\n\n <---- Html ---> \n\n\n\n\n\n\n\n", parsedEventData);
-    console.log("\n\n\n\n\n\n\n <---- submitLeads-childIframe Data ---> \n\n\n\n\n\n\n\n", parsedEventData.data);
     let data = parsedEventData.data
     console.log('Data of submit leads----', data)
     let statusCode = data.statusCode
@@ -196,14 +156,9 @@ window.addEventListener('message', function (eventData) {
       }), '*');
 
     }
-
-
-
   }
 
   if (parsedEventData.event_code == "api_failure") {
-
-
     $("#ele_form").removeClass("show");
     $("#ele_form").addClass("hide");
     $("#submit_form").removeClass("show");
@@ -289,7 +244,7 @@ function nextStep4() {
   generateOption("motor baru")
 }
 
-function calculate(name, price, installment, dp = 0) {
+function calculate(name, merk, price, installment, dp = 0) {
   console.log('calculating installment', price)
   TIPE_PENGAJUAN = name
 
@@ -301,11 +256,15 @@ function calculate(name, price, installment, dp = 0) {
     const installmentDuration = Number(installmentCode[0])
     const rate = Number(installmentCode[1])
     installmentCalc = Math.round(((price - downpaymentAmount) * (1 + rate)) / installmentDuration)
+
+    OBJ_NOT_MP = {pinjaman:installmentCalc, dp:downpaymentAmount, tenor:installmentDuration, jenisBrg:merk}
   } else if (name === 'dana_syariah') {
     const installmentCode = installment.split('^')
     const installmentDuration = Number(installmentCode[0])
     const rate = Number(installmentCode[1])
     installmentCalc = Math.round((price * (1 + rate)) / installmentDuration)
+
+    OBJ_NOT_MP = {pinjaman:installmentCalc, dp, tenor:installmentDuration, jenisBrg:merk}
   }
 
   console.log(installmentCalc, "installmentCalc")
@@ -341,7 +300,7 @@ function myFunction(name) {
         danaForm.querySelector("#eleForm9 span").style.display = "block"
       break;
       default:
-        calculate(name, danaJumlahPinjaman, danaJangkaWaktu);
+        calculate(name, danaMerkMotor, danaJumlahPinjaman, danaJangkaWaktu);
     }
   }
 
@@ -364,7 +323,7 @@ function myFunction(name) {
         mobilForm.querySelector("#eleForm13 span").style.display = "block"
       break;
       default:
-        calculate(name, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
+        calculate(name, mobilMerkMobil, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
     }
 
   }
@@ -389,12 +348,11 @@ function myFunction(name) {
         motorForm.querySelector("#eleForm17 span").style.display = "block"
       break;
       default:
-        calculate(name, motorPrice, motorJangkaWaktu, motorUangMuka);
+        calculate(name, motorTipe, motorPrice, motorJangkaWaktu, motorUangMuka);
     }
   }
 
   if (name == 'elektronik') {
-    // console.log('elektronik---')
     let data = {}
     let data1, data2, data3, data4, data5;
 
@@ -410,14 +368,11 @@ function myFunction(name) {
     data.data4 = data4;
     data.data5 = data5;
 
-    // console.log(data, 'Data---->')
-    // $("#ele_form").classList.remove("show");
-    // $("#submit_form").classList.remove("hide");
     $("#ele_form").removeClass("show");
     $("#submit_form").removeClass("hide");
     $("#ele_form").addClass("hide");
     $("#submit_form").addClass("show");
-    // console.log('---------')
+
     document.getElementById("myForm").reset();
     window.parent.postMessage(JSON.stringify({
       event_code: 'elektronik_submit',
@@ -426,7 +381,6 @@ function myFunction(name) {
   }
 
   if (name == 'ele_nextForm') {
-    // console.log('--here--')
     let name, email, Tanggal, Nomor, Alamat, Kota, PostalCode, Tipe, kodePromo, KodeReferensi, saya1, saya2
     let isOk = true;
     let ele_data = {}
@@ -442,8 +396,6 @@ function myFunction(name) {
     kodePromo = $("#eleDetail9>input").val();
     KodeReferensi = $("#eleDetail10>input").val();
 
-    // console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${PostalCode} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
-    // console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
     saya1 = $("#eleDetail11").prop("checked")
     saya2 = $("#eleDetail12>input").prop("checked")
 
@@ -523,6 +475,10 @@ function myFunction(name) {
       ele_data.KodeReferensi = KodeReferensi;
       ele_data.saya1 = saya1;
       ele_data.saya2 = saya2;
+      ele_data.dp = OBJ_NOT_MP.dp
+      ele_data.pinjaman = OBJ_NOT_MP.pinjaman
+      ele_data.tenor = OBJ_NOT_MP.tenor
+      ele_data.jenisBrg = OBJ_NOT_MP.jenisBrg
     }
 
     console.log('data---> ', ele_data)
@@ -534,7 +490,6 @@ function myFunction(name) {
         data: ele_data
       }), '*');
     }
-
   }
 }
 
