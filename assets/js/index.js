@@ -5,6 +5,10 @@ let num = []
 let str;
 let card;
 
+var today = new Date();
+var maxDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate()).toISOString().split('T')[0];
+document.querySelector('#eleDetail3 input').setAttribute('max', maxDate);
+
 window.addEventListener('message', function (eventData) {
   // console.log('In INDEX.HTML')
   const parsedEventData = JSON.parse(eventData.data)
@@ -415,45 +419,113 @@ function myFunction(name) {
   }
 
   if (name == 'ele_nextForm') {
-
-
     // console.log('--here--')
-    let name, email, Tanggal, Nomor, Alamat, Kota, Jota, Tipe, kodePromo, KodeReferensi, saya1, saya2;
+    let name, email, Tanggal, Nomor, Alamat, Kota, PostalCode, Tipe, kodePromo, KodeReferensi, saya1, saya2
+    let isOk = true;
     let ele_data = {}
 
-    name = $("#eleDetail1").val();
-    email = $("#eleDetail2").val();
-    Tanggal = $("#eleDetail3").val();
-    Nomor = $("#eleDetail4").val();
-    Alamat = $("#eleDetail5").val();
-    // Alamat = document.getElementById("eleDetail5").value
-    Kota = $("#eleDetail6").val();
-    Jota = $("#eleDetail7").val();
-    Tipe = $("#eleDetail8").val();
-    kodePromo = $("#eleDetail9").val();
-    KodeReferensi = $("#eleDetail10").val();
+    name = $("#eleDetail1>input").val();
+    email = $("#eleDetail2>input").val();
+    Tanggal = $("#eleDetail3>input").val();
+    Nomor = $("#eleDetail4>input").val();
+    Alamat = $("#eleDetail5>textarea").val();
+    Kota = $("#eleDetail6>input").val();
+    PostalCode = $("#eleDetail7>input").val();
+    Tipe = $("#eleDetail8>input").val();
+    kodePromo = $("#eleDetail9>input").val();
+    KodeReferensi = $("#eleDetail10>input").val();
 
-    // console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${Jota} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
+    // console.log(`  ${name} ${email} ${Tanggal} ${Nomor} ${Alamat} ${Kota} ${PostalCode} ${Tipe} ${kodePromo} ${KodeReferensi}   `)
     // console.log($("#eleDetail11").prop("checked"), 'Checkbox-->')
     saya1 = $("#eleDetail11").prop("checked")
-    saya2 = $("#eleDetail12").prop("checked")
+    saya2 = $("#eleDetail12>input").prop("checked")
 
-    ele_data.name = name;
-    ele_data.email = email;
-    ele_data.Tanggal = Tanggal;
-    ele_data.Nomor = Nomor;
-    ele_data.Alamat = Alamat;
-    ele_data.Kota = Kota;
-    ele_data.Jota = Jota;
-    ele_data.Tipe = Tipe;
-    ele_data.kodePromo = kodePromo;
-    ele_data.KodeReferensi = KodeReferensi;
-    ele_data.saya1 = saya1;
-    ele_data.saya2 = saya2;
+    var selectedDate = new Date(Tanggal);
+    var currentDate = new Date();
+    var yearsDiff = currentDate.getFullYear() - selectedDate.getFullYear();
+    console.log(yearsDiff, "yearsDiff");
+    let dob = yearsDiff < 17
+    
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const isValidEmail = (n) => {
+      return emailRegex.test(n);
+    };
+
+    const phoneNumberRegex = /^(?:\+?62|0)[2-9]{1}\d{1,12}$/;
+    const isValidPhoneNumber = (phoneNumber) => {
+      return phoneNumberRegex.test(phoneNumber);
+    };
+
+    const postalCodeRegex = /^\d{5}$/;
+    const isValidPostalCode = (postalCode) => {
+      return postalCodeRegex.test(postalCode);
+    };
+
+    document.querySelector("#eleDetail1 span").style.display = "none"
+    document.querySelector("#eleDetail2 span").style.display = "none"
+    document.querySelector("#eleDetail3 span").style.display = "none"
+    document.querySelector("#eleDetail4 span").style.display = "none"
+    document.querySelector("#eleDetail5 span").style.display = "none"
+    document.querySelector("#eleDetail6 span").style.display = "none"
+    document.querySelector("#eleDetail7 span").style.display = "none"
+    document.querySelector("#eleDetail8 span").style.display = "none"
+    document.querySelector("#eleDetail12 span").style.display = "none"
+    
+    if(name == ""){
+      document.querySelector("#eleDetail1 span").style.display = "block"
+      isOk = false
+    }
+    if(email == "" || !isValidEmail(email)){
+      document.querySelector("#eleDetail2 span").style.display = "block"
+      isOk = false
+    }
+    if(Tanggal == "" || dob){
+      document.querySelector("#eleDetail3 span").style.display = "block"
+      isOk = false
+    }
+    if(Nomor == "" || !isValidPhoneNumber(Nomor)){
+      document.querySelector("#eleDetail4 span").style.display = "block"
+      isOk = false
+    }
+    if(Alamat == ""){
+      document.querySelector("#eleDetail5 span").style.display = "block"
+      isOk = false
+    }
+    if(Kota == ""){
+      document.querySelector("#eleDetail6 span").style.display = "block"
+      isOk = false
+    }
+    if(PostalCode == "" || !isValidPostalCode(PostalCode)){
+      document.querySelector("#eleDetail7 span").style.display = "block"
+      isOk = false
+    }
+    if(Tipe == ""){
+      document.querySelector("#eleDetail8 span").style.display = "block"
+      isOk = false
+    }
+    if(!saya2){
+      document.querySelector("#eleDetail12 span").style.display = "block"
+      isOk = false
+    }
+
+    if (isOk) {
+      ele_data.name = name;
+      ele_data.email = email;
+      ele_data.Tanggal = Tanggal;
+      ele_data.Nomor = Nomor;
+      ele_data.Alamat = Alamat;
+      ele_data.Kota = Kota;
+      ele_data.Jota = PostalCode;
+      ele_data.Tipe = Tipe;
+      ele_data.kodePromo = kodePromo;
+      ele_data.KodeReferensi = KodeReferensi;
+      ele_data.saya1 = saya1;
+      ele_data.saya2 = saya2;
+    }
 
     console.log('data---> ', ele_data)
     console.log(typeof (saya1))
-    if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && Jota !== '' && Tipe !== '' && saya1 == true && saya2 == true) {
+    if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && PostalCode !== '' && Tipe !== '' && saya1 == true && saya2 == true && isOk) {
       console.log('In Validator Data---', ele_data);
       window.parent.postMessage(JSON.stringify({
         event_code: 'ele_nextForm',
@@ -462,7 +534,6 @@ function myFunction(name) {
     }
 
   }
-
 }
 
 function optionSelection() {
