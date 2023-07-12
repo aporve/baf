@@ -140,7 +140,7 @@ window.addEventListener('message', function (eventData) {
     console.log('statusCode---', statusCode)
 
     if (statusCode == '200') {
-      let popupMsg = `Kami telah menerima pengajuan pendanaan ${card} Anda. Tim kami akan menghubungi Anda untuk proses lebih
+      let popupMsg = `Kami telah menerima pengajuan pembiayaan ${card} Anda. Tim kami akan menghubungi Anda untuk proses lebih
       lanjut.`
       $("#ele_form_details").removeClass("show");
       $("#ele_form_details").addClass("hide");
