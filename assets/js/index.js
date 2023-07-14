@@ -10,10 +10,10 @@ let OBJ_NOT_MP = {pinjaman:'', dp:'', tenor:'', jenisBrg:''}
 var today = new Date();
 var maxDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate()).toISOString().split('T')[0];
 document.querySelector('#eleDetail3 input').setAttribute('max', maxDate);
+$("#success_popup").removeClass("hide");
 
 // Get the modal element
 var modal = document.getElementById("myModal");
-
 // Function to open the modal
 function openModal() {
   if (TIPE_PENGAJUAN == 'dana_syariah') {
