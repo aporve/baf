@@ -151,7 +151,8 @@
         <div class="mb-2">
           <label for="Kota Tinggal">Kota Tinggal</label>
           <div id="eleDetail6">
-            <input class="w80" type="text">
+            <input class="w80" type="text" id="cityInput">
+            <div id="dropdownContainer" class="dropdown-container"></div>
             <span style="display: none; color: red;">Silahkan masukkan kota terlebih dahulu</span>
           </div>
         </div>
@@ -550,10 +551,21 @@
         <p>Perhitungan hanya bersifat simulasi, dapat berubah sesuai regulasi BAF. Ajukan aplikasi pembiayaan dan kami
           akan menghubungi Anda.</p>
         <button type="submit" style="margin-top: 10px; color: #002f5f; font-weight: bold; padding: 8px; border-radius: 10px;"
-          onclick="showDetailForm()">Ajukan
+          onclick="openModal()">Ajukan
           Sekarang</button>
 
       </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+
+      <!-- Modal content -->
+      <div class="modal-content">
+        <p>Pastikan sebelum melanjutkan, kamu memiliki BPKB untuk pengajuan Dana Syariah.</p>
+        <button class="modal-button" onclick="closeModal()">OK</button>
+      </div>
+
     </div>
   </div>
 

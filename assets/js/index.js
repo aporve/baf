@@ -11,6 +11,91 @@ var today = new Date();
 var maxDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate()).toISOString().split('T')[0];
 document.querySelector('#eleDetail3 input').setAttribute('max', maxDate);
 
+// Get the modal element
+var modal = document.getElementById("myModal");
+
+// Function to open the modal
+function openModal() {
+  if (TIPE_PENGAJUAN == 'dana_syariah') {
+    modal.style.display = "block";
+  } else {
+    showDetailForm();
+  }
+}
+
+// Function to close the modal
+function closeModal() {
+  modal.style.display = "none";
+  showDetailForm();
+}
+
+var cityInput = document.getElementById("cityInput");
+var dropdownContainer = document.getElementById("dropdownContainer");
+
+function getCity() {
+  // Get the input and dropdown container elements
+  var xhr = new XMLHttpRequest();
+
+  // Make a GET request to load the JSON data
+  xhr.open("GET", "./assets/js/kota.json", true);
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // Parse the JSON data
+      var cities = JSON.parse(xhr.responseText);
+
+      var input = cityInput.value.toLowerCase();
+      var suggestions = cities.filter(function(city) {
+        return city.toLowerCase().startsWith(input);
+      });
+
+      // Sort suggestions alphabetically for each word
+      suggestions.sort(function(a, b) {
+        var wordsA = a.split(" ");
+        var wordsB = b.split(" ");
+        
+        for (var i = 0; i < Math.min(wordsA.length, wordsB.length); i++) {
+          var result = wordsA[i].localeCompare(wordsB[i]);
+          if (result !== 0) {
+            return result;
+          }
+        }
+        
+        return wordsA.length - wordsB.length;
+      });
+
+      // Clear previous suggestions
+      dropdownContainer.innerHTML = "";
+
+      // Add new suggestion items
+      suggestions.forEach(function(suggestion) {
+        var item = document.createElement("div");
+        item.className = "dropdown-item";
+        item.textContent = suggestion;
+        item.addEventListener("click", function() {
+          cityInput.value = suggestion;
+          dropdownContainer.innerHTML = "";
+        });
+        dropdownContainer.appendChild(item);
+      });
+
+      // Show or hide the dropdown container
+      dropdownContainer.style.display = suggestions.length > 0 ? "block" : "none";
+    }
+  };
+  xhr.send();
+}
+
+// Event listener for input changes
+cityInput.addEventListener("input", getCity);
+
+// Event listener to hide the dropdown when clicked outside
+document.addEventListener("click", function(event) {
+  var target = event.target;
+  if (target !== cityInput && target.parentNode !== dropdownContainer) {
+    dropdownContainer.innerHTML = "";
+  }
+});
+
 window.addEventListener('message', function (eventData) {
   const parsedEventData = JSON.parse(eventData.data)
   if (parsedEventData.event_code === "custom-child-client-event") {
