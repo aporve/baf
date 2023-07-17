@@ -11,6 +11,7 @@ var today = new Date();
 var maxDate = new Date(today.getFullYear() - 17, today.getMonth(), today.getDate()).toISOString().split('T')[0];
 document.querySelector('#eleDetail3 input').setAttribute('max', maxDate);
 $("#success_popup").addClass("hide");
+console.log("+++++ HIDE SUCCESS POPUP +++++")
 
 // Get the modal element
 var modal = document.getElementById("myModal");
