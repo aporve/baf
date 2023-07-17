@@ -99,6 +99,14 @@ document.addEventListener("click", function(event) {
 
 window.addEventListener('message', function (eventData) {
   const parsedEventData = JSON.parse(eventData.data)
+  if (parsedEventData.event_code === "autofill-payload-event") {
+    console.log('sendAutofillWebview Event index.js--->>', data)
+
+    $("#eleDetail1>input").val(data.name);
+    $("#eleDetail2>input").val(data.email);
+    $("#eleDetail4>input").val(data.phone);
+  }
+  
   if (parsedEventData.event_code === "custom-child-client-event") {
 
     let data = parsedEventData.data;
@@ -228,11 +236,11 @@ window.addEventListener('message', function (eventData) {
     if (statusCode == '200') {
       let popupMsg = `Kami telah menerima pengajuan pembiayaan ${card} Anda. Tim kami akan menghubungi Anda untuk proses lebih
       lanjut.`
-      $("#popupmsg").text(popupMsg);
       $("#ele_form_details").removeClass("show");
       $("#ele_form_details").addClass("hide");
       $("#success_popup").removeClass("hide");
       $("#success_popup").addClass("show");
+      $("#popupmsg").text(popupMsg);
 
       console.log(popupMsg, "popupMsg");
 
@@ -602,6 +610,11 @@ function hargaFn() {
 }
 
 function showDetailForm() {
+  window.parent.postMessage(JSON.stringify({
+    event_code: 'get_payload',
+    data: ''
+  }), '*');
+
   if (TIPE_PENGAJUAN == 'mobil_baru') {
     card = "Mobil Baru"
   } else if (TIPE_PENGAJUAN == 'motor_baru') {

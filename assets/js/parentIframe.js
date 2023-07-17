@@ -15,6 +15,16 @@ window.addEventListener('message', function (eventData) {
   try {
     let parsedData = JSON.parse(eventData.data)
 
+    if (parsedData?.event_code == 'get_payload_parent') {
+      window.frames.ymIframe.chat.send({
+        event: {
+          code: "autofillWebview",
+          data: parsedData
+        }
+      }, true);
+      return;
+    }
+
     if (parsedData?.event_code == 'custom-parenttoroot-recent-order-event') {
       window.frames.ymIframe.chat.send({
         event: {
@@ -125,6 +135,14 @@ window.addEventListener('message', function (eventData) {
       return;
     }
 
+    if (parsedData?.event_code == 'custom-event' && parsedData?.data?.code == "sendAutofillWebview") {
+      console.log('sendAutofillWebview--->', parsedData)
+      document.getElementById('ymIframe').contentWindow.postMessage(JSON.stringify({
+        event_code: 'autofillPayload_data_parent',
+        data: parsedData.data.data
+      }), '*');
+      return;
+    }
 
 
   } catch (error) {

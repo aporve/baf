@@ -1,5 +1,12 @@
 window.addEventListener('message', function (eventData) {
   let parsedEventData = JSON.parse(eventData.data);
+  
+  if (parsedEventData.event_code === "get_payload") {
+    parent.postMessage(JSON.stringify({
+      event_code: 'get_payload_parent',
+      data: parsedEventData.data
+    }), '*');
+  }
 
   if (parsedEventData.event_code === "custom-recent-order-event") {
     parent.postMessage(JSON.stringify({
@@ -79,6 +86,14 @@ window.addEventListener('message', function (eventData) {
   if (parsedEventData.event_code === "submitLeads_parentIframe" && parsedEventData.data) {
     document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
       event_code: 'submitLeads-childIframe',
+      data: parsedEventData.data
+    }), '*');
+  }
+
+  if (parsedEventData.event_code === "autofillPayload_data_parent" && parsedEventData.data) {
+    console.log('sendAutofillWebview Event child Iframe----', parsedEventData.data)
+    document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
+      event_code: 'autofill-payload-event',
       data: parsedEventData.data
     }), '*');
   }
