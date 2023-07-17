@@ -228,11 +228,11 @@ window.addEventListener('message', function (eventData) {
     if (statusCode == '200') {
       let popupMsg = `Kami telah menerima pengajuan pembiayaan ${card} Anda. Tim kami akan menghubungi Anda untuk proses lebih
       lanjut.`
+      $("#popupmsg").text(popupMsg);
       $("#ele_form_details").removeClass("show");
       $("#ele_form_details").addClass("hide");
       $("#success_popup").removeClass("hide");
       $("#success_popup").addClass("show");
-      $("#popupmsg").text(popupMsg);
 
       console.log(popupMsg, "popupMsg");
 
