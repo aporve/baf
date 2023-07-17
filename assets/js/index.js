@@ -100,6 +100,7 @@ document.addEventListener("click", function(event) {
 window.addEventListener('message', function (eventData) {
   const parsedEventData = JSON.parse(eventData.data)
   if (parsedEventData.event_code === "autofill-payload-event") {
+    let data = parsedEventData.data;
     console.log('sendAutofillWebview Event index.js--->>', data)
 
     $("#eleDetail1>input").val(data.name);
