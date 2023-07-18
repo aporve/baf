@@ -105,7 +105,9 @@ window.addEventListener('message', function (eventData) {
 
     $("#eleDetail1>input").val(data.name);
     $("#eleDetail2>input").val(data.email);
+    $("#eleDetail3>input").val(data.dob);
     $("#eleDetail4>input").val(data.phone);
+    $("#eleDetail6>input").val(data.domisili);
   }
   
   if (parsedEventData.event_code === "custom-child-client-event") {
