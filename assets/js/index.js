@@ -18,7 +18,19 @@ var modal = document.getElementById("myModal");
 // Function to open the modal
 function openModal() {
   if (TIPE_PENGAJUAN == 'dana_syariah') {
-    modal.style.display = "block";
+    // modal.style.display = "block";
+    Swal.fire({
+      title: 'Informasi',
+      text: 'Hi BAFriends, pastikan sebelum melanjutkan, kamu memiliki BPKB untuk pengajuan Dana Syariah.',
+      icon: 'info',
+      confirmButtonColor: '#3085d6',
+      confirmButtonText: 'OK'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        showDetailForm()
+      }
+    })
+    
   } else {
     showDetailForm();
   }
