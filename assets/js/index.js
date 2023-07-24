@@ -18,7 +18,6 @@ var modal = document.getElementById("myModal");
 // Function to open the modal
 function openModal() {
   if (TIPE_PENGAJUAN == 'dana_syariah') {
-    // modal.style.display = "block";
     Swal.fire({
       title: 'Informasi',
       text: 'Hi BAFriends, pastikan sebelum melanjutkan, kamu memiliki BPKB untuk pengajuan Dana Syariah.',
@@ -519,7 +518,7 @@ function myFunction(name) {
       return emailRegex.test(n);
     };
 
-    const phoneNumberRegex = /^(?:\+?62|0)[2-9]{1}\d{1,12}$/;
+    const phoneNumberRegex = /^(?:\+62|0)[1-9][0-9]{7,}$/;
     const isValidPhoneNumber = (phoneNumber) => {
       return phoneNumberRegex.test(phoneNumber);
     };
