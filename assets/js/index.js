@@ -617,7 +617,7 @@ function optionSelection() {
 }
 
 function hargaFn() {
-  let inputData = document.getElementById('eleForm3').value;
+  let inputData = document.getElementById('eleForm3').value.replaceAll(',','').replaceAll('.','');
   console.log(inputData, "inputData");
   console.log(inputData !== '' || inputData !== null, "inputData !== '' || inputData !== null");
   if (inputData !== '' || inputData !== null) {
