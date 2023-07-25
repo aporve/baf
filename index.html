@@ -41,7 +41,7 @@
         <div class="mb-2">
           <label for="Pilih Tipe Barang">Pilih Tipe Barang</label>
           <div class="">
-            <select class="form-control" style="width: 100%;" id="eleForm1" onchange="optionSelection()">
+            <select class="form-control" style="width: 100%;" id="eleForm1" onchange="optionSelection()" onblur="optionSelection()>
               <option value="" disabled selected>Silahkan Pilih</option>
             </select>
           </div>
@@ -63,7 +63,7 @@
               <span class="currency-symbol">Rp</span>
             </div>
             <input type="text" id="eleForm3" onclick="formatter('eleForm3', 'validationMessage1')" onchange="hargaFn()" onblur="hargaFn()"
-              >
+              disabled>
           </div>
           <span id="validationMessage1">Silahkan input nominal yang sesuai</span>
         </div>
