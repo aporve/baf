@@ -411,6 +411,7 @@ function myFunction(name) {
         danaForm.querySelector("#eleForm9 span").style.display = "block"
       break;
       default:
+        console.log(danaJangkaWaktu, "installment dana syariah");
         calculate(name, danaMerkMotor, danaJumlahPinjaman, danaJangkaWaktu);
     }
   }
@@ -434,6 +435,7 @@ function myFunction(name) {
         mobilForm.querySelector("#eleForm13 span").style.display = "block"
       break;
       default:
+        console.log(mobilUangMuka, "installment mobil");
         calculate(name, mobilMerkMobil, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
     }
 
@@ -459,6 +461,7 @@ function myFunction(name) {
         motorForm.querySelector("#eleForm17 span").style.display = "block"
       break;
       default:
+        console.log(motorUangMuka, "installment motor");
         calculate(name, motorTipe, motorPrice, motorJangkaWaktu, motorUangMuka);
     }
   }
