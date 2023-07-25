@@ -618,7 +618,8 @@ function optionSelection() {
 
 function hargaFn() {
   let inputData = document.getElementById('eleForm3').value;
-
+  console.log(inputData, "inputData");
+  console.log(inputData !== '' || inputData !== null, "inputData !== '' || inputData !== null");
   if (inputData !== '' || inputData !== null) {
     console.log('Data is there');
     document.getElementById("eleForm4").disabled = false;
