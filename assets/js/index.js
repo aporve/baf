@@ -397,7 +397,7 @@ function myFunction(name) {
     const danaForm = document.getElementById("dana_syariah");
     const danaMerkMotor = danaForm.querySelector("#eleForm6 select").value;
     const danaTahunBuat = danaForm.querySelector("#eleForm7 select").value;
-    const danaJumlahPinjaman = danaForm.querySelector("#eleForm8").value;
+    const danaJumlahPinjaman = danaForm.querySelector("#eleForm8").value.replace(',','');
     const danaJangkaWaktu = danaForm.querySelector("#eleForm9 select").value;
 
     switch(true) {
@@ -420,7 +420,7 @@ function myFunction(name) {
     // Retrieve the data from the 'mobil_baru' form
     const mobilForm = document.getElementById("mobil_baru");
     const mobilMerkMobil = mobilForm.querySelector("#eleForm10 select").value;
-    const mobilHargaMobil = mobilForm.querySelector("#eleForm11").value;
+    const mobilHargaMobil = mobilForm.querySelector("#eleForm11").value.replace(',','');
     const mobilJangkaWaktu = mobilForm.querySelector("#eleForm12 select").value;
     const mobilUangMuka = mobilForm.querySelector("#eleForm13 select").value;
 
@@ -446,7 +446,7 @@ function myFunction(name) {
     // Retrieve the data from the 'motor_baru' form
     const motorForm = document.getElementById("motor_baru");
     const motorTipe = motorForm.querySelector("#eleForm14 select").value;
-    const motorPrice = motorForm.querySelector("#eleForm15").value;
+    const motorPrice = motorForm.querySelector("#eleForm15").value.replace(',','');
     const motorJangkaWaktu = motorForm.querySelector("#eleForm16 select").value;
     const motorUangMuka = motorForm.querySelector("#eleForm17 select").value;
 
@@ -472,7 +472,7 @@ function myFunction(name) {
 
     data1 = document.getElementById("eleForm1").value;
     data2 = document.getElementById("eleForm2").value;
-    data3 = document.getElementById("eleForm3").value;
+    data3 = document.getElementById("eleForm3").value.replace(',','');
     data4 = document.getElementById("eleForm4").value;
     data5 = document.getElementById("eleForm5").value;
 
