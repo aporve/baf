@@ -62,6 +62,7 @@ window.addEventListener('message', function (eventData) {
   }
 
   if (parsedEventData.event_code === "pilihMerk" && parsedEventData.data) {
+    console.log(parsedEventData.data, "pilihMerk data ===>")
     document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
       event_code: 'pilihMerk',
       data: parsedEventData.data
@@ -69,6 +70,7 @@ window.addEventListener('message', function (eventData) {
   }
 
   if (parsedEventData.event_code === "jangkaWaktu-parentIframe" && parsedEventData.data) {
+    console.log(parsedEventData.data, "jangkaWaktu data ===>")
     document.querySelector("iframe").contentWindow.postMessage(JSON.stringify({
       event_code: 'jangkaWaktu-childIframe',
       data: parsedEventData.data
