@@ -400,21 +400,23 @@ function myFunction(name) {
     const danaJumlahPinjaman = danaForm.querySelector("#eleForm8").value.replaceAll(',','').replaceAll('.','');
     const danaJangkaWaktu = danaForm.querySelector("#eleForm9 select").value;
 
-    switch(true) {
-      case danaMerkMotor == "":
-        danaForm.querySelector("#eleForm6 span").style.display = "block"
-      case danaTahunBuat == "":
-        danaForm.querySelector("#eleForm7 span").style.display = "block"
-      case danaJumlahPinjaman == "":
-        danaForm.querySelector("#validationMessage").style.display = "block"
-      case danaJangkaWaktu == "":
-        danaForm.querySelector("#eleForm9 span").style.display = "block"
-      break;
-      default:
-        console.log(danaJangkaWaktu, "installment dana syariah");
-        calculate(name, danaMerkMotor, danaJumlahPinjaman, danaJangkaWaktu);
+    if (danaJumlahPinjaman >= 1000000) {
+        switch(true) {
+        case danaMerkMotor == "":
+          danaForm.querySelector("#eleForm6 span").style.display = "block"
+        case danaTahunBuat == "":
+          danaForm.querySelector("#eleForm7 span").style.display = "block"
+        case danaJumlahPinjaman == "":
+          danaForm.querySelector("#validationMessage").style.display = "block"
+        case danaJangkaWaktu == "":
+          danaForm.querySelector("#eleForm9 span").style.display = "block"
+        break;
+        default:
+          console.log(danaJangkaWaktu, "installment dana syariah");
+          calculate(name, danaMerkMotor, danaJumlahPinjaman, danaJangkaWaktu);
+      }
     }
-  }
+}
 
   if (name == 'mobil_baru') {
     // Retrieve the data from the 'mobil_baru' form
@@ -423,22 +425,23 @@ function myFunction(name) {
     const mobilHargaMobil = mobilForm.querySelector("#eleForm11").value.replaceAll(',','').replaceAll('.','');
     const mobilJangkaWaktu = mobilForm.querySelector("#eleForm12 select").value;
     const mobilUangMuka = mobilForm.querySelector("#eleForm13 select").value;
-
-    switch(true) {
-      case mobilMerkMobil == "":
-        mobilForm.querySelector("#eleForm10 span").style.display = "block"
-      case mobilJangkaWaktu == "":
-        mobilForm.querySelector("#eleForm12 span").style.display = "block"
-      case mobilHargaMobil == "":
-        mobilForm.querySelector("#validationMessage2").style.display = "block"
-      case mobilUangMuka == "":
-        mobilForm.querySelector("#eleForm13 span").style.display = "block"
-      break;
-      default:
-        console.log(mobilUangMuka, "installment mobil");
-        calculate(name, mobilMerkMobil, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
+    
+    if (mobilHargaMobil >= 1000000) {
+      switch(true) {
+        case mobilMerkMobil == "":
+          mobilForm.querySelector("#eleForm10 span").style.display = "block"
+        case mobilJangkaWaktu == "":
+          mobilForm.querySelector("#eleForm12 span").style.display = "block"
+        case mobilHargaMobil == "":
+          mobilForm.querySelector("#validationMessage2").style.display = "block"
+        case mobilUangMuka == "":
+          mobilForm.querySelector("#eleForm13 span").style.display = "block"
+        break;
+        default:
+          console.log(mobilUangMuka, "installment mobil");
+          calculate(name, mobilMerkMobil, mobilHargaMobil, mobilJangkaWaktu, mobilUangMuka);
+      }
     }
-
   }
 
 
@@ -450,19 +453,21 @@ function myFunction(name) {
     const motorJangkaWaktu = motorForm.querySelector("#eleForm16 select").value;
     const motorUangMuka = motorForm.querySelector("#eleForm17 select").value;
 
-    switch(true) {
-      case motorTipe == "":
-        motorForm.querySelector("#eleForm14 span").style.display = "block"
-      case motorJangkaWaktu == "":
-        motorForm.querySelector("#eleForm16 span").style.display = "block"
-      case motorPrice == "":
-        motorForm.querySelector("#validationMessage3").style.display = "block"
-      case motorUangMuka == "":
-        motorForm.querySelector("#eleForm17 span").style.display = "block"
-      break;
-      default:
-        console.log(motorUangMuka, "installment motor");
-        calculate(name, motorTipe, motorPrice, motorJangkaWaktu, motorUangMuka);
+    if (motorPrice >= 1000000) {
+      switch(true) {
+        case motorTipe == "":
+          motorForm.querySelector("#eleForm14 span").style.display = "block"
+        case motorJangkaWaktu == "":
+          motorForm.querySelector("#eleForm16 span").style.display = "block"
+        case motorPrice == "":
+          motorForm.querySelector("#validationMessage3").style.display = "block"
+        case motorUangMuka == "":
+          motorForm.querySelector("#eleForm17 span").style.display = "block"
+        break;
+        default:
+          console.log(motorUangMuka, "installment motor");
+          calculate(name, motorTipe, motorPrice, motorJangkaWaktu, motorUangMuka);
+      }
     }
   }
 
