@@ -626,7 +626,7 @@ function hargaFn() {
   let inputData = document.getElementById('eleForm3').value.replaceAll(',','').replaceAll('.','');
   console.log(inputData, "inputData");
   console.log(inputData !== '' || inputData !== null, "inputData !== '' || inputData !== null");
-  if (inputData !== '' || inputData !== null) {
+  if ((inputData !== '' || inputData !== null) && inputData >= 1000000 ) {
     console.log('Data is there');
     document.getElementById("eleForm4").disabled = false;
     window.parent.postMessage(JSON.stringify({
