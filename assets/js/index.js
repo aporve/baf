@@ -739,7 +739,7 @@ function generateOption(cardName) {
   xhr.send();
 }
 
-let urlParams = new URL(url);
+let urlParams = new URL(window.location.href);
 let step = urlParams.searchParams.get('step');
 
 switch(step){
