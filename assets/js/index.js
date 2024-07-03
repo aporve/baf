@@ -739,20 +739,20 @@ function generateOption(cardName) {
   xhr.send();
 }
 
-var hash = "" || window.location.hash;
-window.location.hash = hash;
+let urlParams = new URL(url);
+let step = urlParams.searchParams.get('step');
 
-switch(hash){
-  case "#nextStep1":
+switch(step){
+  case "nextStep1":
     nextStep1('Elektronik & Gadget Furnitur');
     break;
-  case "#nextStep2":
+  case "nextStep2":
     nextStep2();
     break;
-  case "#nextStep3":
+  case "nextStep3":
     nextStep3();
     break;
-  case "#nextStep4":
+  case "nextStep4":
     nextStep4();
     break;
 }
