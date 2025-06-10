@@ -604,10 +604,23 @@ function myFunction(name) {
     console.log(typeof (saya1))
     if (name !== '' && email !== '' && Tanggal !== '' && Nomor !== '' && Alamat !== '' && Kota !== '' && PostalCode !== '' && Tipe !== '' && saya1 == true && saya2 == true && isOk) {
       console.log('In Validator Data---', ele_data);
-      window.parent.postMessage(JSON.stringify({
-        event_code: 'ele_nextForm',
-        data: ele_data
-      }), '*');
+
+      // window.parent.postMessage(JSON.stringify({
+      //   event_code: 'ele_nextForm',
+      //   data: ele_data
+      // }), '*');
+
+      window.parent.postMessage(
+        JSON.stringify({
+          event_code: "ym-client-event",
+          data: JSON.stringify({
+              event: {
+                  code: "ele_nextForm",
+                  data: ele_data,
+              },
+          }),
+      }), "*");
+      
     }
   }
 }
@@ -737,4 +750,22 @@ function generateOption(cardName) {
     }
   };
   xhr.send();
+}
+
+let urlParams = new URL(window.location.href);
+let step = urlParams.searchParams.get('step');
+
+switch(step){
+  case "nextStep1":
+    nextStep1('Elektronik & Gadget Furnitur');
+    break;
+  case "nextStep2":
+    nextStep2();
+    break;
+  case "nextStep3":
+    nextStep3();
+    break;
+  case "nextStep4":
+    nextStep4();
+    break;
 }
