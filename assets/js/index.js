@@ -258,10 +258,21 @@ window.addEventListener('message', function (eventData) {
 
       console.log(popupMsg, "popupMsg");
 
-      window.parent.postMessage(JSON.stringify({
-        event_code: 'leadsSuccess',
-        data: sender
-      }), '*');
+      // window.parent.postMessage(JSON.stringify({
+      //   event_code: 'leadsSuccess',
+      //   data: sender
+      // }), '*');
+
+      window.parent.postMessage(
+        JSON.stringify({
+          event_code: "ym-client-event",
+          data: JSON.stringify({
+              event: {
+                  code: "leadsSuccess",
+                  data: sender,
+              },
+          }),
+      }), "*");
 
     }
   }
@@ -323,10 +334,23 @@ function nextStep1(data) {
   console.log('nextStep')
   $("#cards").addClass("hide");
   $("#ele_form").addClass("show");
-  window.parent.postMessage(JSON.stringify({
-    event_code: 'custom-recent-order-event',
-    data: ''
-  }), '*');
+
+  // window.parent.postMessage(JSON.stringify({
+  //   event_code: 'custom-recent-order-event',
+  //   data: ''
+  // }), '*');
+
+  window.parent.postMessage(
+    JSON.stringify({
+      event_code: "ym-client-event",
+      data: JSON.stringify({
+          event: {
+              code: "custom-recent-order-event",
+              data: '',
+          },
+      }),
+  }), "*");  
+
 }
 
 function nextStep2() {
@@ -493,10 +517,21 @@ function myFunction(name) {
     $("#submit_form").addClass("show");
 
     document.getElementById("myForm").reset();
-    window.parent.postMessage(JSON.stringify({
-      event_code: 'elektronik_submit',
-      data: data
-    }), '*');
+    // window.parent.postMessage(JSON.stringify({
+    //   event_code: 'elektronik_submit',
+    //   data: data
+    // }), '*');
+
+    window.parent.postMessage(
+      JSON.stringify({
+        event_code: "ym-client-event",
+        data: JSON.stringify({
+            event: {
+                code: "elektronik_submit",
+                data: data,
+            },
+        }),
+    }), "*"); 
   }
 
   if (name == 'ele_nextForm') {
@@ -628,10 +663,21 @@ function myFunction(name) {
 function optionSelection() {
   let x = document.getElementById("eleForm1").value;
   console.log('x-->', x);
-  window.parent.postMessage(JSON.stringify({
-    event_code: 'custom-select-option-1',
-    data: x
-  }), '*');
+  // window.parent.postMessage(JSON.stringify({
+  //   event_code: 'custom-select-option-1',
+  //   data: x
+  // }), '*');
+
+  window.parent.postMessage(
+    JSON.stringify({
+      event_code: "ym-client-event",
+      data: JSON.stringify({
+          event: {
+              code: "custom-select-option-1",
+              data: x,
+          },
+      }),
+  }), "*");
 }
 
 function hargaFn() {
@@ -642,18 +688,40 @@ function hargaFn() {
   if ((inputData !== '' || inputData !== null) && inputData >= 1000000 ) {
     console.log('Data is there');
     document.getElementById("eleForm4").disabled = false;
-    window.parent.postMessage(JSON.stringify({
-      event_code: 'harga',
-      data: inputData
-    }), '*');
+    // window.parent.postMessage(JSON.stringify({
+    //   event_code: 'harga',
+    //   data: inputData
+    // }), '*');
+
+    window.parent.postMessage(
+      JSON.stringify({
+        event_code: "ym-client-event",
+        data: JSON.stringify({
+            event: {
+                code: 'harga',
+                data: inputData,
+            },
+        }),
+    }), "*");
   }
 }
 
 function showDetailForm() {
-  window.parent.postMessage(JSON.stringify({
-    event_code: 'get_payload',
-    data: ''
-  }), '*');
+  // window.parent.postMessage(JSON.stringify({
+  //   event_code: 'get_payload',
+  //   data: ''
+  // }), '*');
+
+  window.parent.postMessage(
+    JSON.stringify({
+      event_code: "ym-client-event",
+      data: JSON.stringify({
+          event: {
+              code: 'get_payload',
+              data: '',
+          },
+      }),
+  }), "*");
 
   if (TIPE_PENGAJUAN == 'mobil_baru') {
     card = "Mobil Baru"
