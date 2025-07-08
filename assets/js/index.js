@@ -679,7 +679,7 @@ function getJenisTipeBarang() {
 
 
       for (var item of jsonResponse) {
-        str += `<option value=${item.Code}>${item.Descr}</option>`
+        str += `<option value="${item.Code}-${item.RiskTypeId}">${item.Descr}</option>`
       }
       document.getElementById("eleForm1").innerHTML = str;
 
@@ -723,12 +723,16 @@ function getJangkawaktuElektronik(typeCode, hargaBarang) {
       console.log("Parsed response from getJangkawaktuElektronik :", jsonResponse);
 
 
-      for (var i of jsonResponse) {
-        options += `<option value=${i.Code}>${i.Descr}</option>`
+      for (var i of jsonResponse.result.Tenor) {
+        options += `<option value=${i}>${i}</option>`
       }
-      document.getElementById("eleForm2").innerHTML = options;
-      document.getElementById("eleForm3").disabled = false;
-
+      document.getElementById("eleForm4").innerHTML = options;
+      document.getElementById("eleForm5").disabled = false;
+      let dpOptions = []
+      for (var j of jsonResponse.result.DP) {
+        dpOptions += `<option value=${j}>${j*100}%</option>`
+      }
+      document.getElementById("eleForm5").innerHTML = dpOptions;
       // JSON.stringify(jsonResponse, null, 2);
     } else {
       console.error("Error:", xhr.status, xhr.statusText);
@@ -796,11 +800,18 @@ function getMerkElektronik(typeCode) {
 
 function optionSelection() {
   let x = document.getElementById("eleForm1").value;
+  x = x.split("-")
   console.log('selected Item from Pilih tipe -->', x);
+  let mm = document.getElementById("eleForm1")
+  console.log('mm -->', mm);
 
   document.getElementById("eleForm2").disabled = false;
+  let code = x[0]
+  let riskType = x[1]
+  let risktypeData = document.getElementById('risktypeId');
+  risktypeData.value = riskType;
 
-  getMerkElektronik(x);
+  getMerkElektronik(code);
 
   // window.parent.postMessage(JSON.stringify({
   //   event_code: 'custom-select-option-1',
@@ -820,8 +831,9 @@ function optionSelection() {
 
 function hargaFn() {
   console.log('function hargaFn');
-  let type = document.getElementById('eleForm1').value;
+  let type = document.getElementById('risktypeId').value;
   let inputData = document.getElementById('eleForm3').value.replaceAll(',','').replaceAll('.','');
+  console.log(type, "TYPE");
   console.log(inputData, "inputData");
   console.log(inputData !== '' || inputData !== null, "inputData !== '' || inputData !== null");
   if ((inputData !== '' || inputData !== null) && inputData >= 1000000 ) {
