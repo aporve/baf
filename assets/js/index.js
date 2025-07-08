@@ -108,6 +108,10 @@ document.addEventListener("click", function(event) {
   }
 });
 
+window.addEventListener('load', function(event) {
+  getJenisTipeBarang();
+})
+
 window.addEventListener('message', function (eventData) {
   const parsedEventData = JSON.parse(eventData.data)
   if (parsedEventData.event_code === "autofill-payload-event") {
@@ -660,14 +664,159 @@ function myFunction(name) {
   }
 }
 
+function getJenisTipeBarang() {
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "https://api.baf.id/bafmobile/mobile/transaction/v1/getJenis");
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+  xhr.onload = function () {
+    if (xhr.status === 201 || xhr.status === 200) {
+      
+      // console.log("Raw response:", xhr.responseText);
+      const jsonResponse = JSON.parse(xhr.responseText);
+      console.log("Parsed response from get Tipe Barang Elektronik :", jsonResponse);
+
+
+      for (var item of jsonResponse) {
+        str += `<option value="${item.Code}-${item.RiskTypeId}">${item.Descr}</option>`
+      }
+      document.getElementById("eleForm1").innerHTML = str;
+
+      JSON.stringify(jsonResponse, null, 2);
+    } else {
+      console.error("Error:", xhr.status, xhr.statusText);
+    }
+  };
+
+  // 4️⃣ Error handling
+  xhr.onerror = function () {
+    console.error("Request failed");
+  };
+
+  // 5️⃣ Request body
+  const requestBody = JSON.stringify({
+    LOB: "MP",
+    Jaminan: "MGB"
+  });
+
+  // 6️⃣ Send the request with body
+  xhr.send(requestBody);
+  // const apiResponse = xhr.send(requestBody);
+  // console.log("API Response", apiResponse)
+}
+
+
+
+function getJangkawaktuElektronik(typeCode, hargaBarang) {
+  let options = ""
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "https://api.baf.id/bafmobile/mobile/transaction/v1/getMappingRisk");
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+  xhr.onload = function () {
+    if (xhr.status === 201 || xhr.status === 200) {
+      
+      // console.log("Raw response:", xhr.responseText);
+      const jsonResponse = JSON.parse(xhr.responseText);
+      console.log("Parsed response from getJangkawaktuElektronik :", jsonResponse);
+
+
+      for (var i of jsonResponse.result.Tenor) {
+        options += `<option value=${i}>${i}</option>`
+      }
+      document.getElementById("eleForm4").innerHTML = options;
+      document.getElementById("eleForm5").disabled = false;
+      let dpOptions = []
+      for (var j of jsonResponse.result.DP) {
+        dpOptions += `<option value=${j}>${j*100}%</option>`
+      }
+      document.getElementById("eleForm5").innerHTML = dpOptions;
+      // JSON.stringify(jsonResponse, null, 2);
+    } else {
+      console.error("Error:", xhr.status, xhr.statusText);
+    }
+  };
+
+  // 4️⃣ Error handling
+  xhr.onerror = function () {
+    console.error("Request failed");
+  };
+
+  // 5️⃣ Request body
+  const requestBody = JSON.stringify({
+    "RiskType": typeCode,
+    "Hargabrg": hargaBarang
+  });
+
+  // 6️⃣ Send the request with body
+  xhr.send(requestBody);
+}
+
+
+
+
+function getMerkElektronik(typeCode) {
+  let options = ""
+  const xhr = new XMLHttpRequest();
+
+  xhr.open("POST", "https://api.baf.id/bafmobile/mobile/transaction/v1/getMerk");
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+  xhr.onload = function () {
+    if (xhr.status === 201 || xhr.status === 200) {
+      
+      // console.log("Raw response:", xhr.responseText);
+      const jsonResponse = JSON.parse(xhr.responseText);
+      console.log("Parsed response from get Merk Elektronik :", jsonResponse);
+
+
+      for (var i of jsonResponse) {
+        options += `<option value=${i.Code}>${i.Descr}</option>`
+      }
+      document.getElementById("eleForm2").innerHTML = options;
+      document.getElementById("eleForm3").disabled = false;
+
+      // JSON.stringify(jsonResponse, null, 2);
+    } else {
+      console.error("Error:", xhr.status, xhr.statusText);
+    }
+  };
+
+  // 4️⃣ Error handling
+  xhr.onerror = function () {
+    console.error("Request failed");
+  };
+
+  // 5️⃣ Request body
+  const requestBody = JSON.stringify({
+    "JaminanJenis": typeCode
+  });
+
+  // 6️⃣ Send the request with body
+  xhr.send(requestBody);
+}
+
 function optionSelection() {
   let x = document.getElementById("eleForm1").value;
-  console.log('x-->', x);
+  x = x.split("-")
+  console.log('selected Item from Pilih tipe -->', x);
+  let mm = document.getElementById("eleForm1")
+  console.log('mm -->', mm);
+
+  document.getElementById("eleForm2").disabled = false;
+  let code = x[0]
+  let riskType = x[1]
+  let risktypeData = document.getElementById('risktypeId');
+  risktypeData.value = riskType;
+
+  getMerkElektronik(code);
+
   // window.parent.postMessage(JSON.stringify({
   //   event_code: 'custom-select-option-1',
   //   data: x
   // }), '*');
-
   window.parent.postMessage(
     JSON.stringify({
       event_code: "ym-client-event",
@@ -682,17 +831,21 @@ function optionSelection() {
 
 function hargaFn() {
   console.log('function hargaFn');
+  let type = document.getElementById('risktypeId').value;
   let inputData = document.getElementById('eleForm3').value.replaceAll(',','').replaceAll('.','');
+  console.log(type, "TYPE");
   console.log(inputData, "inputData");
   console.log(inputData !== '' || inputData !== null, "inputData !== '' || inputData !== null");
   if ((inputData !== '' || inputData !== null) && inputData >= 1000000 ) {
     console.log('Data is there');
     document.getElementById("eleForm4").disabled = false;
+
+    getJangkawaktuElektronik(type, inputData);
+    
     // window.parent.postMessage(JSON.stringify({
     //   event_code: 'harga',
     //   data: inputData
     // }), '*');
-
     window.parent.postMessage(
       JSON.stringify({
         event_code: "ym-client-event",
